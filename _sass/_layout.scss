@@ -1,0 +1,84 @@
+$borderColor: #ddd;
+
+body {
+  .container {
+    width: 100%;
+
+    .col {
+      padding: 3rem;
+    }
+
+    .col.left {
+      text-align: right;
+      float: left;
+      width: 33.333%;
+    }
+
+    .col.right {
+      text-align: left;
+      float: right;
+      width: 66.666%;
+    }
+  }
+
+  & > header {
+    clear: both;
+
+    & > #logo {
+      line-height: 3rem;
+      height: 9rem;
+      border-right: 1px solid $borderColor;
+      border-bottom: 1px solid $borderColor;
+    }
+
+    & > #navigation {
+      line-height: 3rem;
+      height: 9rem;
+      border-bottom: 1px solid $borderColor;
+    }
+  }
+
+  & > footer {
+    clear: both;
+
+    & > #btt {
+      line-height: 3rem;
+      height: 9rem;
+      border-right: 1px solid $borderColor;
+      border-top: 1px solid $borderColor;
+      border-bottom: 1px solid $borderColor;
+    }
+
+    & > #footer {
+      line-height: 3rem;
+      height: 9rem;
+      border-top: 1px solid $borderColor;
+      border-bottom: 1px solid $borderColor;
+    }
+  }
+
+  & > main {
+    clear: both;
+
+    & > #sidebar {
+      border-right: 1px solid $borderColor;
+
+      ul {
+        float: right;
+        min-width: 33%;
+        text-align: left;
+
+        ul {
+          padding-left: 3rem;
+          min-width: 100%;
+        }
+      }
+    }
+
+    & > #main {
+      .inbox {
+        max-width: 50em;
+      }
+    }
+  }
+}

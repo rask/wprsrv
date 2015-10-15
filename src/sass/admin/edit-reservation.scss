@@ -1,0 +1,104 @@
+/**
+ * Edit Reservation screen in wp-admin.
+ */
+
+#titlewrap h2 {
+    font-size: 1.8em;
+    margin: 0;
+    padding: 0.25em 0;
+    border-bottom: 1px solid #ccc;
+    line-height: 1.333;
+}
+
+#reservationinfo.postbox,
+#reservationactions.postbox,
+#reservationnotes.postbox {
+    .inside {
+        margin: 0;
+        padding: 0;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+
+        tr {
+            &:last-of-type {
+                td, th {
+                    border-bottom: 0;
+                }
+            }
+        }
+
+        th[scope="row"] {
+            text-align: left;
+        }
+
+        td, th {
+            vertical-align: top;
+            padding: 10px;
+            border-bottom: 1px solid #e8e8e8;
+            border-right: 1px solid #e8e8e8;
+
+            &:last-child {
+                border-right: 0;
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            p + button {
+                margin-top: 1em;
+                padding: 0 0.5em;
+
+                & + em {
+                    display: block;
+                    color: #808080;
+                    margin-top: 0.5em;
+                }
+            }
+        }
+
+        .notice {
+            border: 1px solid #e8e8e8;
+            border-left: 3px solid #dc9;
+            padding: 6px 10px;
+
+            &.error {
+                border-left: 3px solid #f40;
+            }
+        }
+
+        button + em,
+        button + .spinner + em {
+            display: block;
+        }
+    }
+}
+
+#reservationnotes.postbox {
+    table {
+        tr {
+            th, td {
+                width: 66%;
+
+                &:first-child {
+                    width: 33%;
+                }
+            }
+            textarea {
+                width: 100%;
+                display: block;
+                margin-bottom: 10px;
+                min-height: 200px;
+                resize: vertical;
+            }
+
+            button {
+                padding: 0 20px;
+            }
+        }
+    }
+}

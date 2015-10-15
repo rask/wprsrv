@@ -1,0 +1,21 @@
+{% include header.html %}
+
+<main class="container">
+    <article id="main" class="col right">
+        <div class="inbox">
+
+        {{ page.content | markdownify }}
+
+        </div>
+    </article> <!-- /#main -->
+
+    <aside id="sidebar" class="col left">
+
+        {% if page.url contains '/documentation/' %}
+        {% include page-nav.html %}
+        {% endif %}
+
+    </aside> <!-- /#sidebar -->
+</main>
+
+{% include footer.html %}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <title>{{ page.title }}</title>
+
+    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/main.css">
+
+</head>
+
+<body class="{{ page.body_classes }}">
+
+<div id="top-notice" class="notice">
+    <p><strong>Please note</strong>, this site is heavily under development. Sections are missing and may contain information that is out of date.</p>
+    <span class="close">&times;</span>
+</div>
+
+<header class="container">
+    <p id="logo" class="col left">
+        <a href="{{ site.baseurl }}/">wprsrv</a>
+    </p> <!-- /#logo -->
+
+    <nav id="navigation" class="col right">
+
+        <ul>
+            <li class="about"><a href="{{ site.baseurl }}/">About</a></li>
+            <li class="about"><a href="{{ site.baseurl }}/usage">Usage</a></li>
+            <li class="documentation"><a href="{{ site.baseurl }}/documentation">Documentation</a></li>
+        </ul>
+
+    </nav> <!-- /#navigation -->
+</header>

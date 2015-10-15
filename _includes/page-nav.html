@@ -1,0 +1,32 @@
+<h3>Navigation</h3>
+
+<ul>
+    {% for p in site.data.navmenus.documentation %}
+
+    <li>
+        <a {% if page.url contains p.url %}class="active"{% endif %} href="{{ site.baseurl }}/{{ p.url }}">{{ p.title }}</a>
+
+        {% if p.children %}
+        <ul>
+        {% for pc in p.children %}
+            <li>
+                <a {% if page.url contains pc.url %}class="active"{% endif %} href="{{ site.baseurl }}/{{ pc.url }}">{{ pc.title }}</a>
+
+                {% if pc.children %}
+                <ul>
+                    {% for pcc in pc.children %}
+                    <li>
+                        <a {% if page.url contains pcc.url %}class="active"{% endif %} href="{{ site.baseurl }}/{{ pcc.url }}">{{ pcc.title }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+
+            </li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+    </li>
+
+    {% endfor %}
+</ul>

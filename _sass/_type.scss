@@ -1,0 +1,61 @@
+#main {
+  h1, h2, h3, h4, h5 {
+    margin: 1em 0 0.333em 0;
+  }
+
+  h1 {
+    font-size: 4.8rem;
+    margin-top: 0;
+    font-weight: bold;
+  }
+
+  h2 {
+    font-size: 3.6rem;
+  }
+
+  h3 {
+    font-size: 2.8rem;
+  }
+
+  h4 {
+    font-size: 2.2rem;
+  }
+
+  h5 {
+    font-size: 1.8rem;
+  }
+
+  p, ul, ol, dl, pre, blockquote, form, table {
+    margin-bottom: 1.25em;
+  }
+
+  ul, ol {
+    margin-left: 1.5em;
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+
+  pre, code {
+    font-family: monospace, monospace;
+  }
+
+  pre {
+    padding: 1rem;
+    border-left: 0.1rem solid #ccc;
+    background-color: #eee;
+  }
+
+  a {
+    color: #09c;
+
+    &:hover {
+      color: black;
+    }
+  }
+}

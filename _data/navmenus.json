@@ -1,0 +1,36 @@
+{
+    "documentation": [
+        {
+            "slug": "general",
+            "title": "General",
+            "url": "documentation/general"
+        },
+        {
+            "slug": "reservables",
+            "title": "Reservables",
+            "url": "documentation/reservables"
+        },
+        {
+            "slug": "reservations",
+            "title": "Reservations",
+            "url": "documentation/reservations"
+        },
+        {
+            "slug": "hooks",
+            "title": "Hooks",
+            "url": "documentation/hooks",
+            "children": [
+                {
+                    "slug": "actions",
+                    "title": "Actions",
+                    "url": "documentation/hooks/actions"
+                },
+                {
+                    "slug": "filters",
+                    "title": "Filters",
+                    "url": "documentation/hooks/filters"
+                }
+            ]
+        }
+    ]
+}

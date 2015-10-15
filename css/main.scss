@@ -1,0 +1,110 @@
+---
+---
+
+@import 'reset';
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6em;
+  line-height: 1.35;
+  font-family: sans-serif;
+  color: black;
+}
+
+@import 'layout';
+
+@import 'type';
+
+#top-notice {
+    position: relative;
+    background-color: #f40;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    max-height: 8rem;
+    transition: all 0.5s ease-in;
+    overflow: hidden;
+
+    strong {
+        font-weight: bold;
+    }
+
+    .close {
+        width: 2.6rem;
+        height: 2.6rem;
+        margin-top: -1.3rem;
+        line-height: 2.8rem;
+        font-size: 150%;
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0.15);
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        right: 2rem;
+        font-weight: bold;
+    }
+
+    &.closing {
+        line-height: 0;
+        opacity: 0;
+        max-height: 0;
+    }
+}
+
+#logo {
+  font-size: 3.2rem;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+#navigation {
+  ul {
+    list-style-type: none;
+  }
+
+  ul:after {
+    display: table;
+    content: '';
+    clear: both;
+  }
+
+  li {
+    float: left;
+  }
+
+  a {
+    display: block;
+    padding: 0 3rem 0 0;
+  }
+}
+
+#sidebar {
+  ul {
+    margin: 2rem 0;
+
+    ul {
+      margin: 0.5rem 0 2rem 0;
+    }
+  }
+
+  li {
+    list-style-type: none;
+    padding: 0.5rem 0;
+
+    li {
+      font-size: 95%;
+      padding: 0.125em 0;
+    }
+  }
+
+  a.active {
+    text-decoration: none;
+    font-style: italic;
+    color: #808080;
+  }
+}

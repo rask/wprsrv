@@ -1,0 +1,26 @@
+#reservation-form {
+  .reservation-notice {
+    padding: 0.25em 0.333em;
+    border: 1px solid transparentize(#900, 0.75);
+    color: #900;
+    background-color: transparentize(#900, 0.95);
+
+    &.success {
+      background-color: transparentize(#9c0, 0.75);
+      border: 1px solid transparentize(#9c0, 0.75);
+      color: desaturate(darken(#9c0, 0.5), 25%);
+    }
+  }
+
+  .validation {
+    display: none;
+    padding: 0.25em 0.333em;
+    border: 1px solid transparentize(#900, 0.75);
+    color: #900;
+    background-color: transparentize(#900, 0.95);
+
+    &.is-active {
+      display: inline-block;
+    }
+  }
+}
