@@ -1,0 +1,19 @@
+{
+    "name": "ojrask/wprsrv",
+    "description": "WordPress plugin for a developer-friendly basic reservation system.",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Wprsrv\\": "classes/"
+        }
+    },
+    "require": {
+        "psr/log": "^1.0"
+    },
+    "require-dev": {
+        "sami/sami": "^3.1",
+        "phpunit/phpunit": "^5.0",
+        "mockery/mockery": "^0.9.4",
+        "php-mock/php-mock": "^0.8.0"
+    }
+}
