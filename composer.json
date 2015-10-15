@@ -1,19 +1,47 @@
 {
-    "name": "ojrask/wprsrv",
-    "description": "WordPress plugin for a developer-friendly basic reservation system.",
-    "license": "MIT",
+    "name": "rask/wprsrv",
+    "description": "A reservations WordPress plugin",
+    "type": "wordpress-plugin",
+    "keywords": ["wordpress", "reservations", "reservation", "plugin"],
+    "license": "GPL-3.0+",
+    "authors": [
+        {
+            "name": "Otto Rask",
+            "email": "ojrask+wprsrv@gmail.com",
+            "homepage": "http://www.ottorask.com",
+            "role": "Project lead"
+        }
+    ],
+    "support": {
+        "source": "https://github.com/rask/wprsrv",
+        "issues": "https://github.com/rask/wprsrv/issues",
+        "docs": "https://rask.github.io/wprsrv/"
+    },
+
     "autoload": {
         "psr-4": {
             "Wprsrv\\": "classes/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Wprsrv\\Tests\\": "tests/"
+        }
+    },
+
     "require": {
+        "php": ">=5.5",
         "psr/log": "^1.0"
     },
+
     "require-dev": {
         "sami/sami": "^3.1",
         "phpunit/phpunit": "^5.0",
         "mockery/mockery": "^0.9.4",
         "php-mock/php-mock": "^0.8.0"
-    }
+    },
+
+    "non-feature-branches": [
+        "gh-pages"
+    ]
 }
