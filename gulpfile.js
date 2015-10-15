@@ -12,6 +12,7 @@ var plumber = require('gulp-plumber');
 var runSeq = require('run-sequence');
 var sort = require('gulp-sort');
 var fs = require('fs');
+var git = require('gulp-git');
 
 var uglify = require('gulp-uglify');
 var stripDebug = require('gulp-strip-debug');
@@ -144,18 +145,9 @@ gulp.task('watch', ['compile'], function () {
  */
 gulp.task('build', function () {
 
-    var getPluginVersion = function (file) {
-        var contents = fs.readFileSync(file, 'utf8');
+    var stream = null;
 
-        var matched = contents.match(/Version: ([0-9][0-9\.]+[0-9])\n/);
-
-        return matched[1];
-    };
-
-    var versionNumber = getPluginVersion('./wprsrv.php');
-    var zipName = 'wprsrv-' + versionNumber + '.zip';
-
-    var src = [
+    var pluginSrc = [
         './index.php',
         './wprsrv.php',
         './functions.php',
@@ -170,17 +162,57 @@ gulp.task('build', function () {
         './includes'
     ];
 
-    var str = gulp.src(src)
-        .pipe(plumber(function (error) {
-            gulpUtil.log(gulpUtil.colors.red('Error (' + error.plugin + '): ' + error.message));
-            this.emit('end');
-        }))
-        .pipe(zip(zipName))
-        .pipe(gulp.dest('./builds'));
+    var getPluginVersion = function (file) {
+        var contents = fs.readFileSync(file, 'utf8');
 
-    console.log('Built distributable plugin archive for version ' + versionNumber);
+        var matched = contents.match(/Version: *([0-9]+?\.[0-9]+?\.[0-9]+?)/gi);
 
-    return str;
+        if (matched === undefined || !matched[0] || !matched[0].length) {
+            return false;
+        }
+
+        var versLine = matched[0].trim();
+        var version = versLine.replace(/[^0-9\.]/gi, '').trim();
+
+        return version;
+    };
+
+    git.exec({args: 'rev-parse --abbrev-ref HEAD', quiet: true}, function (err, stdout) {
+        if (err) {
+            throw err;
+        }
+
+        var branch = stdout.trim();
+
+        if (branch !== 'master') {
+            gulpUtil.log(gulpUtil.colors.red('Error: ' + 'Cannot build plugin package, must be built on master branch.'));
+            return false;
+        }
+
+        var versionNumber = getPluginVersion('./wprsrv.php');
+
+        if (!versionNumber) {
+            console.log('Build failed, could not read version number from `wprsrv.php`!');
+            return false;
+        }
+
+        var zipName = 'wprsrv-' + versionNumber + '.zip';
+
+        var str = gulp.src(pluginSrc)
+            .pipe(plumber(function (error) {
+                gulpUtil.log(gulpUtil.colors.red('Error (' + error.plugin + '): ' + error.message));
+                this.emit('end');
+            }))
+            .pipe(zip(zipName))
+            .pipe(gulp.dest('./builds'));
+
+        gulpUtil.log(gulpUtil.colors.green('Built distributable plugin archive `./builds/wprsrv-' + versionNumber + '.zip`'));
+
+        stream = str;
+
+    });
+
+    return stream;
 
 });
 
