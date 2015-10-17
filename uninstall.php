@@ -8,8 +8,6 @@ if (!defined('WP_UNINSTALL_PLUGIN')) {
     exit();
 }
 
-
-
 // Remove settings from database.
 $optKeys = ['wprsrv'];
 

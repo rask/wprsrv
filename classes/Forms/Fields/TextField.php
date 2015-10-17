@@ -9,6 +9,7 @@ use Wprsrv\Forms\Fields\FormField;
  *
  * <input type="text">
  *
+ * @since 0.1.0
  * @package Wprsrv\Forms\Fields
  */
 class TextField extends FormField
@@ -16,6 +17,7 @@ class TextField extends FormField
     /**
      * Generate the field markup for use elsewhere.
      *
+     * @since 0.1.0
      * @return String
      */
     public function generateMarkup()

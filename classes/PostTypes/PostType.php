@@ -20,7 +20,7 @@ abstract class PostType
      * @access protected
      * @var String
      */
-    protected $post_type_slug = 'posttype';
+    protected $postTypeSlug = 'posttype';
 
     /**
      * Taxonomies to register for this post type.
@@ -80,10 +80,10 @@ abstract class PostType
              * @param String[] $taxonomies Taxonomy slugs being registered.
              * @param String $postTypeSlug Post type slug for the post type.
              */
-            $taxonomies = apply_filters('wprsrv/post_type_taxonomies', $this->taxonomies, $this->post_type_slug);
+            $taxonomies = apply_filters('wprsrv/post_type_taxonomies', $this->taxonomies, $this->postTypeSlug);
 
             foreach ($taxonomies as $taxSlug) {
-                register_taxonomy_for_object_type($taxSlug, $this->post_type_slug);
+                register_taxonomy_for_object_type($taxSlug, $this->postTypeSlug);
             }
         }
     }

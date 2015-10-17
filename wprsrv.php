@@ -42,6 +42,7 @@ global $wprsrv;
 /**
  * Unforced singleton fetcher function for the plugin.
  *
+ * @since 0.1.0
  * @return \Wprsrv\Plugin
  */
 function wprsrv()

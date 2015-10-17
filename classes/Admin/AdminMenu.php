@@ -7,6 +7,7 @@ namespace Wprsrv\Admin;
  *
  * Admin menu changes and additions.
  *
+ * @since 0.1.0
  * @package Wprsrv\Admin
  */
 class AdminMenu
@@ -14,6 +15,7 @@ class AdminMenu
     /**
      * Hook to admin menu.
      *
+     * @since 0.1.0
      * @return void
      */
     public function __construct()
@@ -24,6 +26,7 @@ class AdminMenu
     /**
      * Manage the admin menu. Create top level items and sub items.
      *
+     * @since 0.1.0
      * @return void
      */
     public function adminMenu()
@@ -48,6 +51,8 @@ class AdminMenu
     /**
      * Empty page that should redirect straight to submenu item.
      *
+     * @todo Create the admin page.
+     * @since 0.1.0
      * @return Boolean
      */
     public function generateAdminPage()

@@ -8,6 +8,7 @@ use Wprsrv\PostTypes\Objects\Reservable;
  *
  * Main plugin class.
  *
+ * @since 0.1.0
  * @package WordPress\Plugins\Reserve
  */
 class Plugin
@@ -105,8 +106,26 @@ class Plugin
             },
             'settings' => function () {
                 return new Settings();
+            },
+            'logger' => function () {
+                // Load logging settings.
+                $logConfig = $this->make('settings')->logging;
+
+                return new Logger($logConfig);
             }
         ];
+
+        /**
+         * Allow filtering the used classes for the plugin.
+         *
+         * NOTE: be wary with this filter. You're bound to break things if you don't
+         * know what you're doing.
+         *
+         * @since 0.1.0
+         *
+         * @param callable[] $classMap Array of callbacks to generate classes.
+         */
+        $this->classMap = apply_filters('wprsrv/class_map', $this->classMap);
 
         if (!$this->logger) {
             $this->setupLogger();
@@ -130,15 +149,17 @@ class Plugin
      */
     protected function setupLogger()
     {
-        // Load logging settings.
-        $logConfig = $this->make('settings')->logging;
-
-        $this->logger = new Logger($logConfig);
+        $this->logger = $this->make('logger');
     }
 
     /**
      * Initializations.
      *
+     * Sets up general plugin inits and call either admin or frontend inits depending
+     * whether we are in admin or not.
+     *
+     * @see self::__construct()
+     * @see:wphook init
      * @since 0.1.0
      * @return void
      */
@@ -240,6 +261,8 @@ class Plugin
     /**
      * Fired on WP plugin deactivation hook. No output allowed.
      *
+     * @todo Refactor plugin cache flushing to a separate method, or maybe even a
+     *       class.
      * @static
      * @since 0.1.0
      * @return void
@@ -283,10 +306,11 @@ class Plugin
      * Allows creating and fetching class instances on the fly. A singleton wrapper
      * basically. Not all classes are available as singletons.
      *
+     * @see self::classMap
+     * @see self::classInstances
+     * @since 0.1.0
      * @throws \InvalidArgumentException If invalid class name ID is given for
      *                                   making.
-     * @see {$this->classMap}
-     * @since 0.1.0
      *
      * @param String $class String ID for class to make.
      *

@@ -2,11 +2,20 @@
 
 namespace Wprsrv\Forms\Fields;
 
+/**
+ * Class CheckboxGroup
+ *
+ * <input type="checkbox">
+ *
+ * @since 0.1.0
+ * @package Wprsrv\Forms\Fields
+ */
 class CheckboxGroup extends FormField
 {
     /**
      * Options for the group.
      *
+     * @since 0.1.0
      * @access protected
      * @var mixed[]
      */
@@ -15,6 +24,7 @@ class CheckboxGroup extends FormField
     /**
      * Generate field HTML markup. Return as a string.
      *
+     * @since 0.1.0
      * @return String
      */
     public function generateMarkup()

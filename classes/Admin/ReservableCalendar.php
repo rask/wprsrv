@@ -9,6 +9,7 @@ use Wprsrv\PostTypes\Objects\Reservable;
  *
  * Calendar to display reservations for a reservable.
  *
+ * @since 0.1.0
  * @package Wprsrv
  */
 class ReservableCalendar
@@ -16,6 +17,7 @@ class ReservableCalendar
     /**
      * Which reservable this calendar is for.
      *
+     * @since 0.1.0
      * @access protected
      * @var Reservable
      */
@@ -24,6 +26,7 @@ class ReservableCalendar
     /**
      * Calendar date object.
      *
+     * @since 0.1.0
      * @access protected
      * @var \DateTime
      */
@@ -32,6 +35,7 @@ class ReservableCalendar
     /**
      * Calendar year.
      *
+     * @since 0.1.0
      * @access protected
      * @var Integer
      */
@@ -40,6 +44,7 @@ class ReservableCalendar
     /**
      * Calendar month.
      *
+     * @since 0.1.0
      * @access protected
      * @var Integer
      */
@@ -48,6 +53,7 @@ class ReservableCalendar
     /**
      * Is this the first calendar in the sequence?
      *
+     * @since 0.1.0
      * @access protected
      * @var Boolean
      */
@@ -56,6 +62,7 @@ class ReservableCalendar
     /**
      * Is this the last calendar in the sequence?
      *
+     * @since 0.1.0
      * @access protected
      * @var Boolean
      */
@@ -64,6 +71,7 @@ class ReservableCalendar
     /**
      * Reservation for the previous day cell.
      *
+     * @since 0.1.0
      * @access protected
      * @var \Wprsrv\PostTypes\Objects\Reservation|null
      */
@@ -72,7 +80,9 @@ class ReservableCalendar
     /**
      * Constructor.
      *
-     * @param \Wprsrv\PostTypes\Objects\Reservable $reservable Reservable to create calendar for.
+     * @since 0.1.0
+     *
+     * @param Reservable $reservable Reservable to create calendar for.
      * @param \DateTime $date DateTime object to use for year and month.
      *
      * @return void
@@ -87,6 +97,7 @@ class ReservableCalendar
 
         $this->daysInMonth = $date->format('t');
 
+        // Is this the first or last calendar in a set of calendars.
         if ($firstOrLast !== null) {
             if ($firstOrLast === 'first') {
                 $this->isFirstCalendar = true;
@@ -103,6 +114,7 @@ class ReservableCalendar
     /**
      * Generate a table cell for a single day.
      *
+     * @since 0.1.0
      * @access protected
      *
      * @param \DateTime $date Datetime for the day to generate.
@@ -151,6 +163,7 @@ class ReservableCalendar
     /**
      * Generate calendar table headings and nav.
      *
+     * @since 0.1.0
      * @access protected
      * @return String
      */
@@ -201,6 +214,7 @@ class ReservableCalendar
     /**
      * Generate the calendar body.
      *
+     * @since 0.1.0
      * @access protected
      *
      * @param Integer $iter Day loop number.
@@ -245,6 +259,7 @@ class ReservableCalendar
     /**
      * Generate calendar output for rendering.
      *
+     * @since 0.1.0
      * @access protected
      *
      * @param \DateTime $now Current date.
@@ -280,6 +295,8 @@ class ReservableCalendar
 
     /**
      * Render the calendar.
+     *
+     * @since 0.1.0
      *
      * @param Boolean $invalidateCache Clear the calendar cache before rendering?
      * @param bool|true $echo Echo or return. Use true to echo.

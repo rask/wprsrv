@@ -2,14 +2,17 @@
 
 namespace Wprsrv\Forms;
 
+use Wprsrv\PostTypes\Objects\Reservable;
 use Wprsrv\PostTypes\Objects\Reservation;
-use Wprsrv\PostTypes\PostType;
+use Wprsrv\PostTypes\Objects\Reservation as ReservationObj;
 
 /**
  * Class ReservationForm
  *
  * A form used to create a new Reservation against a Reservable.
  *
+ * @todo Reservation editing using this form.
+ * @since 0.1.0
  * @package Wprsrv\Forms
  */
 class ReservationForm
@@ -17,22 +20,25 @@ class ReservationForm
     /**
      * The reservable object this form is used with.
      *
+     * @since 0.1.0
      * @access protected
-     * @var \Wprsrv\PostTypes\Objects\Reservable
+     * @var Reservable
      */
     protected $reservable;
 
     /**
      * A reservation object for the form, in case the reservation is being edited.
      *
+     * @since 0.1.0
      * @access protected
-     * @var null|\Wprsrv\PostTypes\Objects\Reservation
+     * @var null|ReservationObj
      */
     protected $reservation = null;
 
     /**
      * Form fields to display on the form.
      *
+     * @since 0.1.0
      * @access protected
      * @var array
      */
@@ -41,6 +47,8 @@ class ReservationForm
     /**
      * Constructor.
      *
+     * @since 0.1.0
+     *
      * @param \WP_Post The reservable content this form is used with.
      * @param \WP_Post If editing reservation, pass in the reservation object.
      *
@@ -48,10 +56,10 @@ class ReservationForm
      */
     public function __construct(\WP_Post $reservablePost, \WP_Post $reservationPost = null)
     {
-        $reservable = new \Wprsrv\PostTypes\Objects\Reservable($reservablePost);
+        $reservable = new Reservable($reservablePost);
 
         if ($reservationPost) {
-            $reservation = new \Wprsrv\PostTypes\Objects\Reservation($reservationPost);
+            $reservation = new ReservationObj($reservationPost);
         } else {
             $reservation = null;
         }
@@ -64,9 +72,9 @@ class ReservationForm
 
         $this->reservable = $reservable;
         $this->reservation = $reservation;
+
         $this->setupDefaultFields();
         $this->printDisabledDaysJson();
-
         $this->handleFormSubmit();
         $this->enqueueScripts();
     }
@@ -74,6 +82,7 @@ class ReservationForm
     /**
      * Print disabled days for JS calendars.
      *
+     * @since 0.1.0
      * @access protected
      * @return void
      */
@@ -91,8 +100,8 @@ class ReservationForm
     /**
      * Handle a submitted reservation form.
      *
-     * @fixme Not handling. Validate why.
-     *
+     * @todo Make this method simpler.
+     * @since 0.1.0
      * @return Boolean
      */
     public function handleFormSubmit()
@@ -107,6 +116,7 @@ class ReservationForm
             return false;
         }
 
+        // Spam check honeypot field.
         if (isset($_POST['wpr-reservation_check']) && !empty($_POST['wpr-reservation_check'])) {
             $_POST['reservation_notice'] = _x('Invalid spam check, please validate your submission.', 'reservation form honeypot failure', 'wprsrv');
             return false;
@@ -114,21 +124,39 @@ class ReservationForm
 
         $data = [];
 
+        // Get wprsrv related post data.
         foreach ($_POST as $key => $field) {
             if (strpos($key, 'wprsrv-') === 0) {
                 $data[$key] = $field;
             }
         }
 
+        // Attempt to create reservation with given data.
         $this->createReservation($data);
 
-        return false;
+        return true;
     }
 
+    /**
+     * Enqueue form related scripts and styles.
+     *
+     * @since 0.1.0
+     * @return void
+     */
     public function enqueueScripts()
     {
         $assetsUrl = \Wprsrv\wprsrv()->pluginUrl . '/src';
 
+        /**
+         * The Pikaday datepicker library CSS stylesheet file.
+         *
+         * Pikaday comes with its own CSS stylesheet. Developers can use their own
+         * Pikaday styles using this filter.
+         *
+         * @since 0.1.0
+         *
+         * @param String $pikadayCss Stylesheet URL.
+         */
         $pikadayCss = apply_filters('wprsrv/pikaday/css_url', $assetsUrl . '/lib/pikaday/css/pikaday.css');
 
         wp_enqueue_script('momentjs', $assetsUrl . '/lib/moment/min/moment.min.js', [], null, true);
@@ -145,6 +173,7 @@ class ReservationForm
     /**
      * Default "catch-all" form fields for generic results.
      *
+     * @since 0.1.0
      * @access protected
      * @return void
      */
@@ -162,8 +191,12 @@ class ReservationForm
                 'value' => ''
             ],
             'wprsrv-reservation-date' => [
-                'type' => $this->reservable->isSingleDay() ? 'calendar' : 'calendar-range',
-                'label' => $this->reservable->isSingleDay() ? _x('Day to reserve', 'reservation form field label', 'wprsrv') : _x('Date range to reserve', 'reservation form field label', 'wprsrv')
+                'type' => $this->reservable->isSingleDay()
+                    ? 'calendar'
+                    : 'calendar-range',
+                'label' => $this->reservable->isSingleDay()
+                    ? _x('Day to reserve', 'reservation form field label', 'wprsrv')
+                    : _x('Date range to reserve', 'reservation form field label', 'wprsrv')
             ],
             'wprsrv-reservation-description' => [
                 'type' => 'textarea',
@@ -178,11 +211,20 @@ class ReservationForm
     /**
      * Generate form fields markup.
      *
+     * @since 0.1.0
      * @access protected
      * @return String
      */
     protected function generateFormFieldsMarkup()
     {
+        /**
+         * Form fields to generate for the reservation form.
+         *
+         * @see self::setupDefaultFields
+         * @since 0.1.0
+         *
+         * @param Array[] $formFields Array of field arrays.
+         */
         $this->formFields = apply_filters('reserve/reservation_form/fields_data', $this->formFields, $this->reservable);
 
         if (empty($this->formFields)) {
@@ -192,6 +234,15 @@ class ReservationForm
         $html = '';
 
         foreach ($this->formFields as $nameAttr => $fieldData) {
+            /**
+             * Single field data for reservation form.
+             *
+             * @since 0.1.0
+             *
+             * @param mixed[] $fieldData Field data.
+             * @param String $nameAttr Field name attribute.
+             * @param Reservable $reservable The reservable this form is for.
+             */
             $fieldData = apply_filters('reserve/reservation_form/field_data', $fieldData, $nameAttr, $this->reservable);
 
             $label = sprintf('<label for="rfs-%s">%s</label>', $nameAttr, $fieldData['label']);
@@ -230,6 +281,14 @@ class ReservationForm
             $html .= sprintf('<p>%s %s</p>', $label, $input);
         }
 
+        /**
+         * Filter the reservation form HTML string.
+         *
+         * @since 0.1.0
+         *
+         * @param String $html The form HTML.
+         * @param Reservable $reservable The reservable this form is for.
+         */
         $html = apply_filters('reserve/reservation_form/fields_html', $html, $this->reservable);
 
         return $html;
@@ -238,6 +297,7 @@ class ReservationForm
     /**
      * Hidden form fields.
      *
+     * @since 0.1.0
      * @access protected
      *
      * @param Boolean $echo Echo or return.
@@ -275,6 +335,12 @@ FIELDS;
     /**
      * Render the form. The included template has $this available.
      *
+     * The rendered template file can be overridden by themes by making a theme
+     * directory `wprsrv` and creating a file named `reservation-form.php` inside it.
+     *
+     * The template file can be filtered to pick any other file which is needed.
+     *
+     * @since 0.1.0
      * @return void
      */
     public function render()
@@ -287,7 +353,7 @@ FIELDS;
         try {
             $this->formFieldMarkup = $this->generateFormFieldsMarkup();
         } catch (\Exception $e) {
-            echo $e->getMessage();
+            \Wprsrv\wprsrv()->logger->critical('Cannot render reservation form: {msg}', ['msg' => $e->getMessage()]);
             return;
         }
 
@@ -301,6 +367,13 @@ FIELDS;
             $templateFile = $pluginTemplateFile;
         }
 
+        /**
+         * Filter the reservation form template file absolute path.
+         *
+         * @since 0.1.0
+         *
+         * @param String $templateFile Absolute path to template file.
+         */
         $templateFile = apply_filters('wprsrv/reservation_form/template_file', $templateFile);
 
         include($templateFile);
@@ -310,6 +383,9 @@ FIELDS;
      * Create a new reservation from the form.
      *
      * @access protected
+     * @since 0.1.0
+     * @todo Pickle this up to smaller methods and pass some control over to the
+     *       reservation object class.
      *
      * @param mixed[] $data Data for reservation.
      *
@@ -374,6 +450,7 @@ FIELDS;
     /**
      * Print notice to inform users of disabled reservation.
      *
+     * @since 0.1.0
      * @access protected
      * @return void
      */
@@ -381,6 +458,14 @@ FIELDS;
     {
         $message = _x('Reservations are disabled for this item at the moment.', 'reservation form disabled for reservable', 'wprsrv');
 
+        /**
+         * Filter the reservations disabled message for a reservation form.
+         *
+         * @since 0.1.0
+         *
+         * @param String $message Message being output.
+         * @param Reservable $reservable The reservable this form is displayed for.
+         */
         $message = apply_filters('wprsrv/reservation_form/disabled_message', $message, $this->reservable);
 
         printf('<p class="reservation-disabled-notice">%s</p>', $message);
@@ -389,6 +474,7 @@ FIELDS;
     /**
      * Reservation form localization for JS.
      *
+     * @since 0.1.0
      * @access protected
      * @return array
      */

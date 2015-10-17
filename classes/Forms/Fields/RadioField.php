@@ -4,11 +4,20 @@ namespace Wprsrv\Forms\Fields;
 
 use Wprsrv\Forms\Fields\FormField;
 
+/**
+ * Class RadioField
+ *
+ * <input type="radio">
+ *
+ * @since 0.1.0
+ * @package Wprsrv\Forms\Fields
+ */
 class RadioField extends FormField
 {
     /**
      * Option label.
      *
+     * @since 0.1.0
      * @access protected
      * @var String
      */
@@ -17,6 +26,7 @@ class RadioField extends FormField
     /**
      * Group number.
      *
+     * @since 0.1.0
      * @access protected
      * @var Integer
      */

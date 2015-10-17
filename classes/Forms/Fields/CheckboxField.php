@@ -4,11 +4,20 @@ namespace Wprsrv\Forms\Fields;
 
 use Wprsrv\Forms\Fields\FormField;
 
+/**
+ * Class CheckboxField
+ *
+ * <input type="checkbox">
+ *
+ * @since 0.1.0
+ * @package Wprsrv\Forms\Fields
+ */
 class CheckboxField extends FormField
 {
     /**
      * Option label.
      *
+     * @since 0.1.0
      * @access protected
      * @var String
      */
@@ -17,6 +26,7 @@ class CheckboxField extends FormField
     /**
      * Group number.
      *
+     * @since 0.1.0
      * @access protected
      * @var Integer
      */

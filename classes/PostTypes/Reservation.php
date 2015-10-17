@@ -22,13 +22,12 @@ class Reservation extends PostType
      * @access protected
      * @var String
      */
-    protected $post_type_slug = 'reservation';
+    protected $postTypeSlug = 'reservation';
 
     /**
      * Register the post type.
      *
      * @since 0.1.0
-     *
      * @access protected
      * @return void
      */
@@ -95,7 +94,7 @@ class Reservation extends PostType
          */
         $args = apply_filters('wprsrv/reservation/post_type_args', $args);
 
-        register_post_type($this->post_type_slug, $args);
+        register_post_type($this->postTypeSlug, $args);
 
         $this->registerPostTypeStatuses();
         $this->disableQuickEdit();
@@ -108,7 +107,7 @@ class Reservation extends PostType
      *
      * @since 0.1.0
      *
-     * @param \WP_Post $reservation Reservation post object.
+     * @param \WP_Post $reservation Reservation post object to create metaboxes for.
      *
      * @return void
      */
@@ -144,17 +143,16 @@ class Reservation extends PostType
      * Setup reservation admin columns.
      *
      * @since 0.1.0
-     *
      * @access protected
      * @return void
      */
     protected function adminColumns()
     {
         add_action('current_screen', function ($screen) {
-            if ($screen->base === 'edit' && $screen->post_type === $this->post_type_slug) {
+            if ($screen->base === 'edit' && $screen->post_type === $this->postTypeSlug) {
                 add_action('restrict_manage_posts', [$this, 'reservationAdminFilters']);
-                add_filter("manage_{$this->post_type_slug}_posts_columns", [$this, 'customizeAdminColumns']);
-                add_action("manage_{$this->post_type_slug}_posts_custom_column", [$this, 'customizeAdminColumnContent'], 25, 2);
+                add_filter("manage_{$this->postTypeSlug}_posts_columns", [$this, 'customizeAdminColumns']);
+                add_action("manage_{$this->postTypeSlug}_posts_custom_column", [$this, 'customizeAdminColumnContent'], 25, 2);
             }
         });
 
@@ -225,6 +223,7 @@ class Reservation extends PostType
      * Custom columns for reservations.
      *
      * @since 0.1.0
+     * @see:wphook manage_{$post_type}_posts_columns
      *
      * @param String[] $columns Columns that have been defined for the table.
      *
@@ -245,6 +244,7 @@ class Reservation extends PostType
      * Custom content for reservation custom columns.
      *
      * @since 0.1.0
+     * @see:wphook manage_{$post_type}_posts_custom_column
      *
      * @param String $colName Column slug/name.
      * @param Integer $post_id Reservation post ID.
@@ -274,7 +274,6 @@ class Reservation extends PostType
      * Custom post statuses for reservations. Should not be used in querying content.
      *
      * @since 0.1.0
-     *
      * @access protected
      * @return void
      */
@@ -317,7 +316,6 @@ class Reservation extends PostType
      * Callback to rendering (including) metabox templates.
      *
      * @since 0.1.0
-     *
      * @access protected
      *
      * @param String $string
@@ -343,7 +341,6 @@ class Reservation extends PostType
      * Actions to trigger and make when reservation statuses change.
      *
      * @since 0.1.0
-     *
      * @access protected
      * @return void
      */
@@ -361,7 +358,7 @@ class Reservation extends PostType
                 $reservation->getReservable()->flushCache();
             }
 
-            if ($post->post_type !== $this->post_type_slug || in_array($new, $accepted)) {
+            if ($post->post_type !== $this->postTypeSlug || in_array($new, $accepted)) {
                 return;
             }
 
@@ -398,7 +395,7 @@ class Reservation extends PostType
      */
     public function newPendingReservation($id, $post)
     {
-        if ($post->post_type !== $this->post_type_slug) {
+        if ($post->post_type !== $this->postTypeSlug) {
             return;
         }
 
@@ -436,7 +433,7 @@ class Reservation extends PostType
      */
     public function newAcceptedReservation($id, $post)
     {
-        if ($post->post_type !== $this->post_type_slug) {
+        if ($post->post_type !== $this->postTypeSlug) {
             return;
         }
 
@@ -474,7 +471,7 @@ class Reservation extends PostType
      */
     public function newDeclinedReservation($id, $post)
     {
-        if ($post->post_type !== $this->post_type_slug) {
+        if ($post->post_type !== $this->postTypeSlug) {
             return;
         }
 
@@ -503,7 +500,6 @@ class Reservation extends PostType
      * Send a notification email about a reservation.
      *
      * @throws \InvalidArgumentException If invalid notice type is given.
-     *
      * @since 0.1.0
      * @access protected
      *
@@ -575,12 +571,10 @@ class Reservation extends PostType
     /**
      * Handle failed email sends.
      *
-     * @throws \Exception
-     *
      * @since 0.1.0
      *
-     * @param String $emailType
-     * @param ReservationObj $reservation
+     * @param String $emailType Type of email that failed.
+     * @param ReservationObj $reservation Reservation for which the email failed.
      *
      * @return void
      */
@@ -590,7 +584,7 @@ class Reservation extends PostType
     }
 
     /**
-     * Prune old pending and declined reservations from the system.
+     * Setup pruning schedule for old reservations.
      *
      * @since 0.1.0
      * @access protected
@@ -612,9 +606,7 @@ class Reservation extends PostType
      * value.
      *
      * @since 0.1.0
-     *
      * @see self::pruning()
-     *
      * @return void
      */
     public function pruneReservations()
@@ -682,7 +674,6 @@ class Reservation extends PostType
      * Disable the wp-admin quick edit.
      *
      * @since 0.1.0
-     *
      * @access protected
      * @return void
      */
@@ -704,7 +695,7 @@ class Reservation extends PostType
         add_filter('post_row_actions', function ($actions) {
             global $current_screen;
 
-            if ($current_screen->post_type !== $this->post_type_slug) {
+            if ($current_screen->post_type !== $this->postTypeSlug) {
                 return $actions;
             }
 

@@ -10,6 +10,7 @@ use Wprsrv\Traits\CastsToPost;
  *
  * "Extended" WP_Post (see trait) for reservation post objects.
  *
+ * @since 0.1.0
  * @package Wprsrv\PostTypes\Objects
  */
 class Reservation
@@ -20,6 +21,8 @@ class Reservation
      * Create a new instance of Reservation from given data.
      *
      * @fixme Validate single day mode works.
+     * @todo Extract some functionality elsewhere to make this simpler.
+     * @since 0.1.0
      *
      * @param mixed[] $postData Post data values to use. Passed to wp_insert_post.
      * @param mixed[] $metaData Metadata values to use.
@@ -85,10 +88,12 @@ class Reservation
      * Validate given metadata for a new reservation.
      *
      * @static
+     * @since 0.1.0
+     * @todo Make this more usable for other parts of the plugin maybe?
      *
      * @param mixed[] $meta Metadata to validate.
      *
-     * @return Boolean
+     * @return mixed[]
      */
     protected static function validateMeta($meta)
     {
@@ -140,6 +145,7 @@ class Reservation
     /**
      * Return the reservation's post status.
      *
+     * @since 0.1.0
      * @return Boolean|String
      */
     public function getReservationStatus()
@@ -150,8 +156,8 @@ class Reservation
     /**
      * Get the reservations reservable item ID.
      *
+     * @since 0.1.0
      * @throws \DomainException If no reservable is available.
-     *
      * @return \Wprsrv\PostTypes\Objects\Reservable
      */
     public function getReservable()
@@ -172,6 +178,7 @@ class Reservation
     /**
      * Get the email address of the person who reserved.
      *
+     * @since 0.1.0
      * @return mixed
      */
     public function getReserverEmail()
@@ -193,9 +200,10 @@ class Reservation
      * Get starting timestamp.
      *
      * @throws \Exception If no start date is set.
+     * @since 0.1.0
      *
-     * @param String|Integer $format Optional. Date format. Use `'object'` if you want
-     *                               the DateTime object itself.
+     * @param String|Integer $format Optional. Date format. Use `'object'` if you
+     *                               want the DateTime object itself.
      *
      * @return String
      */
@@ -218,9 +226,10 @@ class Reservation
      * Get ending timestamp.
      *
      * @throws \Exception If no end date is set.
+     * @since 0.1.0
      *
-     * @param String|Integer $format Optional. Date format. Use `'object'` if you want
-     *                               the DateTime object itself.
+     * @param String|Integer $format Optional. Date format. Use `'object'` if you
+     *                               want the DateTime object itself.
      *
      * @return String
      */
@@ -242,6 +251,7 @@ class Reservation
     /**
      * Get the wp-admin editing URL link for this reservation.
      *
+     * @since 0.1.0
      * @return String|Boolean
      */
     public function getEditLink()
@@ -254,15 +264,17 @@ class Reservation
     }
 
     /**
-     * Set a post meta value for this reservation. Returns true/false on success condition, or integer if it is a new
-     * meta key/value pair.
+     * Set a post meta value for this reservation. Returns true/false on success
+     * condition, or integer if it is a new meta key/value pair.
+     *
+     * @since 0.1.0
      *
      * @param String $key Meta key.
      * @param mixed $value Meta value. Will be serialized if needed.
      *
      * @return Boolean|Integer
      */
-    protected function setMeta($key, $value)
+    public function setMeta($key, $value)
     {
         if (strpos($key, '_wprsrv') !== 0) {
             $key = '_wprsrv_' . $key;
@@ -275,12 +287,13 @@ class Reservation
      * Get reservation meta value for $key.
      *
      * @access protected
+     * @since 0.1.0
      *
      * @param String $key The meta key to get value of.
      *
      * @return mixed
      */
-    protected function getMeta($key, $single = true)
+    public function getMeta($key, $single = true)
     {
         if (strpos($key, '_wprsrv') !== 0) {
             $key = '_wprsrv_' . $key;
@@ -291,6 +304,8 @@ class Reservation
 
     /**
      * Clear a meta value from the database.
+     *
+     * @since 0.1.0
      *
      * @param String $key Meta key whose value to clear.
      *
@@ -303,6 +318,8 @@ class Reservation
 
     /**
      * Adds a short note about a reservation. Uses time() as the timestamp.
+     *
+     * @since 0.1.0
      *
      * @param String $note The note string content.
      *
@@ -333,6 +350,7 @@ class Reservation
     /**
      * Get all notes attached to this reservation.
      *
+     * @since 0.1.0
      * @return mixed
      */
     public function getNotes()
@@ -355,6 +373,7 @@ class Reservation
     /**
      * Accept this reservation.
      *
+     * @since 0.1.0
      * @return void
      */
     public function accept()
@@ -373,6 +392,7 @@ class Reservation
     /**
      * Decline a reservation.
      *
+     * @since 0.1.0
      * @return void
      */
     public function decline()
@@ -393,6 +413,7 @@ class Reservation
     /**
      * Is the reservation declined?
      *
+     * @since 0.1.0
      * @return Boolean
      */
     public function isDeclined()
@@ -407,6 +428,7 @@ class Reservation
     /**
      * Is the reservation pending?
      *
+     * @since 0.1.0
      * @return Boolean
      */
     public function isPending()
@@ -421,6 +443,7 @@ class Reservation
     /**
      * Is the reservation accepted?
      *
+     * @since 0.1.0
      * @return Boolean
      */
     public function isAccepted()
@@ -434,6 +457,8 @@ class Reservation
 
     /**
      * Does this reservation contain a date within the reservation range.
+     *
+     * @since 0.1.0
      *
      * @param \DateTime $date The date to check.
      *

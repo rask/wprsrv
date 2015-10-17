@@ -4,10 +4,26 @@ namespace Wprsrv\PostTypes\Objects;
 
 use Wprsrv\Traits\CastsToPost;
 
+/**
+ * Class Reservable
+ *
+ * "Extended" WP\_Post object instance. Allows using WP\_Post methods and properties,
+ * but has extended methods and properties specific to reservable post type objects.
+ *
+ * @since 0.1.0
+ * @package Wprsrv\PostTypes\Objects
+ */
 class Reservable
 {
     use CastsToPost;
 
+    /**
+     * Generally used reservable cache keys.
+     *
+     * @since 0.1.0
+     * @access protected
+     * @var String[]
+     */
     protected $cacheKeys = [
         'reservations',
         'calendars',
@@ -18,7 +34,7 @@ class Reservable
      * Get all reservations that have been mapped for this reservable.
      *
      * @global $wpdb
-     *
+     * @since 0.1.0
      * @return \Wprsrv\PostTypes\Objects\Reservation[]
      */
     public function getReservations()
@@ -59,13 +75,15 @@ class Reservable
     }
 
     /**
-     * Get the data for all disabled days for a reservable item. This includes blocked time which has been already
-     * reserved.
+     * Get the data for all disabled days for a reservable item. This includes
+     * blocked time which has been already reserved.
      *
+     * @since 0.1.0
      * @return mixed
      */
     public function getDisabledDaysData()
     {
+        // Get cached disabled days data.
         $ranges = get_transient($this->cachePrefix . 'disdays');
 
         if ($ranges !== false) {
@@ -73,7 +91,6 @@ class Reservable
         }
 
         $disabledRanges = $this->getDisabledDaysAdminData();
-
         $reservations = $this->getReservations();
 
         foreach ($reservations as $reservation) {
@@ -108,8 +125,9 @@ class Reservable
     }
 
     /**
-     * Is the reservable set as active.
+     * Is the reservable set as active?
      *
+     * @since 0.1.0
      * @return Boolean
      */
     public function isActive()
@@ -119,6 +137,8 @@ class Reservable
 
     /**
      * Set the active state for this reservable.
+     *
+     * @since 0.1.0
      *
      * @param Boolean $active Optional. True or false, defaults to true.
      *
@@ -133,12 +153,14 @@ class Reservable
      * Set a post meta value for this reservable. Returns true/false on success
      * condition, or integer if it is a new meta key/value pair.
      *
+     * @since 0.1.0
+     *
      * @param String $key Meta key.
      * @param mixed $value Meta value. Will be serialized if needed.
      *
      * @return Boolean|Integer
      */
-    protected function setMeta($key, $value)
+    public function setMeta($key, $value)
     {
         if (strpos($key, '_wprsrv') !== 0) {
             $key = '_wprsrv_' . $key;
@@ -150,13 +172,13 @@ class Reservable
     /**
      * Get reservable meta value for $key.
      *
-     * @access protected
+     * @since 0.1.0
      *
      * @param String $key The meta key to get value of.
      *
      * @return mixed
      */
-    protected function getMeta($key, $single = true)
+    public function getMeta($key, $single = true)
     {
         if (strpos($key, '_wprsrv') !== 0) {
             $key = '_wprsrv_' . $key;
@@ -180,6 +202,7 @@ class Reservable
     /**
      * Is the reservable in singleday mode?
      *
+     * @since 0.1.0
      * @return Boolean
      */
     public function isSingleDay()
@@ -189,6 +212,8 @@ class Reservable
 
     /**
      * Set the singleday mode value.
+     *
+     * @since 0.1.0
      *
      * @param Boolean $singleday Optional. True or false, defaults to true.
      *
@@ -201,6 +226,8 @@ class Reservable
 
     /**
      * Set admin panel settings disabled days data.
+     *
+     * @since 0.1.0
      *
      * @param mixed[]|Boolean $data Data to set. Dual arrays for date pairs
      *                              (start->end). Pass in false to clear.
@@ -215,6 +242,7 @@ class Reservable
     /**
      * Get data for admin disabled days.
      *
+     * @since 0.1.0
      * @return mixed
      */
     public function getDisabledDaysAdminData()
@@ -225,6 +253,7 @@ class Reservable
     /**
      * Do reservations for this item require login?
      *
+     * @since 0.1.0
      * @return Boolean
      */
     public function isLoginRequired()
@@ -234,6 +263,8 @@ class Reservable
 
     /**
      * Set login requirement flag.
+     *
+     * @since 0.1.0
      *
      * @param bool|true $required
      *
@@ -246,6 +277,8 @@ class Reservable
 
     /**
      * Is a day reserved for this reservable? Counts pending and accepted reservations.
+     *
+     * @since 0.1.0
      *
      * @param \DateTime $date Date to check.
      * @param Boolean $acceptedOnly Disregard pending exceptions.
@@ -295,6 +328,8 @@ class Reservable
     /**
      * Get reseravation for a date for this reservable.
      *
+     * @since 0.1.0
+     *
      * @param \DateTime $date Date to get reservation for.
      *
      * @return null|\Wprsrv\PostTypes\Objects\Reservation
@@ -315,6 +350,7 @@ class Reservable
     /**
      * Flush all cached data for this reservable. Loop through predefined cache keys and delete transients.
      *
+     * @since 0.1.0
      * @return void
      */
     public function flushCache()
@@ -332,6 +368,7 @@ class Reservable
     /**
      * Should the calendar cache be flushed on next calendars load?
      *
+     * @since 0.1.0
      * @return Boolean
      */
     public function calendarCacheFlushed()
@@ -342,6 +379,7 @@ class Reservable
     /**
      * Clear the calendar flush flag.
      *
+     * @since 0.1.0
      * @return void
      */
     public function clearCalendarFlush()
@@ -350,8 +388,9 @@ class Reservable
     }
 
     /**
-     * Does this reservable habe _any_ reservations?
+     * Does this reservable have _any_ reservations?
      *
+     * @since 0.1.0
      * @return Boolean
      */
     public function hasReservations()
@@ -364,6 +403,8 @@ class Reservable
     /**
      * Validate whether this reservable has either a pending or an accepted
      * reservation between two dates.
+     *
+     * @since 0.1.0
      *
      * @param String $start_date Y-m-d string.
      * @param String $end_date Y-m-d string.
