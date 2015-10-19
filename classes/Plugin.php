@@ -90,9 +90,9 @@ class Plugin
      */
     public function __construct($do_init = false)
     {
-        add_action('plugins_loaded', function () {
-            load_plugin_textdomain('wprsrv', false, __DIR__ . RDS . 'languages');
-        });
+        $this->pluginDirectory = WPRSRV_DIR;
+        $this->pluginUrl = plugins_url(basename(dirname(__DIR__)));
+        $this->templateDirectory = WPRSRV_DIR . RDS . 'includes' . RDS . 'templates';
 
         $this->classMap = [
             'reservable' => function () {
@@ -131,10 +131,6 @@ class Plugin
             $this->setupLogger();
         }
 
-        $this->pluginDirectory = dirname(__DIR__);
-        $this->pluginUrl = plugins_url(basename(dirname(__DIR__)));
-        $this->templateDirectory = $this->pluginDirectory . RDS . 'includes' . RDS . 'templates';
-
         if ($do_init) {
             add_action('init', [$this, 'initialize']);
         }
@@ -168,6 +164,10 @@ class Plugin
         if ($this->initialized) {
             return;
         }
+
+        add_action('plugins_loaded', function () {
+            load_plugin_textdomain('wprsrv', false, __DIR__ . RDS . 'languages');
+        });
 
         $this->setupPostTypes();
 

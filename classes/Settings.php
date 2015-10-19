@@ -78,7 +78,7 @@ class Settings
      */
     protected function setupDefaultSettings()
     {
-        $defaultsFile = wprsrv()->pluginDirectory . RDS . 'config' . RDS . 'defaults.php';
+        $defaultsFile = WPRSRV_DIR . RDS . 'config' . RDS . 'defaults.php';
 
         /**
          * From which PHP file should be load plugin settings from.
