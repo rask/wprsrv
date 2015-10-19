@@ -148,18 +148,18 @@ gulp.task('build', function () {
     var stream = null;
 
     var pluginSrc = [
-        './index.php',
-        './wprsrv.php',
-        './functions.php',
-        './README.md',
-        './LICENSE.md',
-        './uninstall.php',
-        './assets',
-        './languages',
-        './config',
-        './classes',
-        './vendor',
-        './includes'
+        'index.php',
+        'wprsrv.php',
+        'functions.php',
+        'README.md',
+        'LICENSE.md',
+        'uninstall.php',
+        'assets/**',
+        'languages/**',
+        'config/**',
+        'classes/**',
+        'vendor/**',
+        'includes/**'
     ];
 
     var getPluginVersion = function (file) {
@@ -198,7 +198,7 @@ gulp.task('build', function () {
 
         var zipName = 'wprsrv-' + versionNumber + '.zip';
 
-        var str = gulp.src(pluginSrc)
+        var str = gulp.src(pluginSrc, {base: '.'})
             .pipe(plumber(function (error) {
                 gulpUtil.log(gulpUtil.colors.red('Error (' + error.plugin + '): ' + error.message));
                 this.emit('end');
