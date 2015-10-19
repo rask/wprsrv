@@ -1,4 +1,5 @@
 {
+  "name": "wprsrv-plugin",
   "private": true,
   "ignore": [
     "**/.*",
@@ -9,7 +10,7 @@
     "tests"
   ],
   "dependencies": {
-    "momentjs": "~2.10.6",
+    "moment": "~2.10.6",
     "pikaday": "~1.3.3"
   }
 }
