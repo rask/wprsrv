@@ -82,6 +82,12 @@ class Logger implements LoggerInterface
          */
         $logFile = apply_filters('wprsrv/log_file', $logFile);
 
+        // Instantiate as a null logger.
+        if ($logFile === null) {
+            $this->logFile = $logFile;
+            return;
+        }
+
         if (!isset($this->logSettings['log_max_size'])) {
             $this->logSettings['log_max_size'] = 1024*1024*1024;
         }
@@ -159,7 +165,9 @@ class Logger implements LoggerInterface
      */
     protected function writeToLog($msg)
     {
-        file_put_contents($this->logFile, $msg . "\n", FILE_APPEND);
+        if ($this->logFile !== null) {
+            file_put_contents($this->logFile, $msg . "\n", FILE_APPEND);
+        }
     }
 
     /**
