@@ -71,6 +71,17 @@ class Logger implements LoggerInterface
         // Log file path.
         $logFile = $this->logSettings['log_file'];
 
+        /**
+         * Filter log file path.
+         *
+         * @since 0.1.0
+         *
+         * @param String $logFile Absolute path to log file.
+         *
+         * @return String
+         */
+        $logFile = apply_filters('wprsrv/log_file', $logFile);
+
         if (!isset($this->logSettings['log_max_size'])) {
             $this->logSettings['log_max_size'] = 1024*1024*1024;
         }
