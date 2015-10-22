@@ -21,6 +21,8 @@ if (!defined('RDS')) {
     define('RDS', DIRECTORY_SEPARATOR);
 }
 
+define('WPRSRV_DIR', __DIR__);
+
 /**
  * Plugin and vendor autoloading.
  */
