@@ -352,7 +352,7 @@ class Reservation extends PostType
 
         // Force pending status from other statuses than reservation statuses.
         add_action('transition_post_status', function ($new, $old, $post) use ($accepted) {
-            if ($new === 'trash') {
+            if ($new === 'trash' && $post->post_type === $this->postTypeSlug) {
                 // Flush cache so we get updated data on a removed reservation.
                 $reservation = new ReservationObj($post);
                 $reservation->getReservable()->flushCache();
