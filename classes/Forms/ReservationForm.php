@@ -145,7 +145,7 @@ class ReservationForm
      */
     public function enqueueScripts()
     {
-        $assetsUrl = \Wprsrv\wprsrv()->pluginUrl . '/src';
+        $assetsUrl = \Wprsrv\wprsrv()->pluginUrl . '/assets';
 
         /**
          * The Pikaday datepicker library CSS stylesheet file.
