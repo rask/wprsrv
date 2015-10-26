@@ -26,10 +26,12 @@ class Reservation
      *
      * @param mixed[] $postData Post data values to use. Passed to wp_insert_post.
      * @param mixed[] $metaData Metadata values to use.
+     * @param \Wprsrv\PostTypes\Objects\Reservable|null $reservable The reservable
+     *                                                              being reserved.
      *
      * @return \Wprsrv\PostTypes\Objects\Reservation|Boolean
      */
-    public static function create(Array $postData, Array $metaData)
+    public static function create(Array $postData, Array $metaData, Reservable $reservable = null)
     {
         // Force post type and status.
         $postData['post_type'] = 'reservation';
@@ -43,7 +45,6 @@ class Reservation
 
         if (!empty($metaErrors)) {
             $_POST['reservation_notice'] = sprintf('<ul><li>%s</li></ul>', implode('</li><li>', $metaErrors));
-            //throw new \InvalidArgumentException('Could not create a new reservation with the given post meta.');
             return false;
         }
 
@@ -51,7 +52,7 @@ class Reservation
 
         if (!$id || is_wp_error($id)) {
             if (is_wp_error($id)) {
-                var_dump($id, $id->get_error_messages());
+                \Wprsrv\wprsrv()->logger->alert('Could not create a new reservation: {msg}', ['msg' => array_shift($id->get_error_messages())]);
             }
 
             throw new \InvalidArgumentException('Could not create a new reservation with the given post data.');
@@ -78,7 +79,6 @@ class Reservation
 
         $self->getReservable()->flushCache();
 
-        do_action('reservation_pending_post', $id, $self->post);
         do_action('wprsrv/reservation/created', $self->ID, $self);
 
         return $self;
@@ -212,7 +212,7 @@ class Reservation
         $startDate = date_create_from_format('Y-m-d', $this->getMeta('start_date'));
 
         if (!$startDate) {
-            throw new \Exception('Invalid start date for reservation ' . $this->ID);
+            throw new \Exception('Could not fetch start date, invalid start date for reservation ' . $this->ID);
         }
 
         if ($format === 'object') {
@@ -238,7 +238,7 @@ class Reservation
         $endDate = date_create_from_format('Y-m-d', $this->getMeta('end_date'));
 
         if (!$endDate) {
-            throw new \Exception('Invalid end date for reservation ' . $this->ID);
+            throw new \Exception('Could not fetch end date, invalid end date for reservation ' . $this->ID);
         }
 
         if ($format === 'object') {
@@ -387,6 +387,8 @@ class Reservation
 
         // Clear the prune date value to prevent accidentally pruning during cron.
         $this->clearMeta('prune_date');
+
+        do_action('wprsrv/reservation/accepted', $this->ID, $this);
     }
 
     /**
@@ -408,6 +410,8 @@ class Reservation
 
         // Declined reservations are pruned after a while.
         $this->setMeta('prune_date', $pruneDate->format('Y-m-d H:i:s'));
+
+        do_action('wprsrv/reservation/declined', $this->ID, $this);
     }
 
     /**

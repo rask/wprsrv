@@ -355,7 +355,12 @@ class Reservation extends PostType
             if ($new === 'trash' && $post->post_type === $this->postTypeSlug) {
                 // Flush cache so we get updated data on a removed reservation.
                 $reservation = new ReservationObj($post);
-                $reservation->getReservable()->flushCache();
+
+                try {
+                    $reservation->getReservable()->flushCache();
+                } catch (\Exception $e) {
+                    \Wprsrv\wprsrv()->logger->warning('Error when trashing a reservation and flushing reservable caches: {msg}', ['msg' => $e->getMessage()]);
+                }
             }
 
             if ($post->post_type !== $this->postTypeSlug || in_array($new, $accepted)) {
@@ -371,9 +376,9 @@ class Reservation extends PostType
             $reservationId = wp_update_post($postData);
         }, 25, 3);
 
-        add_action('reservation_pending_reservation', [$this, 'newPendingReservation'], 25, 2);
-        add_action('reservation_accepted_reservation', [$this, 'newAcceptedReservation'], 25, 2);
-        add_action('reservation_declined_reservation', [$this, 'newDeclinedReservation'], 25, 2);
+        add_action('wprsrv/reservation/created', [$this, 'newPendingReservation'], 25, 2);
+        add_action('wprsrv/reservation/accepted', [$this, 'newAcceptedReservation'], 25, 2);
+        add_action('wprsrv/reservation/declined', [$this, 'newDeclinedReservation'], 25, 2);
     }
 
     /**
