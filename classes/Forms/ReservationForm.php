@@ -543,6 +543,8 @@ FIELDS;
                         'weekdays'      => $weekdays,
                         'weekdaysShort' => $weekdaysShort
                     ],
+                    'date_from' => _x('From &hellip;', 'pikaday calendars', 'wprsrv'),
+                    'date_to' => _x('To &hellip;', 'pikaday calendars', 'wprsrv'),
                     'already_reserved' => _x('You cannot reserve dates that are already reserved.', 'reservation form validation', 'wprsrv')
                 ]
             ]

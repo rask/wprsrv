@@ -59,37 +59,52 @@ msgctxt "reservation form field label"
 msgid "Additional information"
 msgstr ""
 
-#: classes/Forms/ReservationForm.php:434
+#: classes/Forms/ReservationForm.php:450
 msgctxt "reservation form error"
 msgid "The data you gave looked invalid, please check your fields and try again."
 msgstr ""
 
-#: classes/Forms/ReservationForm.php:437
+#: classes/Forms/ReservationForm.php:454
 msgctxt "reservation form error"
 msgid "Sorry, something went wrong in the reservation system, please try again."
 msgstr ""
 
-#: classes/Forms/ReservationForm.php:447
+#: classes/Forms/ReservationForm.php:464
 msgctxt "reservation form success"
 msgid "Thank you for your reservation. You will get a confirmation email in a few moments."
 msgstr ""
 
-#: classes/Forms/ReservationForm.php:459
+#: classes/Forms/ReservationForm.php:476
 msgctxt "reservation form disabled for reservable"
 msgid "Reservations are disabled for this item at the moment."
 msgstr ""
 
-#: classes/Forms/ReservationForm.php:498
+#: classes/Forms/ReservationForm.php:500
+msgctxt "reservation form disabled for guest users"
+msgid "Reservations are restricted to registered users. Please log in first."
+msgstr ""
+
+#: classes/Forms/ReservationForm.php:540
 msgctxt "pikaday calendars"
 msgid "Previous Month"
 msgstr ""
 
-#: classes/Forms/ReservationForm.php:499
+#: classes/Forms/ReservationForm.php:541
 msgctxt "pikaday calendars"
 msgid "Next Month"
 msgstr ""
 
-#: classes/Forms/ReservationForm.php:504
+#: classes/Forms/ReservationForm.php:546
+msgctxt "pikaday calendars"
+msgid "From &hellip;"
+msgstr ""
+
+#: classes/Forms/ReservationForm.php:547
+msgctxt "pikaday calendars"
+msgid "To &hellip;"
+msgstr ""
+
+#: classes/Forms/ReservationForm.php:548
 msgctxt "reservation form validation"
 msgid "You cannot reserve dates that are already reserved."
 msgstr ""
@@ -315,42 +330,42 @@ msgid_plural "Declined reservations <span class="count">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: classes/PostTypes/Reservation.php:375, classes/PostTypes/Reservation.php:421
+#: classes/PostTypes/Reservation.php:419
 msgctxt "note content for new pending reservation"
 msgid "Reservation marked as <em>pending</em>."
 msgstr ""
 
-#: classes/PostTypes/Reservation.php:459
+#: classes/PostTypes/Reservation.php:457
 msgctxt "note content for new accepted reservation"
 msgid "Reservation marked as <em>accepted</em>."
 msgstr ""
 
-#: classes/PostTypes/Reservation.php:496
+#: classes/PostTypes/Reservation.php:494
 msgctxt "note content for new declined reservation"
 msgid "Reservation marked as <em>declined</em>."
 msgstr ""
 
-#: classes/PostTypes/Reservation.php:539
+#: classes/PostTypes/Reservation.php:537
 msgctxt "reservation email"
 msgid "Your reservation has been accepted"
 msgstr ""
 
-#: classes/PostTypes/Reservation.php:546
+#: classes/PostTypes/Reservation.php:544
 msgctxt "reservation email"
 msgid "Your reservation has been declined"
 msgstr ""
 
-#: classes/PostTypes/Reservation.php:553
+#: classes/PostTypes/Reservation.php:551
 msgctxt "reservation email"
 msgid "You have a new pending reservation"
 msgstr ""
 
-#: classes/PostTypes/Reservation.php:560
+#: classes/PostTypes/Reservation.php:558
 msgctxt "reservation email"
 msgid "New pending reservation at %s"
 msgstr ""
 
-#: classes/PostTypes/Reservation.php:583
+#: classes/PostTypes/Reservation.php:581
 msgctxt "note content for new declined reservation"
 msgid "Reservation email notification failed. Attempted to send a `%s` email."
 msgstr ""

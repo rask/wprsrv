@@ -2,6 +2,9 @@
  * Wprsrv Calendar Scripts.
  */
 
+/* globals moment */
+/* globals Pikaday */
+
 /**
  * Simple method to add an amount of days to a Date object.
  *
@@ -11,7 +14,7 @@ Date.prototype.addDays = function (num)
 {
     'use strict';
 
-    this.setDate(this.getDate() + num)
+    this.setDate(this.getDate() + num);
 };
 
 /**
@@ -139,7 +142,7 @@ Date.prototype.toYmd = function (sep)
                     nextDis = item;
                 }
 
-                if (item == picked) {
+                if (item === picked) {
                    nextIs = true;
                 }
             });
@@ -160,6 +163,10 @@ Date.prototype.toYmd = function (sep)
             self.startPicker.setStartRange(startDate);
             self.endPicker.setStartRange(startDate);
             self.endPicker.setMinDate(startDate);
+
+            // Redraw the calendars as we're in container mode.
+            self.endPicker.draw();
+            self.startPicker.draw();
 
             // Validate that range does not cross blocked days.
             if (startDate && endDate) {
@@ -184,6 +191,10 @@ Date.prototype.toYmd = function (sep)
             self.startPicker.setEndRange(endDate);
             self.startPicker.setMaxDate(endDate);
             self.endPicker.setEndRange(endDate);
+
+            // Redraw the calendars as we're in container mode.
+            self.startPicker.draw();
+            self.endPicker.draw();
 
             // Validate that range does not cross blocked days.
             if (startDate && endDate) {
@@ -223,15 +234,16 @@ Date.prototype.toYmd = function (sep)
         },
 
         /**
-         * Load data for disables days which should not be selectable in the calendars.
+         * Load data for disables days which should not be selectable in the
+         * calendars.
          *
          * @return {void}
          */
         loadDisabledDaysData: function ()
         {
-            if (window.reservableDisabledDays !== undefined && window.reservableDisabledDays.length) {
-                var disDays = window.reservableDisabledDays;
+            var disDays = window.reservableDisabledDays;
 
+            if (disDays !== undefined && disDays.length) {
                 disDays.forEach(function (item) {
                     var start = new Date(item.start + 'T00:00:00');
                     var end = new Date(item.end + 'T23:59:59');
@@ -253,17 +265,25 @@ Date.prototype.toYmd = function (sep)
          * Baseline configuration for Pikaday instances.
          *
          * @param self
+         * @param {Element} calContainer
          *
          * @return {Object}
          */
-        getPikadayConfig: function (self)
+        getPikadayConfig: function (self, calContainer)
         {
             var l10n = self.l10n.pikaday || {
-                previousMonth : 'Previous Month',
-                nextMonth     : 'Next Month',
-                months        : ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-                weekdays      : ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-                weekdaysShort : ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+                previousMonth: 'Previous Month',
+                nextMonth: 'Next Month',
+                months: [
+                    'January', 'February', 'March', 'April',
+                    'May', 'June', 'July', 'August',
+                    'September', 'October', 'November', 'December'
+                ],
+                weekdays: [
+                    'Sunday', 'Monday', 'Tuesday', 'Wednesday',
+                    'Thursday', 'Friday', 'Saturday'
+                ],
+                weekdaysShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
             };
 
             var dateDisplayFormat = 'YYYY-MM-DD';
@@ -281,7 +301,7 @@ Date.prototype.toYmd = function (sep)
                 var isDisabled = false;
 
                 self.disabledDates.forEach(function (item) {
-                    if (item == dateStr) {
+                    if (item === dateStr) {
                         isDisabled = true;
                     }
                 });
@@ -289,16 +309,52 @@ Date.prototype.toYmd = function (sep)
                 return isDisabled;
             };
 
+            var minimumCalDate = moment()
+                .hour(0)
+                .minute(0)
+                .second(0)
+                .milliseconds(0)
+                .toDate();
+
             return {
                 firstDay: 1,
                 i18n: l10n,
                 format: dateDisplayFormat,
                 yearRange: enabledYearRange,
                 disableDayFn: disabledDays,
-                minDate: moment().hour(0).minute(0).second(0).milliseconds(0).toDate()
+                minDate: minimumCalDate,
+                container: calContainer,
+                bound: false
             };
         },
 
+        /**
+         * Span a calendar container for a Pikaday calendar field.
+         *
+         * @param field
+         * @returns {Element}
+         */
+        spawnCalendarContainer: function (field, heading)
+        {
+            var container = document.createElement('div');
+
+            container.id = field.id + '-calcont';
+            container.className = 'pikaday-container';
+
+            field.parentNode.insertBefore(container, field.nextSibling);
+
+            if (heading !== undefined) {
+                var headingStr = heading.toString();
+
+                var headEl = document.createElement('strong');
+                headEl.className = 'pikaday-heading';
+                headEl.innerHTML = headingStr;
+
+                field.parentNode.insertBefore(headEl, container);
+            }
+
+            return container;
+        },
 
         /**
          * Spawn Pikaday datepicker instance for a single date picker input.
@@ -309,7 +365,9 @@ Date.prototype.toYmd = function (sep)
          */
         spawnSinglePicker: function (field)
         {
-            var calOpts = this.getPikadayConfig(this);
+            var calendarContainer = this.spawnCalendarContainer(field);
+
+            var calOpts = this.getPikadayConfig(this, calendarContainer);
 
             calOpts.field = field;
 
@@ -326,7 +384,11 @@ Date.prototype.toYmd = function (sep)
          */
         spawnStartPicker: function (field)
         {
-            var calOpts = this.getPikadayConfig(this);
+            var fromText = this.l10n.date_form || 'From ...';
+
+            var calContainer = this.spawnCalendarContainer(field, fromText);
+
+            var calOpts = this.getPikadayConfig(this, calContainer);
 
             calOpts.field = field;
 
@@ -348,7 +410,11 @@ Date.prototype.toYmd = function (sep)
          */
         spawnEndPicker: function (field)
         {
-            var calOpts = this.getPikadayConfig(this);
+            var toText = this.l10n.date_to || 'To ...';
+
+            var calContainer = this.spawnCalendarContainer(field, toText);
+
+            var calOpts = this.getPikadayConfig(this, calContainer);
 
             calOpts.field = field;
 
@@ -367,7 +433,8 @@ Date.prototype.toYmd = function (sep)
          * Show a client-side validation error.
          *
          * @param {String} msg Validation message.
-         * @param {Boolean} autohide Hide the message automatically. Defaults to false.
+         * @param {Boolean} autohide Hide the message automatically. Defaults to
+         *                           false.
          *
          * @return {void}
          */
