@@ -369,18 +369,11 @@ class Reservation extends PostType
 
             // This will fire the currently running hook again.
             $reservationId = wp_update_post($postData);
-
-            if ($reservationId > 0 && !is_wp_error($reservationId)) {
-                $reservation = new ReservationObj($reservationId);
-                $reservation->addNote(_x('Reservation marked as <em>pending</em>.', 'note content for new pending reservation', 'wprsrv'));
-            }
         }, 25, 3);
 
-        add_action('wprsrv/reservation/created', [$this, 'newPendingReservation'], 25, 2);
-
-        add_action('reservation_pending_post', [$this, 'newPendingReservation'], 25, 2);
-        add_action('reservation_accepted_post', [$this, 'newAcceptedReservation'], 25, 2);
-        add_action('reservation_declined_post', [$this, 'newDeclinedReservation'], 25, 2);
+        add_action('reservation_pending_reservation', [$this, 'newPendingReservation'], 25, 2);
+        add_action('reservation_accepted_reservation', [$this, 'newAcceptedReservation'], 25, 2);
+        add_action('reservation_declined_reservation', [$this, 'newDeclinedReservation'], 25, 2);
     }
 
     /**
