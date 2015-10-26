@@ -7,7 +7,6 @@ namespace Wprsrv;
 <div id="reservation-form">
     <h2><?php _ex('Make a reservation', 'reservation frontend form', 'reserve'); ?></h2>
 
-
     <?php if (isset($_POST['reservation_notice'])) : ?>
         <p class="reservation-notice"><?php echo htmlentities(strip_tags($_POST['reservation_notice'])); ?></p>
     <?php endif; ?>

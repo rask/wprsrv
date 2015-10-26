@@ -350,6 +350,11 @@ FIELDS;
             return;
         }
 
+        if (!is_user_logged_in() && $this->reservable->isLoginRequired()) {
+            $this->reservationRestrictedNotice();
+            return;
+        }
+
         try {
             $this->formFieldMarkup = $this->generateFormFieldsMarkup();
         } catch (\Exception $e) {
@@ -479,6 +484,31 @@ FIELDS;
          * @param Reservable $reservable The reservable this form is displayed for.
          */
         $message = apply_filters('wprsrv/reservation_form/disabled_message', $message, $this->reservable);
+
+        printf('<p class="reservation-disabled-notice">%s</p>', $message);
+    }
+
+    /**
+     * Notice to show when reservations are restricted to logged-in users.
+     *
+     * @since 0.1.0
+     * @access protected
+     * @return void
+     */
+    protected function reservationRestrictedNotice()
+    {
+        $message = _x('Reservations are restricted to registered users. Please log in first.', 'reservation form disabled for guest users', 'wprsrv');
+
+        /**
+         * Filter the reservation form message for restricted access (e.g. logged-in
+         * users only.
+         *
+         * @since 0.1.0
+         *
+         * @param String $message Restricted access message to show.
+         * @param Reservable $reservable The reservable this form is displayed for.
+         */
+        apply_filters('wprsrv/reservation_form/restricted_message', $message, $this->reservable);
 
         printf('<p class="reservation-disabled-notice">%s</p>', $message);
     }

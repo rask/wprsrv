@@ -258,7 +258,7 @@ class Reservable
      */
     public function isLoginRequired()
     {
-        return $this->getMeta('login_required', true);
+        return $this->getMeta('login_required');
     }
 
     /**
