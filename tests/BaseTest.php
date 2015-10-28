@@ -24,9 +24,5 @@ class BaseTest extends PHPUnit_Framework_TestCase
     {
         $this->assertTrue(function_exists('\\Wprsrv\\wprsrv'));
         $this->assertTrue(class_exists('\\Wprsrv\\Plugin'));
-
-        $pluginActive = is_plugin_active('wprsrv/wprsrv.php');
-
-        $this->assertTrue($pluginActive);
     }
 }
