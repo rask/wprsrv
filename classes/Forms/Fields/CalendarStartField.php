@@ -22,6 +22,6 @@ class CalendarStartField extends CalendarField
      */
     public function generateMarkup()
     {
-        return sprintf('<input type="text" placeholder="%s" id="datepicker-field-start" class="datepicker-field" name="%s" value="%s">', _x('From ...', 'calendar placeholder', 'wprsrv'), $this->name, $this->value);
+        return sprintf('<input type="hidden" placeholder="%s" id="datepicker-field-start" class="datepicker-field" name="%s" value="%s">', _x('From ...', 'calendar placeholder', 'wprsrv'), $this->name, $this->value);
     }
 }

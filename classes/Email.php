@@ -155,6 +155,15 @@ class Email
 
         $template = include($this->template);
 
+        /**
+         * Filter a type template for an email.
+         *
+         * Allows filtering the template content for a certain type of email.
+         *
+         * @since 0.1.0
+         *
+         * @param String $template The loaded template.
+         */
         $template = apply_filters('wprsrv/email_template/' . $this->type, $template);
 
         $this->body = $template;
@@ -170,6 +179,15 @@ class Email
      */
     public function send()
     {
+        /**
+         * Filter a type template for an email.
+         *
+         * Allows filtering the template content for a certain type of email.
+         *
+         * @since 0.1.0
+         *
+         * @param String $template The loaded template.
+         */
         $template = apply_filters('wprsrv/email_template/' . $this->type, $this->template);
 
         $this->body = trim($this->body);

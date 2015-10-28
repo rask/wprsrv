@@ -350,6 +350,11 @@ FIELDS;
             return;
         }
 
+        if (!is_user_logged_in() && $this->reservable->isLoginRequired()) {
+            $this->reservationRestrictedNotice();
+            return;
+        }
+
         try {
             $this->formFieldMarkup = $this->generateFormFieldsMarkup();
         } catch (\Exception $e) {
@@ -404,20 +409,31 @@ FIELDS;
         if ($reservable->isSingleDay()) {
             $reservation_meta_data['start_date'] = $data['wprsrv-reservation-date'];
             $reservation_meta_data['end_date'] = $data['wprsrv-reservation-date'];
+            $reservation_meta_data['reservation_date'] = $data['wprsrv-reservation-date'];
         } else {
             $reservation_meta_data['start_date'] = $data['wprsrv-reservation-date-start'];
             $reservation_meta_data['end_date'] = $data['wprsrv-reservation-date-end'];
         }
 
-        $reservationTitle = [
-            $reservable->post_title,
-            ': ',
-            $reservation_meta_data['start_date'],
-            ' to ',
-            $reservation_meta_data['end_date'],
-            ', by ',
-            $reservation_meta_data['reserver_email']
-        ];
+        if ($reservable->isSingleDay()) {
+            $reservationTitle = [
+                $reservable->post_title,
+                ': ',
+                $reservation_meta_data['start_date'],
+                ', by ',
+                $reservation_meta_data['reserver_email']
+            ];
+        } else {
+            $reservationTitle = [
+                $reservable->post_title,
+                ': ',
+                $reservation_meta_data['start_date'],
+                ' to ',
+                $reservation_meta_data['end_date'],
+                ', by ',
+                $reservation_meta_data['reserver_email']
+            ];
+        }
 
         $reservationTitle = implode('', $reservationTitle);
 
@@ -429,11 +445,12 @@ FIELDS;
         ];
 
         try {
-            $reservation = Reservation::create($reservation_post_data, $reservation_meta_data);
+            $reservation = Reservation::create($reservation_post_data, $reservation_meta_data, $reservable);
         } catch (\InvalidArgumentException $iae) {
             $_POST['reservation_notice'] = _x('The data you gave looked invalid, please check your fields and try again.', 'reservation form error', 'wprsrv');
             return;
         } catch (\Exception $e) {
+            \Wprsrv\wprsrv()->logger->critical('Could not create new reservation: {msg}', ['msg' => print_r($e, true)]);
             $_POST['reservation_notice'] = _x('Sorry, something went wrong in the reservation system, please try again.', 'reservation form error', 'wprsrv');
             return;
         }
@@ -472,6 +489,31 @@ FIELDS;
     }
 
     /**
+     * Notice to show when reservations are restricted to logged-in users.
+     *
+     * @since 0.1.0
+     * @access protected
+     * @return void
+     */
+    protected function reservationRestrictedNotice()
+    {
+        $message = _x('Reservations are restricted to registered users. Please log in first.', 'reservation form disabled for guest users', 'wprsrv');
+
+        /**
+         * Filter the reservation form message for restricted access (e.g. logged-in
+         * users only.
+         *
+         * @since 0.1.0
+         *
+         * @param String $message Restricted access message to show.
+         * @param Reservable $reservable The reservable this form is displayed for.
+         */
+        apply_filters('wprsrv/reservation_form/restricted_message', $message, $this->reservable);
+
+        printf('<p class="reservation-disabled-notice">%s</p>', $message);
+    }
+
+    /**
      * Reservation form localization for JS.
      *
      * @since 0.1.0
@@ -501,6 +543,8 @@ FIELDS;
                         'weekdays'      => $weekdays,
                         'weekdaysShort' => $weekdaysShort
                     ],
+                    'date_from' => _x('From &hellip;', 'pikaday calendars', 'wprsrv'),
+                    'date_to' => _x('To &hellip;', 'pikaday calendars', 'wprsrv'),
                     'already_reserved' => _x('You cannot reserve dates that are already reserved.', 'reservation form validation', 'wprsrv')
                 ]
             ]
