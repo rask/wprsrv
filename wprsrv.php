@@ -6,8 +6,9 @@ namespace Wprsrv;
  * Plugin name: wprsrv
  * Description: A basic reservation system, for WordPress.
  * Version: 0.1.0
+ * Plugin URI: https://github.com/rask/wprsrv
  * Author: Otto J. Rask
- * Author URL: http://www.ottorask.com
+ * Author URI: http://www.ottorask.com
  * License: GPLv3 (see LICENSE.md)
  * Text Domain: wprsrv
  * Domain Path: /languages
@@ -20,6 +21,10 @@ if (!defined('ABSPATH')) {
 if (!defined('RDS')) {
     define('RDS', DIRECTORY_SEPARATOR);
 }
+
+define('WPRSRV_DIR', __DIR__);
+define('GITHUB_REPO_ID', 'rask/wprsrv');
+define('PLUGIN_DIR_ID', basename(__DIR__) . '/' . basename(__FILE__));
 
 /**
  * Plugin and vendor autoloading.
@@ -42,6 +47,7 @@ global $wprsrv;
 /**
  * Unforced singleton fetcher function for the plugin.
  *
+ * @since 0.1.0
  * @return \Wprsrv\Plugin
  */
 function wprsrv()
@@ -59,3 +65,10 @@ function wprsrv()
  * Init.
  */
 wprsrv();
+
+/**
+ * Run updater.
+ */
+if (is_admin()) {
+    new \Wprsrv\Updater(PLUGIN_DIR_ID, GITHUB_REPO_ID);
+}

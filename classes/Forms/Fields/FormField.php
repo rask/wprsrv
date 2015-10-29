@@ -7,6 +7,7 @@ namespace Wprsrv\Forms\Fields;
  *
  * Base class for form fields.
  *
+ * @since 0.1.0
  * @package Wprsrv\Forms\Fields
  */
 abstract class FormField
@@ -14,6 +15,7 @@ abstract class FormField
     /**
      * Field name attribute.
      *
+     * @since 0.1.0
      * @access protected
      * @var String
      */
@@ -22,6 +24,7 @@ abstract class FormField
     /**
      * Field HTML ID attribute.
      *
+     * @since 0.1.0
      * @access protected
      * @var String
      */
@@ -30,6 +33,7 @@ abstract class FormField
     /**
      * Field value.
      *
+     * @since 0.1.0
      * @access protected
      * @var String
      */
@@ -38,8 +42,10 @@ abstract class FormField
     /**
      * Constructor.
      *
-     * @param $name
-     * @param array $fieldData
+     * @since 0.1.0
+     *
+     * @param String $name Field name attribute.
+     * @param array $fieldData Data for field and its attributes.
      *
      * @return void
      */
@@ -56,6 +62,8 @@ abstract class FormField
     /**
      * Generate field HTML markup. Return as a string.
      *
+     * @abstract
+     * @since 0.1.0
      * @return String
      */
     public abstract function generateMarkup();

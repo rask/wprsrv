@@ -7,8 +7,9 @@ use Wprsrv\Forms\Fields\FormField;
 /**
  * Class TextField
  *
- * <input type="text">
+ * <select><option></option></select>
  *
+ * @since 0.1.0
  * @package Wprsrv\Forms\Fields
  */
 class SelectField extends FormField
@@ -16,6 +17,7 @@ class SelectField extends FormField
     /**
      * Select field options.
      *
+     * @since 0.1.0
      * @access protected
      * @var mixed[]
      */
@@ -24,6 +26,7 @@ class SelectField extends FormField
     /**
      * Generate the field markup for use elsewhere.
      *
+     * @since 0.1.0
      * @return String
      */
     public function generateMarkup()

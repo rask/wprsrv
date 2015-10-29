@@ -22,13 +22,12 @@ class Reservable extends PostType
      * @access protected
      * @var String
      */
-    protected $post_type_slug = 'reservable';
+    protected $postTypeSlug = 'reservable';
 
     /**
      * Register the post type.
      *
      * @since 0.1.0
-     *
      * @access protected
      * @return void
      */
@@ -91,7 +90,7 @@ class Reservable extends PostType
          */
         $args = apply_filters('wprsrv/reservable/post_type_args', $args);
 
-        register_post_type($this->post_type_slug, $args);
+        register_post_type($this->postTypeSlug, $args);
 
         $this->addHooks();
     }
@@ -100,7 +99,6 @@ class Reservable extends PostType
      * Add various hooks to accomplish various reservable related goals. Wow sounded quite the business talk.
      *
      * @since 0.1.0
-     *
      * @access protected
      * @return void
      */
@@ -114,9 +112,9 @@ class Reservable extends PostType
      * Custom saving logic for reservables.
      *
      * @see self::addHooks()
-     * @see:wphook `save_post`
-     *
+     * @see:wphook save_post
      * @since 0.1.0
+     * @todo Make this method simpler and extract some parts elsewhere.
      *
      * @param Integer $post_id Post ID being saved.
      * @param \WP_Post $post Post being saved.
@@ -237,8 +235,7 @@ class Reservable extends PostType
      * Generate a reservation form object for a reservable.
      *
      * @see self::addHooks()
-     * @see:wphook `init`
-     *
+     * @see:wphook init
      * @since 0.1.0
      *
      * @return void
@@ -254,7 +251,14 @@ class Reservable extends PostType
 
         $form = new ReservationForm($post);
 
-        $form = apply_filters('wprsrv/reservation_form_init', $form);
+        /**
+         * Filter a new reservation form instance.
+         *
+         * @since 0.1.0
+         *
+         * @param ReservationForm $form
+         */
+        $form = apply_filters('wprsrv/reservation_form_instance', $form);
 
         $reservation_form = $form;
     }
@@ -263,6 +267,9 @@ class Reservable extends PostType
      * Spawn edit screen metaboxes for reservables.
      *
      * @since 0.1.0
+     *
+     * @param ReservableObj|\WP_Post $reservable The reservable object to make
+     *                                           metaboxes for.
      *
      * @return void
      */
@@ -289,6 +296,7 @@ class Reservable extends PostType
      * Spawn metaboxes for the post type.
      *
      * @since 0.1.0
+     * @access protected
      *
      * @param $string
      * @param $reservable

@@ -9,11 +9,18 @@ namespace Wprsrv;
  *
  * @property mixed $logging
  * @property mixed $email
- *
+ * @since 0.1.0
  * @package Wprsrv
  */
 class Settings
 {
+    /**
+     * Currently loaded plugin settings.
+     *
+     * @since 0.1.0
+     * @access protected
+     * @var mixed[]
+     */
     protected $settings = [];
 
     /**
@@ -21,6 +28,7 @@ class Settings
      *
      * Load settings from database or set defaults if they're not available.
      *
+     * @since 0.1.0
      * @return void
      */
     public function __construct()
@@ -31,7 +39,11 @@ class Settings
     /**
      * Magic settings getter.
      *
-     * @param $key
+     * If this class itself does not have the property, try the settings array.
+     *
+     * @since 0.1.0
+     *
+     * @param String $key Property name key.
      *
      * @return mixed
      */
@@ -49,6 +61,7 @@ class Settings
     /**
      * Get all settings.
      *
+     * @since 0.1.0
      * @return mixed[]
      */
     public function getSettings()
@@ -59,12 +72,27 @@ class Settings
     /**
      * Load default settings in case none are set.
      *
+     * @since 0.1.0
      * @access protected
      * @return void
      */
     protected function setupDefaultSettings()
     {
-        $this->settings = include(wprsrv()->pluginDirectory . RDS . 'config' . RDS . 'defaults.php');
+        $defaultsFile = WPRSRV_DIR . RDS . 'config' . RDS . 'defaults.php';
+
+        /**
+         * From which PHP file should be load plugin settings from.
+         *
+         * The file should contain a returned PHP array for settings. The param
+         * should be an absolute file path.
+         *
+         * @since 0.1.0
+         *
+         * @param String $defaultsFile
+         */
+        $defaultsFile = apply_filters('wprsrv/settings/defaults_file', $defaultsFile);
+
+        $this->settings = include($defaultsFile);
 
         // Persist defaults.
         update_option('wprsrv', $this->settings);
@@ -73,6 +101,9 @@ class Settings
     /**
      * Load settings from database.
      *
+     * If the database has no settings set, load the defaults.
+     *
+     * @since 0.1.0
      * @access protected
      * @return void
      */

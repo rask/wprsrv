@@ -25,7 +25,7 @@ return [
     // Logging related.
     'logging' => [
         // Log file absolute path.
-        'log_file' => $uploads['basedir'] . RDS . 'wprsrv' . RDS . 'wprsrv.log',
+        'log_file' => $uploads['basedir'] . '/wprsrv/wprsrv.log',
 
         // Maximum log filesize.
         'log_max_size' => 1024*1024*1024 // ~10MB

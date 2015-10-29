@@ -12,7 +12,6 @@ use Wprsrv\PostTypes\Objects\Reservation;
  * @global $reservation_form
  * @global $post
  * @since 0.1.0
- *
  * @return void
  */
 function reservation_form()

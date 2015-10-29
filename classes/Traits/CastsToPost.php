@@ -5,13 +5,16 @@ namespace Wprsrv\Traits;
 /**
  * Trait CastsToPost
  *
- * Allows "extending" the final class WP\_Post. Essentially there is a magic getter and caller which passed missing
- * properties and methods over to the injected WP\_Post instance. Classes that use this trait can create extended
- * logic on top of the WP\_Post logic and (mostly) pass those objects to places where WP_Post can be passed to.
+ * Allows "extending" the final class WP\_Post. Essentially there is a magic getter
+ * and caller which passed missing properties and methods over to the injected
+ * WP\_Post instance. Classes that use this trait can create extended logic on top of
+ * the WP\_Post logic and (mostly) pass those objects to places where WP_Post can be
+ * passed to.
  *
  * @property Integer $ID Post ID.
  * @property String $post_status Post status.
  *
+ * @since 0.1.0
  * @package Wprsrv\Traits
  */
 trait CastsToPost
@@ -19,6 +22,7 @@ trait CastsToPost
     /**
      * Injected WP_Post object.
      *
+     * @since 0.1.0
      * @var \WP_Post
      */
     public $post;
@@ -26,18 +30,21 @@ trait CastsToPost
     /**
      * Transient cache key prefix.
      *
+     * @since 0.1.0
      * @var String
      */
     public $cachePrefix;
 
     /**
-     * Magic getter
+     * Magic getter.
      *
-     * If the property is not available on the implementing class, attempt the injected WP\_Post object.
+     * If the property is not available on the implementing class, attempt the
+     * injected WP\_Post object.
      *
-     * @throws \Exception
+     * @since 0.1.0
+     * @throws \Exception If property does not exist in injected WP_Post.
      *
-     * @param $key
+     * @param String $key The propery key.
      *
      * @return mixed
      */
@@ -51,14 +58,16 @@ trait CastsToPost
     }
 
     /**
-     * Magic setter
+     * Magic setter.
      *
-     * If the property is not available on the implementing class, attempt the injected WP\_Post object.
+     * If the property is not available on the implementing class, attempt the
+     * injected WP\_Post object.
      *
-     * @throws \Exception
+     * @since 0.1.0
+     * @throws \Exception If property does not exist in injected WP_Post.
      *
-     * @param $key
-     * @param $value
+     * @param String $key Key to use.
+     * @param mixed $value Value to set.
      *
      * @return void
      */
@@ -72,12 +81,16 @@ trait CastsToPost
     }
 
     /**
-     * Magic calls
+     * Magic calls.
      *
-     * If the method is not available on the implementing class, attempt the injected WP\_Post object.
+     * If the method is not available on the implementing class, attempt the injected
+     * WP\_Post object.
      *
-     * @param $method
-     * @param $arguments
+     * @since 0.1.0
+     * @throws \Exception If method does not exist in injected WP_Post.
+     *
+     * @param String|callable $method Method to call.
+     * @param mixed $arguments Method arguments.
      *
      * @return mixed
      */
@@ -91,13 +104,16 @@ trait CastsToPost
     }
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * Pass in either a post ID (integer) or a WP\_Post object. The post will be available through the `post` property
-     * or through the magic getters and setters.
+     * Pass in either a post ID (integer) or a WP\_Post object. The post will be
+     * available through the `post` property or through the magic getters and
+     * setters.
      *
-     * @throws \InvalidArgumentException If the given post or ID is not an actual WP\_Post reference or the
-     *     instantiation of the new WP\_Post fails.
+     * @since 0.1.0
+     * @throws \InvalidArgumentException If the given post or ID is not an actual
+     *                                   WP\_Post reference or the instantiation of
+     *                                   the new WP\_Post fails.
      *
      * @param \WP_Post|Integer $post Post object or ID to use for injection.
      *
@@ -117,8 +133,9 @@ trait CastsToPost
     }
 
     /**
-     * Setup caching setup.
+     * Caching setup.
      *
+     * @since 0.1.0
      * @access protected
      * @return void
      */

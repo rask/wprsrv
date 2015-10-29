@@ -2,11 +2,20 @@
 
 namespace Wprsrv;
 
+/**
+ * Class Email
+ *
+ * Email sender class.
+ *
+ * @since 0.1.0
+ * @package Wprsrv
+ */
 class Email
 {
     /**
-     * Type slug.
+     * Type slug. The type of email this class is sending.
      *
+     * @since 0.1.0
      * @access protected
      * @var String
      */
@@ -15,6 +24,7 @@ class Email
     /**
      * Email subject line.
      *
+     * @since 0.1.0
      * @access protected
      * @var String
      */
@@ -23,6 +33,7 @@ class Email
     /**
      * Email content body.
      *
+     * @since 0.1.0
      * @access protected
      * @var String
      */
@@ -31,6 +42,7 @@ class Email
     /**
      * Email receiver address.
      *
+     * @since 0.1.0
      * @access protected
      * @var String
      */
@@ -39,6 +51,7 @@ class Email
     /**
      * Additional headers for sending.
      *
+     * @since 0.1.0
      * @access protected
      * @var mixed
      */
@@ -47,6 +60,7 @@ class Email
     /**
      * Template file to use. Set absolute file path.
      *
+     * @since 0.1.0
      * @access protected
      * @var String
      */
@@ -55,6 +69,7 @@ class Email
     /**
      * Callback to trigger when email send fails.
      *
+     * @since 0.1.0
      * @access protected
      * @var callable
      */
@@ -63,6 +78,7 @@ class Email
     /**
      * Callback to trigger when sending succeeds.
      *
+     * @since 0.1.0
      * @access protected
      * @var callable
      */
@@ -71,6 +87,7 @@ class Email
     /**
      * Failure callback argument array.
      *
+     * @since 0.1.0
      * @access protected
      * @var mixed[]
      */
@@ -79,6 +96,7 @@ class Email
     /**
      * Success callback arguments array.
      *
+     * @since 0.1.0
      * @access protected
      * @var mixed[]
      */
@@ -86,6 +104,8 @@ class Email
 
     /**
      * Constructor. Set the email type.
+     *
+     * @since 0.1.0
      *
      * @param String $type Type of email.
      *
@@ -99,7 +119,11 @@ class Email
     /**
      * Set the wanted email template to use when sending.
      *
+     * @since 0.1.0
+     *
      * @param $templateFile
+     *
+     * @return self
      */
     public function setTemplate($templateFile)
     {
@@ -119,7 +143,11 @@ class Email
     /**
      * Send with an array of data. The template file will be filled with the data.
      *
+     * @since 0.1.0
+     *
      * @param array $args
+     *
+     * @return void
      */
     public function sendWith(Array $args)
     {
@@ -127,6 +155,15 @@ class Email
 
         $template = include($this->template);
 
+        /**
+         * Filter a type template for an email.
+         *
+         * Allows filtering the template content for a certain type of email.
+         *
+         * @since 0.1.0
+         *
+         * @param String $template The loaded template.
+         */
         $template = apply_filters('wprsrv/email_template/' . $this->type, $template);
 
         $this->body = $template;
@@ -137,10 +174,20 @@ class Email
     /**
      * Simple send. If the template contains no customized data this is a good option.
      *
+     * @since 0.1.0
      * @return void
      */
     public function send()
     {
+        /**
+         * Filter a type template for an email.
+         *
+         * Allows filtering the template content for a certain type of email.
+         *
+         * @since 0.1.0
+         *
+         * @param String $template The loaded template.
+         */
         $template = apply_filters('wprsrv/email_template/' . $this->type, $this->template);
 
         $this->body = trim($this->body);
@@ -178,6 +225,7 @@ class Email
     /**
      * Get the subject of the email.
      *
+     * @since 0.1.0
      * @return String
      */
     public function getSubject()
@@ -188,7 +236,11 @@ class Email
     /**
      * Set the subject for this email.
      *
+     * @since 0.1.0
+     *
      * @param String $subject The subject.
+     *
+     * @return self
      */
     public function setSubject($subject)
     {
@@ -200,6 +252,7 @@ class Email
     /**
      * Return the body of the email.
      *
+     * @since 0.1.0
      * @return String
      */
     public function getBody()
@@ -210,7 +263,11 @@ class Email
     /**
      * Set the email body.
      *
+     * @since 0.1.0
+     *
      * @param String $body
+     *
+     * @return self
      */
     public function setBody($body)
     {
@@ -222,6 +279,7 @@ class Email
     /**
      * Get the receiving address.
      *
+     * @since 0.1.0
      * @return String
      */
     public function getTo()
@@ -232,7 +290,11 @@ class Email
     /**
      * Set the receiving address.
      *
+     * @since 0.1.0
+     *
      * @param String $to
+     *
+     * @return self
      */
     public function setTo($to)
     {
@@ -244,6 +306,7 @@ class Email
     /**
      * Get the email headers.
      *
+     * @since 0.1.0
      * @return mixed
      */
     public function getHeaders()
@@ -254,7 +317,11 @@ class Email
     /**
      * Set the email headers.
      *
+     * @since 0.1.0
+     *
      * @param mixed $headers
+     *
+     * @return self
      */
     public function setHeaders($headers)
     {
@@ -266,8 +333,12 @@ class Email
     /**
      * Set the email sending failure callback.
      *
+     * @since 0.1.0
+     *
      * @param callable $failureCallback
      * @param mixed[] $args
+     *
+     * @return self
      */
     public function setFailureCallback($failureCallback, Array $args = [])
     {
@@ -280,8 +351,12 @@ class Email
     /**
      * Sent the email sending success callback.
      *
+     * @since 0.1.0
+     *
      * @param callable $successCallback
      * @param mixed[] $args
+     *
+     * @return self
      */
     public function setSuccessCallback($successCallback, Array $args = [])
     {

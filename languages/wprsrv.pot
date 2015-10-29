@@ -15,265 +15,280 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n\n"
 
-#: classes\Admin\AdminMenu.php:71, classes\Admin\AdminMenu.php:73
+#: classes\Admin\AdminMenu.php:77, classes\Admin\AdminMenu.php:79
 msgid "Reservations"
 msgstr ""
 
-#: classes\Forms\Fields\CalendarEndField.php:45
+#: classes\Forms\Fields\CalendarEndField.php:49
 msgctxt "calendar placeholder"
 msgid "To ..."
 msgstr ""
 
-#: classes\Forms\Fields\CalendarStartField.php:45
+#: classes\Forms\Fields\CalendarStartField.php:49
 msgctxt "calendar placeholder"
 msgid "From ..."
 msgstr ""
 
-#: classes\Forms\ReservationForm.php:221
+#: classes\Forms\ReservationForm.php:241
 msgctxt "reservation form honeypot failure"
 msgid "Invalid spam check, please validate your submission."
 msgstr ""
 
-#: classes\Forms\ReservationForm.php:311
+#: classes\Forms\ReservationForm.php:369
 msgctxt "reservation form field label"
 msgid "Your name"
 msgstr ""
 
-#: classes\Forms\ReservationForm.php:321
+#: classes\Forms\ReservationForm.php:379
 msgctxt "reservation form field label"
 msgid "Your email address"
 msgstr ""
 
-#: classes\Forms\ReservationForm.php:331
+#: classes\Forms\ReservationForm.php:395
 msgctxt "reservation form field label"
 msgid "Day to reserve"
 msgstr ""
 
-#: classes\Forms\ReservationForm.php:331
+#: classes\Forms\ReservationForm.php:397
 msgctxt "reservation form field label"
 msgid "Date range to reserve"
 msgstr ""
 
-#: classes\Forms\ReservationForm.php:339
+#: classes\Forms\ReservationForm.php:405
 msgctxt "reservation form field label"
 msgid "Additional information"
 msgstr ""
 
-#: classes\Forms\ReservationForm.php:715
+#: classes\Forms\ReservationForm.php:899
 msgctxt "reservation form error"
 msgid "The data you gave looked invalid, please check your fields and try again."
 msgstr ""
 
-#: classes\Forms\ReservationForm.php:721
+#: classes\Forms\ReservationForm.php:907
 msgctxt "reservation form error"
 msgid "Sorry, something went wrong in the reservation system, please try again."
 msgstr ""
 
-#: classes\Forms\ReservationForm.php:741
+#: classes\Forms\ReservationForm.php:927
 msgctxt "reservation form success"
 msgid "Thank you for your reservation. You will get a confirmation email in a few moments."
 msgstr ""
 
-#: classes\Forms\ReservationForm.php:763
+#: classes\Forms\ReservationForm.php:951
 msgctxt "reservation form disabled for reservable"
 msgid "Reservations are disabled for this item at the moment."
 msgstr ""
 
-#: classes\Forms\ReservationForm.php:823
+#: classes\Forms\ReservationForm.php:999
+msgctxt "reservation form disabled for guest users"
+msgid "Reservations are restricted to registered users. Please log in first."
+msgstr ""
+
+#: classes\Forms\ReservationForm.php:1079
 msgctxt "pikaday calendars"
 msgid "Previous Month"
 msgstr ""
 
-#: classes\Forms\ReservationForm.php:825
+#: classes\Forms\ReservationForm.php:1081
 msgctxt "pikaday calendars"
 msgid "Next Month"
 msgstr ""
 
-#: classes\Forms\ReservationForm.php:835
+#: classes\Forms\ReservationForm.php:1091
+msgctxt "pikaday calendars"
+msgid "From &hellip;"
+msgstr ""
+
+#: classes\Forms\ReservationForm.php:1093
+msgctxt "pikaday calendars"
+msgid "To &hellip;"
+msgstr ""
+
+#: classes\Forms\ReservationForm.php:1095
 msgctxt "reservation form validation"
 msgid "You cannot reserve dates that are already reserved."
 msgstr ""
 
-#: classes\PostTypes\Objects\Reservation.php:191
+#: classes\PostTypes\Objects\Reservation.php:201
 msgctxt "validation error label"
 msgid "email address"
 msgstr ""
 
-#: classes\PostTypes\Objects\Reservation.php:193
+#: classes\PostTypes\Objects\Reservation.php:203
 msgctxt "validation error label"
 msgid "starting date or time"
 msgstr ""
 
-#: classes\PostTypes\Objects\Reservation.php:195
+#: classes\PostTypes\Objects\Reservation.php:205
 msgctxt "validation error label"
 msgid "ending date or time"
 msgstr ""
 
-#: classes\PostTypes\Objects\Reservation.php:209
+#: classes\PostTypes\Objects\Reservation.php:219
 msgctxt "validation error"
 msgid "Missing field: %s"
 msgstr ""
 
-#: classes\PostTypes\Objects\Reservation.php:225
+#: classes\PostTypes\Objects\Reservation.php:235
 msgctxt "validation error"
 msgid "Invalid number value for %s"
 msgstr ""
 
-#: classes\PostTypes\Objects\Reservation.php:237
+#: classes\PostTypes\Objects\Reservation.php:247
 msgctxt "validation error"
 msgid "Invalid date or time value for %s"
 msgstr ""
 
-#: classes\PostTypes\Objects\Reservation.php:249
+#: classes\PostTypes\Objects\Reservation.php:259
 msgctxt "validation error"
 msgid "Invalid email value for %s"
 msgstr ""
 
-#: classes\PostTypes\Objects\Reservation.php:267
+#: classes\PostTypes\Objects\Reservation.php:277
 msgctxt "validation error"
 msgid "Given reservation date range contains a date that has already been reserved"
 msgstr ""
 
-#: classes\PostTypes\Reservable.php:101
+#: classes\PostTypes\Reservable.php:99
 msgctxt "post type labels"
 msgid "Reservables"
 msgstr ""
 
-#: classes\PostTypes\Reservable.php:103
+#: classes\PostTypes\Reservable.php:101
 msgctxt "post type labels"
 msgid "Reservable"
 msgstr ""
 
-#: classes\PostTypes\Reservable.php:105, classes\PostTypes\Reservation.php:105
+#: classes\PostTypes\Reservable.php:103, classes\PostTypes\Reservation.php:103
 msgctxt "post type labels"
 msgid "Add new"
 msgstr ""
 
-#: classes\PostTypes\Reservable.php:107
+#: classes\PostTypes\Reservable.php:105
 msgctxt "post type labels"
 msgid "Add new reservable"
 msgstr ""
 
-#: classes\PostTypes\Reservable.php:109
+#: classes\PostTypes\Reservable.php:107
 msgctxt "post type labels"
 msgid "Edit reservable"
 msgstr ""
 
-#: classes\PostTypes\Reservable.php:111
+#: classes\PostTypes\Reservable.php:109
 msgctxt "post type labels"
 msgid "New reservable"
 msgstr ""
 
-#: classes\PostTypes\Reservable.php:113
+#: classes\PostTypes\Reservable.php:111
 msgctxt "post type labels"
 msgid "Show reservable"
 msgstr ""
 
-#: classes\PostTypes\Reservable.php:115
+#: classes\PostTypes\Reservable.php:113
 msgctxt "post type labels"
 msgid "Find reservables"
 msgstr ""
 
-#: classes\PostTypes\Reservable.php:117
+#: classes\PostTypes\Reservable.php:115
 msgctxt "post type labels"
 msgid "No reservables found"
 msgstr ""
 
-#: classes\PostTypes\Reservable.php:119
+#: classes\PostTypes\Reservable.php:117
 msgctxt "post type labels"
 msgid "No reservables found in trash"
 msgstr ""
 
-#: classes\PostTypes\Reservable.php:549
+#: classes\PostTypes\Reservable.php:563
 msgctxt "reservable metabox title"
 msgid "Reservable settings"
 msgstr ""
 
-#: classes\PostTypes\Reservable.php:557
+#: classes\PostTypes\Reservable.php:571
 msgctxt "reservable metabox title"
 msgid "Reservation calendar"
 msgstr ""
 
-#: classes\PostTypes\Reservable.php:565
+#: classes\PostTypes\Reservable.php:579
 msgctxt "reservable metabox title"
 msgid "Reservable actions"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:101
+#: classes\PostTypes\Reservation.php:99
 msgctxt "post type labels"
 msgid "Reservations"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:103
+#: classes\PostTypes\Reservation.php:101
 msgctxt "post type labels"
 msgid "reservation"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:107
+#: classes\PostTypes\Reservation.php:105
 msgctxt "post type labels"
 msgid "Add new reservation"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:109
+#: classes\PostTypes\Reservation.php:107
 msgctxt "post type labels"
 msgid "Edit reservation"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:111
+#: classes\PostTypes\Reservation.php:109
 msgctxt "post type labels"
 msgid "New reservation"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:113
+#: classes\PostTypes\Reservation.php:111
 msgctxt "post type labels"
 msgid "Show reservation"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:115
+#: classes\PostTypes\Reservation.php:113
 msgctxt "post type labels"
 msgid "Find reservations"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:117
+#: classes\PostTypes\Reservation.php:115
 msgctxt "post type labels"
 msgid "No reservations found"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:119
+#: classes\PostTypes\Reservation.php:117
 msgctxt "post type labels"
 msgid "No reservations found in trash"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:139
+#: classes\PostTypes\Reservation.php:137
 msgctxt "post type rewrite slug"
 msgid "reservations"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:251
+#: classes\PostTypes\Reservation.php:249
 msgctxt "metabox title"
 msgid "Reservation information"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:259
+#: classes\PostTypes\Reservation.php:257
 msgctxt "metabox title"
 msgid "Reservation actions"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:267
+#: classes\PostTypes\Reservation.php:265
 msgctxt "metabox title"
 msgid "Reservation notes"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:275
+#: classes\PostTypes\Reservation.php:273
 msgctxt "metabox title"
 msgid "Publish"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:473
+#: classes\PostTypes\Reservation.php:471
 msgid "Status"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:475
+#: classes\PostTypes\Reservation.php:473
 msgid "Reserved item"
 msgstr ""
 
@@ -282,75 +297,75 @@ msgctxt "reservation admin column"
 msgid "No reservable determined"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:569
+#: classes\PostTypes\Reservation.php:567
 msgctxt "post status"
 msgid "Pending reservation"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:579
+#: classes\PostTypes\Reservation.php:577
 msgid "Pending reservations <span class="count">(%s)</span>"
 msgid_plural "Pending reservations <span class="count">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: classes\PostTypes\Reservation.php:589
+#: classes\PostTypes\Reservation.php:587
 msgctxt "post status"
 msgid "Accepted reservation"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:599
+#: classes\PostTypes\Reservation.php:597
 msgid "Accepted reservations <span class="count">(%s)</span>"
 msgid_plural "Accepted reservations <span class="count">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: classes\PostTypes\Reservation.php:609
+#: classes\PostTypes\Reservation.php:607
 msgctxt "post status"
 msgid "Declined reservation"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:619
+#: classes\PostTypes\Reservation.php:617
 msgid "Declined reservations <span class="count">(%s)</span>"
 msgid_plural "Declined reservations <span class="count">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: classes\PostTypes\Reservation.php:755, classes\PostTypes\Reservation.php:847
+#: classes\PostTypes\Reservation.php:837
 msgctxt "note content for new pending reservation"
 msgid "Reservation marked as <em>pending</em>."
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:923
+#: classes\PostTypes\Reservation.php:913
 msgctxt "note content for new accepted reservation"
 msgid "Reservation marked as <em>accepted</em>."
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:997
+#: classes\PostTypes\Reservation.php:987
 msgctxt "note content for new declined reservation"
 msgid "Reservation marked as <em>declined</em>."
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:1085
+#: classes\PostTypes\Reservation.php:1073
 msgctxt "reservation email"
 msgid "Your reservation has been accepted"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:1099
+#: classes\PostTypes\Reservation.php:1087
 msgctxt "reservation email"
 msgid "Your reservation has been declined"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:1113
+#: classes\PostTypes\Reservation.php:1101
 msgctxt "reservation email"
 msgid "You have a new pending reservation"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:1127
+#: classes\PostTypes\Reservation.php:1115
 msgctxt "reservation email"
 msgid "New pending reservation at %s"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:1177
+#: classes\PostTypes\Reservation.php:1161
 msgctxt "note content for new declined reservation"
 msgid "Reservation email notification failed. Attempted to send a `%s` email."
 msgstr ""

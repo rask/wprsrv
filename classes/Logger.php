@@ -4,11 +4,29 @@ namespace Wprsrv;
 
 use Psr\Log\LoggerInterface;
 
+/**
+ * Class Logger
+ *
+ * Plugin logger class. Implements the PSR logger interface.
+ *
+ * @since 0.1.0
+ * @package Wprsrv
+ */
 class Logger implements LoggerInterface
 {
     /**
+     * Logging settings.
+     *
+     * @since 0.1.0
+     * @access protected
+     * @var mixed[]
+     */
+    protected $logSettings;
+
+    /**
      * Log file path.
      *
+     * @since 0.1.0
      * @access protected
      * @var String
      */
@@ -17,6 +35,8 @@ class Logger implements LoggerInterface
     /**
      * Logging mode/env.
      *
+     * @since 0.1.0
+     * @access protected
      * @var String
      */
     protected $mode;
@@ -24,7 +44,10 @@ class Logger implements LoggerInterface
     /**
      * Constructor.
      *
-     * @param String $logFile Path to log file.
+     * @since 0.1.0
+     *
+     * @param mixed[] $logSettings Logging settings from the plugin. Should contain
+     *                             at least the log file setting.
      *
      * @return void
      */
@@ -37,7 +60,7 @@ class Logger implements LoggerInterface
     }
 
     /**
-     * Validate the log file existance and setup.
+     * Validate the log file existence and setup.
      *
      * @since 0.1.0
      * @access protected
@@ -47,6 +70,23 @@ class Logger implements LoggerInterface
     {
         // Log file path.
         $logFile = $this->logSettings['log_file'];
+
+        /**
+         * Filter log file path.
+         *
+         * @since 0.1.0
+         *
+         * @param String $logFile Absolute path to log file.
+         *
+         * @return String
+         */
+        $logFile = apply_filters('wprsrv/log_file', $logFile);
+
+        // Instantiate as a null logger.
+        if ($logFile === null) {
+            $this->logFile = $logFile;
+            return;
+        }
 
         if (!isset($this->logSettings['log_max_size'])) {
             $this->logSettings['log_max_size'] = 1024*1024*1024;
@@ -84,6 +124,9 @@ class Logger implements LoggerInterface
     /**
      * Determine the mode we're logging in.
      *
+     * WordPress can be running in several "modes": regular WWW, AJAX calls, CRON
+     * runs and so on. Sometimes even CLI is used.
+     *
      * @since 0.1.0
      * @access protected
      * @return void
@@ -100,6 +143,7 @@ class Logger implements LoggerInterface
             $this->mode = 'www';
         }
 
+        // The longest mode string, used for space padding.
         $longestLen = 4;
 
         while (strlen($this->mode) < $longestLen) {
@@ -112,6 +156,7 @@ class Logger implements LoggerInterface
     /**
      * Write to the log file.
      *
+     * @since 0.1.0
      * @access protected
      *
      * @param String $msg Message to log.
@@ -120,11 +165,16 @@ class Logger implements LoggerInterface
      */
     protected function writeToLog($msg)
     {
-        file_put_contents($this->logFile, $msg . "\n", FILE_APPEND);
+        if ($this->logFile !== null) {
+            file_put_contents($this->logFile, $msg . "\n", FILE_APPEND);
+        }
     }
 
     /**
      * Parse message context.
+     *
+     * @since 0.1.0
+     * @access protected
      *
      * @param String $msg
      * @param String[] $ctx
@@ -151,7 +201,10 @@ class Logger implements LoggerInterface
     /**
      * Generate a label for the log level.
      *
-     * @param String $type
+     * @since 0.1.0
+     * @access protected
+     *
+     * @param String $type Type/level of log. PSR levels.
      *
      * @return String
      */
@@ -177,9 +230,12 @@ class Logger implements LoggerInterface
     /**
      * Generate a log line.
      *
-     * @param String $type
-     * @param String $msg
-     * @param String[] $ctx
+     * @since 0.1.0
+     * @access protected
+     *
+     * @param String $type Log level. PSR levels.
+     * @param String $msg Log message.
+     * @param String[] $ctx Log message context data.
      *
      * @return String
      */
@@ -198,8 +254,10 @@ class Logger implements LoggerInterface
     /**
      * System is unusable.
      *
-     * @param string $message
-     * @param array $context
+     * @since 0.1.0
+     *
+     * @param String $message Log message.
+     * @param String[] $context Message context data.
      *
      * @return void
      */
@@ -214,8 +272,10 @@ class Logger implements LoggerInterface
      * Example: Entire website down, database unavailable, etc. This should
      * trigger the SMS alerts and wake you up.
      *
-     * @param string $message
-     * @param array $context
+     * @since 0.1.0
+     *
+     * @param String $message Log message.
+     * @param String[] $context Message context data.
      *
      * @return void
      */
@@ -229,8 +289,10 @@ class Logger implements LoggerInterface
      *
      * Example: Application component unavailable, unexpected exception.
      *
-     * @param string $message
-     * @param array $context
+     * @since 0.1.0
+     *
+     * @param String $message Log message.
+     * @param String[] $context Message context data.
      *
      * @return void
      */
@@ -243,8 +305,10 @@ class Logger implements LoggerInterface
      * Runtime errors that do not require immediate action but should typically
      * be logged and monitored.
      *
-     * @param string $message
-     * @param array $context
+     * @since 0.1.0
+     *
+     * @param String $message Log message.
+     * @param String[] $context Message context data.
      *
      * @return void
      */
@@ -259,8 +323,10 @@ class Logger implements LoggerInterface
      * Example: Use of deprecated APIs, poor use of an API, undesirable things
      * that are not necessarily wrong.
      *
-     * @param string $message
-     * @param array $context
+     * @since 0.1.0
+     *
+     * @param String $message Log message.
+     * @param String[] $context Message context data.
      *
      * @return void
      */
@@ -272,8 +338,10 @@ class Logger implements LoggerInterface
     /**
      * Normal but significant events.
      *
-     * @param string $message
-     * @param array $context
+     * @since 0.1.0
+     *
+     * @param String $message Log message.
+     * @param String[] $context Message context data.
      *
      * @return void
      */
@@ -287,8 +355,10 @@ class Logger implements LoggerInterface
      *
      * Example: User logs in, SQL logs.
      *
-     * @param string $message
-     * @param array $context
+     * @since 0.1.0
+     *
+     * @param String $message Log message.
+     * @param String[] $context Message context data.
      *
      * @return void
      */
@@ -300,8 +370,10 @@ class Logger implements LoggerInterface
     /**
      * Detailed debug information.
      *
-     * @param string $message
-     * @param array $context
+     * @since 0.1.0
+     *
+     * @param String $message Log message.
+     * @param String[] $context Message context data.
      *
      * @return void
      */
@@ -315,9 +387,11 @@ class Logger implements LoggerInterface
     /**
      * Logs with an arbitrary level.
      *
-     * @param mixed $level
-     * @param string $message
-     * @param array $context
+     * @since 0.1.0
+     *
+     * @param String $level Log level, use PSR levels.
+     * @param String $message Log message.
+     * @param String[] $context Message context data.
      *
      * @return void
      */
