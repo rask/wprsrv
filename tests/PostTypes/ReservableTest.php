@@ -15,7 +15,7 @@ class ReservableTest extends \PHPUnit_Framework_TestCase
         ];
 
         $reservableMetaData = [
-            'reservable_active' => 1
+            'reservable_active' => 'on'
         ];
 
         $_POST['wprsrv'] = $reservableMetaData;
@@ -26,5 +26,7 @@ class ReservableTest extends \PHPUnit_Framework_TestCase
         $reservableObj = new Reservable($reservablePost);
 
         $this->assertInstanceOf('\Wprsrv\PostTypes\Objects\Reservable', $reservableObj);
+        $this->assertTrue($reservableObj->isActive());
+        $this->assertFalse($reservableObj->isSingleDay());
     }
 }
