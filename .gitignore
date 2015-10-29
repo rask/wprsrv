@@ -11,6 +11,7 @@ node_modules/
 docs-cache/
 tests/coverage/
 _site/
+assets/
 
 *.tmp
 *.temp
