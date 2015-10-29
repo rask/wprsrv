@@ -79,6 +79,8 @@
         <abbr title="Psr\Log\LoggerInterface">LoggerInterface</abbr>
 </p>
 
+            <div class="description">
+            <p>Class Logger</p>            <p>Plugin logger class. Implements the PSR logger interface.</p>        </div>
     
     
     
@@ -93,7 +95,7 @@
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method___construct">__construct</a>(
-    String $logFile)
+    mixed[] $logSettings)
                                             <p>Constructor.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
@@ -104,7 +106,7 @@
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_emergency">emergency</a>(
-    string $message, 
+    String $message, 
     array $context = array())
                                             <p>System is unusable.</p>                </div>
                 <div class="col-md-2"></div>
@@ -116,7 +118,7 @@
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_alert">alert</a>(
-    string $message, 
+    String $message, 
     array $context = array())
                                             <p>Action must be taken immediately.</p>                </div>
                 <div class="col-md-2"></div>
@@ -128,7 +130,7 @@
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_critical">critical</a>(
-    string $message, 
+    String $message, 
     array $context = array())
                                             <p>Critical conditions.</p>                </div>
                 <div class="col-md-2"></div>
@@ -140,7 +142,7 @@
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_error">error</a>(
-    string $message, 
+    String $message, 
     array $context = array())
                                             <p>Runtime errors that do not require immediate action but should typically
 be logged and monitored.</p>                </div>
@@ -153,7 +155,7 @@ be logged and monitored.</p>                </div>
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_warning">warning</a>(
-    string $message, 
+    String $message, 
     array $context = array())
                                             <p>Exceptional occurrences that are not errors.</p>                </div>
                 <div class="col-md-2"></div>
@@ -165,7 +167,7 @@ be logged and monitored.</p>                </div>
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_notice">notice</a>(
-    string $message, 
+    String $message, 
     array $context = array())
                                             <p>Normal but significant events.</p>                </div>
                 <div class="col-md-2"></div>
@@ -177,7 +179,7 @@ be logged and monitored.</p>                </div>
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_info">info</a>(
-    string $message, 
+    String $message, 
     array $context = array())
                                             <p>Interesting events.</p>                </div>
                 <div class="col-md-2"></div>
@@ -189,7 +191,7 @@ be logged and monitored.</p>                </div>
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_debug">debug</a>(
-    string $message, 
+    String $message, 
     array $context = array())
                                             <p>Detailed debug information.</p>                </div>
                 <div class="col-md-2"></div>
@@ -201,8 +203,8 @@ be logged and monitored.</p>                </div>
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_log">log</a>(
-    mixed $level, 
-    string $message, 
+    String $level, 
+    String $message, 
     array $context = array())
                                             <p>Logs with an arbitrary level.</p>                </div>
                 <div class="col-md-2"></div>
@@ -215,11 +217,11 @@ be logged and monitored.</p>                </div>
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at line 31</div>
+        <div class="location">at line 54</div>
         <code>                    
     void
     <strong>__construct</strong>(
-    String $logFile)</code>
+    mixed[] $logSettings)</code>
     </h3>
     <div class="details">
                     <div class="method-description">
@@ -230,9 +232,10 @@ be logged and monitored.</p>                </div>
                     <table class="table table-condensed">
                     <tr>
                 <td>
-    String</td>
-                <td>$logFile</td>
-                <td>Path to log file.</td>
+    mixed[]</td>
+                <td>$logSettings</td>
+                <td>Logging settings from the plugin. Should contain
+                            at least the log file setting.</td>
             </tr>
             </table>
 
@@ -256,11 +259,11 @@ be logged and monitored.</p>                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_emergency">
-        <div class="location">at line 153</div>
+        <div class="location">at line 264</div>
         <code>                    
     void
     <strong>emergency</strong>(
-    string $message, 
+    String $message, 
     array $context = array())</code>
     </h3>
     <div class="details">
@@ -272,17 +275,15 @@ be logged and monitored.</p>                </div>
                     <table class="table table-condensed">
                     <tr>
                 <td>
-    string</td>
+    String</td>
                 <td>$message</td>
-                <td>
-</td>
+                <td>Log message.</td>
             </tr>
                     <tr>
                 <td>
     array</td>
                 <td>$context</td>
-                <td>
-</td>
+                <td>Message context data.</td>
             </tr>
             </table>
 
@@ -306,11 +307,11 @@ be logged and monitored.</p>                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_alert">
-        <div class="location">at line 169</div>
+        <div class="location">at line 282</div>
         <code>                    
     void
     <strong>alert</strong>(
-    string $message, 
+    String $message, 
     array $context = array())</code>
     </h3>
     <div class="details">
@@ -323,17 +324,15 @@ trigger the SMS alerts and wake you up.</p>            </div>
                     <table class="table table-condensed">
                     <tr>
                 <td>
-    string</td>
+    String</td>
                 <td>$message</td>
-                <td>
-</td>
+                <td>Log message.</td>
             </tr>
                     <tr>
                 <td>
     array</td>
                 <td>$context</td>
-                <td>
-</td>
+                <td>Message context data.</td>
             </tr>
             </table>
 
@@ -357,11 +356,11 @@ trigger the SMS alerts and wake you up.</p>            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_critical">
-        <div class="location">at line 184</div>
+        <div class="location">at line 299</div>
         <code>                    
     void
     <strong>critical</strong>(
-    string $message, 
+    String $message, 
     array $context = array())</code>
     </h3>
     <div class="details">
@@ -373,17 +372,15 @@ trigger the SMS alerts and wake you up.</p>            </div>
                     <table class="table table-condensed">
                     <tr>
                 <td>
-    string</td>
+    String</td>
                 <td>$message</td>
-                <td>
-</td>
+                <td>Log message.</td>
             </tr>
                     <tr>
                 <td>
     array</td>
                 <td>$context</td>
-                <td>
-</td>
+                <td>Message context data.</td>
             </tr>
             </table>
 
@@ -407,11 +404,11 @@ trigger the SMS alerts and wake you up.</p>            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_error">
-        <div class="location">at line 198</div>
+        <div class="location">at line 315</div>
         <code>                    
     void
     <strong>error</strong>(
-    string $message, 
+    String $message, 
     array $context = array())</code>
     </h3>
     <div class="details">
@@ -424,17 +421,15 @@ be logged and monitored.</p>                                </div>
                     <table class="table table-condensed">
                     <tr>
                 <td>
-    string</td>
+    String</td>
                 <td>$message</td>
-                <td>
-</td>
+                <td>Log message.</td>
             </tr>
                     <tr>
                 <td>
     array</td>
                 <td>$context</td>
-                <td>
-</td>
+                <td>Message context data.</td>
             </tr>
             </table>
 
@@ -458,11 +453,11 @@ be logged and monitored.</p>                                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_warning">
-        <div class="location">at line 214</div>
+        <div class="location">at line 333</div>
         <code>                    
     void
     <strong>warning</strong>(
-    string $message, 
+    String $message, 
     array $context = array())</code>
     </h3>
     <div class="details">
@@ -475,17 +470,15 @@ that are not necessarily wrong.</p>            </div>
                     <table class="table table-condensed">
                     <tr>
                 <td>
-    string</td>
+    String</td>
                 <td>$message</td>
-                <td>
-</td>
+                <td>Log message.</td>
             </tr>
                     <tr>
                 <td>
     array</td>
                 <td>$context</td>
-                <td>
-</td>
+                <td>Message context data.</td>
             </tr>
             </table>
 
@@ -509,11 +502,11 @@ that are not necessarily wrong.</p>            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_notice">
-        <div class="location">at line 227</div>
+        <div class="location">at line 348</div>
         <code>                    
     void
     <strong>notice</strong>(
-    string $message, 
+    String $message, 
     array $context = array())</code>
     </h3>
     <div class="details">
@@ -525,17 +518,15 @@ that are not necessarily wrong.</p>            </div>
                     <table class="table table-condensed">
                     <tr>
                 <td>
-    string</td>
+    String</td>
                 <td>$message</td>
-                <td>
-</td>
+                <td>Log message.</td>
             </tr>
                     <tr>
                 <td>
     array</td>
                 <td>$context</td>
-                <td>
-</td>
+                <td>Message context data.</td>
             </tr>
             </table>
 
@@ -559,11 +550,11 @@ that are not necessarily wrong.</p>            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_info">
-        <div class="location">at line 242</div>
+        <div class="location">at line 365</div>
         <code>                    
     void
     <strong>info</strong>(
-    string $message, 
+    String $message, 
     array $context = array())</code>
     </h3>
     <div class="details">
@@ -575,17 +566,15 @@ that are not necessarily wrong.</p>            </div>
                     <table class="table table-condensed">
                     <tr>
                 <td>
-    string</td>
+    String</td>
                 <td>$message</td>
-                <td>
-</td>
+                <td>Log message.</td>
             </tr>
                     <tr>
                 <td>
     array</td>
                 <td>$context</td>
-                <td>
-</td>
+                <td>Message context data.</td>
             </tr>
             </table>
 
@@ -609,11 +598,11 @@ that are not necessarily wrong.</p>            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_debug">
-        <div class="location">at line 255</div>
+        <div class="location">at line 380</div>
         <code>                    
     void
     <strong>debug</strong>(
-    string $message, 
+    String $message, 
     array $context = array())</code>
     </h3>
     <div class="details">
@@ -625,17 +614,15 @@ that are not necessarily wrong.</p>            </div>
                     <table class="table table-condensed">
                     <tr>
                 <td>
-    string</td>
+    String</td>
                 <td>$message</td>
-                <td>
-</td>
+                <td>Log message.</td>
             </tr>
                     <tr>
                 <td>
     array</td>
                 <td>$context</td>
-                <td>
-</td>
+                <td>Message context data.</td>
             </tr>
             </table>
 
@@ -659,12 +646,12 @@ that are not necessarily wrong.</p>            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_log">
-        <div class="location">at line 271</div>
+        <div class="location">at line 398</div>
         <code>                    
     void
     <strong>log</strong>(
-    mixed $level, 
-    string $message, 
+    String $level, 
+    String $message, 
     array $context = array())</code>
     </h3>
     <div class="details">
@@ -676,24 +663,21 @@ that are not necessarily wrong.</p>            </div>
                     <table class="table table-condensed">
                     <tr>
                 <td>
-    mixed</td>
+    String</td>
                 <td>$level</td>
-                <td>
-</td>
+                <td>Log level, use PSR levels.</td>
             </tr>
                     <tr>
                 <td>
-    string</td>
+    String</td>
                 <td>$message</td>
-                <td>
-</td>
+                <td>Log message.</td>
             </tr>
                     <tr>
                 <td>
     array</td>
                 <td>$context</td>
-                <td>
-</td>
+                <td>Message context data.</td>
             </tr>
             </table>
 

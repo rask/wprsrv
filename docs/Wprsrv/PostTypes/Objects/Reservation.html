@@ -153,8 +153,9 @@
     mixed
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method___get">__get</a>($key)
-                                            <p>Magic getter</p>                </div>
+                    <a href="#method___get">__get</a>(
+    String $key)
+                                            <p>Magic getter.</p>                </div>
                 <div class="col-md-2"><small>from&nbsp;
     <a href="../../../Wprsrv/Traits/CastsToPost.html#method___get"><abbr title="Wprsrv\Traits\CastsToPost">CastsToPost</abbr></a></small></div>
             </div>
@@ -164,8 +165,10 @@
     void
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method___set">__set</a>($key, $value)
-                                            <p>Magic setter</p>                </div>
+                    <a href="#method___set">__set</a>(
+    String $key, 
+    mixed $value)
+                                            <p>Magic setter.</p>                </div>
                 <div class="col-md-2"><small>from&nbsp;
     <a href="../../../Wprsrv/Traits/CastsToPost.html#method___set"><abbr title="Wprsrv\Traits\CastsToPost">CastsToPost</abbr></a></small></div>
             </div>
@@ -175,8 +178,10 @@
     mixed
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method___call">__call</a>($method, $arguments)
-                                            <p>Magic calls</p>                </div>
+                    <a href="#method___call">__call</a>(
+    String|callable $method, 
+    mixed $arguments)
+                                            <p>Magic calls.</p>                </div>
                 <div class="col-md-2"><small>from&nbsp;
     <a href="../../../Wprsrv/Traits/CastsToPost.html#method___call"><abbr title="Wprsrv\Traits\CastsToPost">CastsToPost</abbr></a></small></div>
             </div>
@@ -188,7 +193,7 @@
                 <div class="col-md-8 type">
                     <a href="#method___construct">__construct</a>(
     <abbr title="WP_Post">WP_Post</abbr>|Integer $post)
-                                            <p>Constructor</p>                </div>
+                                            <p>Constructor.</p>                </div>
                 <div class="col-md-2"><small>from&nbsp;
     <a href="../../../Wprsrv/Traits/CastsToPost.html#method___construct"><abbr title="Wprsrv\Traits\CastsToPost">CastsToPost</abbr></a></small></div>
             </div>
@@ -200,7 +205,8 @@
                 <div class="col-md-8 type">
                     <a href="#method_create">create</a>(
     array $postData, 
-    array $metaData)
+    array $metaData, 
+    <abbr title="Wprsrv\PostTypes\Objects\Wprsrv\PostTypes\Objects\Reservable">Reservable</abbr> $reservable = null)
                                             <p>Create a new instance of Reservation from given data.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
@@ -264,6 +270,29 @@
                 <div class="col-md-8 type">
                     <a href="#method_getEditLink">getEditLink</a>()
                                             <p>Get the wp-admin editing URL link for this reservation.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    Boolean|Integer
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_setMeta">setMeta</a>(
+    String $key, 
+    mixed $value)
+                                            <p>Set a post meta value for this reservation. Returns true/false on success
+condition, or integer if it is a new meta key/value pair.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getMeta">getMeta</a>($key, $single = true)
+                                            <p>Get reservation meta value for $key.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -367,23 +396,25 @@
                     <div class="method-item">
                     <h3 id="method___get">
         <div class="location">in 
-    <a href="../../../Wprsrv/Traits/CastsToPost.html#method___get"><abbr title="Wprsrv\Traits\CastsToPost">CastsToPost</abbr></a> at line 44</div>
+    <a href="../../../Wprsrv/Traits/CastsToPost.html#method___get"><abbr title="Wprsrv\Traits\CastsToPost">CastsToPost</abbr></a> at line 51</div>
         <code>                    
     mixed
-    <strong>__get</strong>($key)</code>
+    <strong>__get</strong>(
+    String $key)</code>
     </h3>
     <div class="details">
                     <div class="method-description">
-                                    <p>Magic getter</p>                    <p>If the property is not available on the implementing class, attempt the injected WP&#95;Post object.</p>            </div>
+                                    <p>Magic getter.</p>                    <p>If the property is not available on the implementing class, attempt the
+injected WP&#95;Post object.</p>            </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
-                <td>$key</td>
                 <td>
-</td>
+    String</td>
+                <td>$key</td>
+                <td>The propery key.</td>
             </tr>
             </table>
 
@@ -405,8 +436,7 @@
                     <table class="table table-condensed">
                     <tr>
                 <td><a target="_blank" href="http://php.net/Exception"><abbr title="Exception">Exception</abbr></a></td>
-                <td>
-</td>
+                <td>If property does not exist in injected WP_Post.</td>
             </tr>
             </table>
 
@@ -418,29 +448,32 @@
                     <div class="method-item">
                     <h3 id="method___set">
         <div class="location">in 
-    <a href="../../../Wprsrv/Traits/CastsToPost.html#method___set"><abbr title="Wprsrv\Traits\CastsToPost">CastsToPost</abbr></a> at line 65</div>
+    <a href="../../../Wprsrv/Traits/CastsToPost.html#method___set"><abbr title="Wprsrv\Traits\CastsToPost">CastsToPost</abbr></a> at line 74</div>
         <code>                    
     void
-    <strong>__set</strong>($key, $value)</code>
+    <strong>__set</strong>(
+    String $key, 
+    mixed $value)</code>
     </h3>
     <div class="details">
                     <div class="method-description">
-                                    <p>Magic setter</p>                    <p>If the property is not available on the implementing class, attempt the injected WP&#95;Post object.</p>            </div>
+                                    <p>Magic setter.</p>                    <p>If the property is not available on the implementing class, attempt the
+injected WP&#95;Post object.</p>            </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
-                <td>$key</td>
                 <td>
-</td>
+    String</td>
+                <td>$key</td>
+                <td>Key to use.</td>
             </tr>
                     <tr>
-                <td></td>
-                <td>$value</td>
                 <td>
-</td>
+    mixed</td>
+                <td>$value</td>
+                <td>Value to set.</td>
             </tr>
             </table>
 
@@ -462,8 +495,7 @@
                     <table class="table table-condensed">
                     <tr>
                 <td><a target="_blank" href="http://php.net/Exception"><abbr title="Exception">Exception</abbr></a></td>
-                <td>
-</td>
+                <td>If property does not exist in injected WP_Post.</td>
             </tr>
             </table>
 
@@ -475,29 +507,32 @@
                     <div class="method-item">
                     <h3 id="method___call">
         <div class="location">in 
-    <a href="../../../Wprsrv/Traits/CastsToPost.html#method___call"><abbr title="Wprsrv\Traits\CastsToPost">CastsToPost</abbr></a> at line 84</div>
+    <a href="../../../Wprsrv/Traits/CastsToPost.html#method___call"><abbr title="Wprsrv\Traits\CastsToPost">CastsToPost</abbr></a> at line 97</div>
         <code>                    
     mixed
-    <strong>__call</strong>($method, $arguments)</code>
+    <strong>__call</strong>(
+    String|callable $method, 
+    mixed $arguments)</code>
     </h3>
     <div class="details">
                     <div class="method-description">
-                                    <p>Magic calls</p>                    <p>If the method is not available on the implementing class, attempt the injected WP&#95;Post object.</p>            </div>
+                                    <p>Magic calls.</p>                    <p>If the method is not available on the implementing class, attempt the injected
+WP&#95;Post object.</p>            </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
-                <td>$method</td>
                 <td>
-</td>
+    String|callable</td>
+                <td>$method</td>
+                <td>Method to call.</td>
             </tr>
                     <tr>
-                <td></td>
-                <td>$arguments</td>
                 <td>
-</td>
+    mixed</td>
+                <td>$arguments</td>
+                <td>Method arguments.</td>
             </tr>
             </table>
 
@@ -514,6 +549,15 @@
     </table>
 
             
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a target="_blank" href="http://php.net/Exception"><abbr title="Exception">Exception</abbr></a></td>
+                <td>If method does not exist in injected WP_Post.</td>
+            </tr>
+            </table>
+
             
                     </div>
     </div>
@@ -522,7 +566,7 @@
                     <div class="method-item">
                     <h3 id="method___construct">
         <div class="location">in 
-    <a href="../../../Wprsrv/Traits/CastsToPost.html#method___construct"><abbr title="Wprsrv\Traits\CastsToPost">CastsToPost</abbr></a> at line 106</div>
+    <a href="../../../Wprsrv/Traits/CastsToPost.html#method___construct"><abbr title="Wprsrv\Traits\CastsToPost">CastsToPost</abbr></a> at line 122</div>
         <code>                    
     void
     <strong>__construct</strong>(
@@ -530,8 +574,9 @@
     </h3>
     <div class="details">
                     <div class="method-description">
-                                    <p>Constructor</p>                    <p>Pass in either a post ID (integer) or a WP&#95;Post object. The post will be available through the <code>post</code> property
-or through the magic getters and setters.</p>            </div>
+                                    <p>Constructor.</p>                    <p>Pass in either a post ID (integer) or a WP&#95;Post object. The post will be
+available through the <code>post</code> property or through the magic getters and
+setters.</p>            </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -562,8 +607,9 @@ or through the magic getters and setters.</p>            </div>
                     <table class="table table-condensed">
                     <tr>
                 <td><a target="_blank" href="http://php.net/InvalidArgumentException"><abbr title="InvalidArgumentException">InvalidArgumentException</abbr></a></td>
-                <td>If the given post or ID is not an actual WP&#95;Post reference or the
-    instantiation of the new WP&#95;Post fails.</td>
+                <td>If the given post or ID is not an actual
+                                  WP&#95;Post reference or the instantiation of
+                                  the new WP&#95;Post fails.</td>
             </tr>
             </table>
 
@@ -574,12 +620,13 @@ or through the magic getters and setters.</p>            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_create">
-        <div class="location">at line 29</div>
+        <div class="location">at line 34</div>
         <code>        static            
     <a href="../../../Wprsrv/PostTypes/Objects/Reservation.html"><abbr title="Wprsrv\PostTypes\Objects\Reservation">Reservation</abbr></a>|Boolean
     <strong>create</strong>(
     array $postData, 
-    array $metaData)</code>
+    array $metaData, 
+    <abbr title="Wprsrv\PostTypes\Objects\Wprsrv\PostTypes\Objects\Reservable">Reservable</abbr> $reservable = null)</code>
     </h3>
     <div class="details">
                     <div class="method-description">
@@ -599,6 +646,13 @@ or through the magic getters and setters.</p>            </div>
     array</td>
                 <td>$metaData</td>
                 <td>Metadata values to use.</td>
+            </tr>
+                    <tr>
+                <td>
+    <abbr title="Wprsrv\PostTypes\Objects\Wprsrv\PostTypes\Objects\Reservable">Reservable</abbr></td>
+                <td>$reservable</td>
+                <td>The reservable
+                                                             being reserved.</td>
             </tr>
             </table>
 
@@ -622,7 +676,7 @@ or through the magic getters and setters.</p>            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_getReservationStatus">
-        <div class="location">at line 145</div>
+        <div class="location">at line 151</div>
         <code>                    
     Boolean|String
     <strong>getReservationStatus</strong>()</code>
@@ -651,7 +705,7 @@ or through the magic getters and setters.</p>            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_getReservable">
-        <div class="location">at line 157</div>
+        <div class="location">at line 163</div>
         <code>                    
     <a href="../../../Wprsrv/PostTypes/Objects/Reservable.html"><abbr title="Wprsrv\PostTypes\Objects\Reservable">Reservable</abbr></a>
     <strong>getReservable</strong>()</code>
@@ -689,7 +743,7 @@ or through the magic getters and setters.</p>            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_getReserverEmail">
-        <div class="location">at line 177</div>
+        <div class="location">at line 184</div>
         <code>                    
     mixed
     <strong>getReserverEmail</strong>()</code>
@@ -718,7 +772,7 @@ or through the magic getters and setters.</p>            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_getStartDate">
-        <div class="location">at line 202</div>
+        <div class="location">at line 210</div>
         <code>                    
     String
     <strong>getStartDate</strong>(
@@ -735,8 +789,8 @@ or through the magic getters and setters.</p>            </div>
                 <td>
     String|Integer</td>
                 <td>$format</td>
-                <td>Optional. Date format. Use <code>'object'</code> if you want
-                              the DateTime object itself.</td>
+                <td>Optional. Date format. Use <code>'object'</code> if you
+                              want the DateTime object itself.</td>
             </tr>
             </table>
 
@@ -769,7 +823,7 @@ or through the magic getters and setters.</p>            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_getEndDate">
-        <div class="location">at line 227</div>
+        <div class="location">at line 236</div>
         <code>                    
     String
     <strong>getEndDate</strong>(
@@ -786,8 +840,8 @@ or through the magic getters and setters.</p>            </div>
                 <td>
     String|Integer</td>
                 <td>$format</td>
-                <td>Optional. Date format. Use <code>'object'</code> if you want
-                              the DateTime object itself.</td>
+                <td>Optional. Date format. Use <code>'object'</code> if you
+                              want the DateTime object itself.</td>
             </tr>
             </table>
 
@@ -820,7 +874,7 @@ or through the magic getters and setters.</p>            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_getEditLink">
-        <div class="location">at line 247</div>
+        <div class="location">at line 257</div>
         <code>                    
     String|Boolean
     <strong>getEditLink</strong>()</code>
@@ -848,8 +902,103 @@ or through the magic getters and setters.</p>            </div>
 
             </div>
                     <div class="method-item">
+                    <h3 id="method_setMeta">
+        <div class="location">at line 277</div>
+        <code>                    
+    Boolean|Integer
+    <strong>setMeta</strong>(
+    String $key, 
+    mixed $value)</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Set a post meta value for this reservation. Returns true/false on success
+condition, or integer if it is a new meta key/value pair.</p>                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>
+    String</td>
+                <td>$key</td>
+                <td>Meta key.</td>
+            </tr>
+                    <tr>
+                <td>
+    mixed</td>
+                <td>$value</td>
+                <td>Meta value. Will be serialized if needed.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    Boolean|Integer</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getMeta">
+        <div class="location">at line 296</div>
+        <code>                    
+    mixed
+    <strong>getMeta</strong>($key, $single = true)</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Get reservation meta value for $key.</p>                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td></td>
+                <td>$key</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$single</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    mixed</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
                     <h3 id="method_clearMeta">
-        <div class="location">at line 299</div>
+        <div class="location">at line 314</div>
         <code>                    
     void
     <strong>clearMeta</strong>(
@@ -890,7 +1039,7 @@ or through the magic getters and setters.</p>            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_addNote">
-        <div class="location">at line 311</div>
+        <div class="location">at line 328</div>
         <code>                    
     void
     <strong>addNote</strong>($note, $userId)</code>
@@ -936,7 +1085,7 @@ or through the magic getters and setters.</p>            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_getNotes">
-        <div class="location">at line 338</div>
+        <div class="location">at line 356</div>
         <code>                    
     mixed
     <strong>getNotes</strong>()</code>
@@ -965,7 +1114,7 @@ or through the magic getters and setters.</p>            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_accept">
-        <div class="location">at line 360</div>
+        <div class="location">at line 379</div>
         <code>                    
     void
     <strong>accept</strong>()</code>
@@ -994,7 +1143,7 @@ or through the magic getters and setters.</p>            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_decline">
-        <div class="location">at line 378</div>
+        <div class="location">at line 400</div>
         <code>                    
     void
     <strong>decline</strong>()</code>
@@ -1023,7 +1172,7 @@ or through the magic getters and setters.</p>            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_isDeclined">
-        <div class="location">at line 398</div>
+        <div class="location">at line 423</div>
         <code>                    
     Boolean
     <strong>isDeclined</strong>()</code>
@@ -1052,7 +1201,7 @@ or through the magic getters and setters.</p>            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_isPending">
-        <div class="location">at line 412</div>
+        <div class="location">at line 438</div>
         <code>                    
     Boolean
     <strong>isPending</strong>()</code>
@@ -1081,7 +1230,7 @@ or through the magic getters and setters.</p>            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_isAccepted">
-        <div class="location">at line 426</div>
+        <div class="location">at line 453</div>
         <code>                    
     Boolean
     <strong>isAccepted</strong>()</code>
@@ -1110,7 +1259,7 @@ or through the magic getters and setters.</p>            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_containsDate">
-        <div class="location">at line 442</div>
+        <div class="location">at line 471</div>
         <code>                    
     Boolean
     <strong>containsDate</strong>(

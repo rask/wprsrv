@@ -80,6 +80,8 @@
     <strong>CalendarRangeField</strong>        extends <a href="../../../Wprsrv/Forms/Fields/FormField.html"><abbr title="Wprsrv\Forms\Fields\FormField">FormField</abbr></a>
 </p>
 
+            <div class="description">
+            <p>Class CalendarRangeField</p>            <p>Range of calendar fields.</p>        </div>
     
     
     
@@ -93,7 +95,8 @@
     void
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method___construct">__construct</a>($name, 
+                    <a href="#method___construct">__construct</a>(
+    String $name, 
     array $fieldData)
                                             <p>Constructor.</p>                </div>
                 <div class="col-md-2"><small>from&nbsp;
@@ -118,10 +121,11 @@
                     <div class="method-item">
                     <h3 id="method___construct">
         <div class="location">in 
-    <a href="../../../Wprsrv/Forms/Fields/FormField.html#method___construct"><abbr title="Wprsrv\Forms\Fields\FormField">FormField</abbr></a> at line 46</div>
+    <a href="../../../Wprsrv/Forms/Fields/FormField.html#method___construct"><abbr title="Wprsrv\Forms\Fields\FormField">FormField</abbr></a> at line 52</div>
         <code>                    
     void
-    <strong>__construct</strong>($name, 
+    <strong>__construct</strong>(
+    String $name, 
     array $fieldData)</code>
     </h3>
     <div class="details">
@@ -132,17 +136,16 @@
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
-                <td>$name</td>
                 <td>
-</td>
+    String</td>
+                <td>$name</td>
+                <td>Field name attribute.</td>
             </tr>
                     <tr>
                 <td>
     array</td>
                 <td>$fieldData</td>
-                <td>
-</td>
+                <td>Data for field and its attributes.</td>
             </tr>
             </table>
 
@@ -166,7 +169,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_generateMarkup">
-        <div class="location">at line 16</div>
+        <div class="location">at line 25</div>
         <code>                    
     String
     <strong>generateMarkup</strong>()</code>

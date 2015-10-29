@@ -183,7 +183,7 @@
                     <div class="row">
                 <div class="col-md-2 type">
                     
-    Object[]
+    mixed
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_make">make</a>(
@@ -201,6 +201,16 @@
                                             <p>Has this plugin instance been initialized?</p>                </div>
                 <div class="col-md-2"></div>
             </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    Boolean
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_isAdmin">isAdmin</a>()
+                                            <p>Are we in admin?</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
             </div>
 
 
@@ -209,7 +219,7 @@
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at line 81</div>
+        <div class="location">at line 91</div>
         <code>                    
     void
     <strong>__construct</strong>($do_init = false)</code>
@@ -249,14 +259,15 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_initialize">
-        <div class="location">at line 155</div>
+        <div class="location">at line 162</div>
         <code>                    
     void
     <strong>initialize</strong>()</code>
     </h3>
     <div class="details">
                     <div class="method-description">
-                                    <p>Initializations.</p>                                </div>
+                                    <p>Initializations.</p>                    <p>Sets up general plugin inits and call either admin or frontend inits depending
+whether we are in admin or not.</p>            </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -272,13 +283,26 @@
 
             
             
+                            <h4>See also</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>self::__construct()</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>:wphook</td>
+                <td>init</td>
+            </tr>
+            </table>
+
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_activate">
-        <div class="location">at line 216</div>
+        <div class="location">at line 238</div>
         <code>        static            
     void
     <strong>activate</strong>()</code>
@@ -307,7 +331,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_deactivate">
-        <div class="location">at line 245</div>
+        <div class="location">at line 270</div>
         <code>        static            
     void
     <strong>deactivate</strong>()</code>
@@ -336,16 +360,16 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_make">
-        <div class="location">at line 292</div>
+        <div class="location">at line 319</div>
         <code>                    
-    Object[]
+    mixed
     <strong>make</strong>(
     String $class)</code>
     </h3>
     <div class="details">
                     <div class="method-description">
-                                    <p>Instance container method</p>                    <p>Allows creating and fetching class instances on the fly. A singleton wrapper basically. Not all classes are
-available as singletons.</p>            </div>
+                                    <p>Instance container method</p>                    <p>Allows creating and fetching class instances on the fly. A singleton wrapper
+basically. Not all classes are available as singletons.</p>            </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -364,7 +388,7 @@ available as singletons.</p>            </div>
                     <table class="table table-condensed">
         <tr>
             <td>
-    Object[]</td>
+    mixed</td>
             <td>
 </td>
         </tr>
@@ -376,7 +400,8 @@ available as singletons.</p>            </div>
                     <table class="table table-condensed">
                     <tr>
                 <td><a target="_blank" href="http://php.net/InvalidArgumentException"><abbr title="InvalidArgumentException">InvalidArgumentException</abbr></a></td>
-                <td>If invalid class name ID is given for making.</td>
+                <td>If invalid class name ID is given for
+                                  making.</td>
             </tr>
             </table>
 
@@ -385,7 +410,11 @@ available as singletons.</p>            </div>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>{$this-&gt;classMap}</td>
+                <td>self::classMap</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>self::classInstances</td>
                 <td></td>
             </tr>
             </table>
@@ -396,7 +425,7 @@ available as singletons.</p>            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_isInitialized">
-        <div class="location">at line 314</div>
+        <div class="location">at line 342</div>
         <code>                    
     Boolean
     <strong>isInitialized</strong>()</code>
@@ -404,6 +433,35 @@ available as singletons.</p>            </div>
     <div class="details">
                     <div class="method-description">
                                     <p>Has this plugin instance been initialized?</p>                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    Boolean</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_isAdmin">
+        <div class="location">at line 353</div>
+        <code>                    
+    Boolean
+    <strong>isAdmin</strong>()</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Are we in admin?</p>                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>

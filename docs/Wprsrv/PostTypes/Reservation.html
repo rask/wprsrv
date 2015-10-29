@@ -248,7 +248,7 @@ value.</p>                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_editFormMetaBox">
-        <div class="location">at line 115</div>
+        <div class="location">at line 114</div>
         <code>                    
     void
     <strong>editFormMetaBox</strong>(
@@ -265,7 +265,7 @@ value.</p>                </div>
                 <td>
     <abbr title="WP_Post">WP_Post</abbr></td>
                 <td>$reservation</td>
-                <td>Reservation post object.</td>
+                <td>Reservation post object to create metaboxes for.</td>
             </tr>
             </table>
 
@@ -289,7 +289,7 @@ value.</p>                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_parseReservationAdminListFilters">
-        <div class="location">at line 173</div>
+        <div class="location">at line 171</div>
         <code>                    
     <abbr title="WP_Query">WP_Query</abbr>
     <strong>parseReservationAdminListFilters</strong>($query)</code>
@@ -342,7 +342,7 @@ value.</p>                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_reservationAdminFilters">
-        <div class="location">at line 202</div>
+        <div class="location">at line 200</div>
         <code>                    
     void
     <strong>reservationAdminFilters</strong>()</code>
@@ -384,7 +384,7 @@ value.</p>                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_customizeAdminColumns">
-        <div class="location">at line 233</div>
+        <div class="location">at line 232</div>
         <code>                    
     String[]
     <strong>customizeAdminColumns</strong>(
@@ -419,6 +419,15 @@ value.</p>                </div>
 
             
             
+                            <h4>See also</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>:wphook</td>
+                <td>manage_{$post_type}_posts_columns</td>
+            </tr>
+            </table>
+
                     </div>
     </div>
 
@@ -465,13 +474,22 @@ value.</p>                </div>
 
             
             
+                            <h4>See also</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>:wphook</td>
+                <td>manage_{$post_type}_posts_custom_column</td>
+            </tr>
+            </table>
+
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_newPendingReservation">
-        <div class="location">at line 399</div>
+        <div class="location">at line 394</div>
         <code>                    
     void
     <strong>newPendingReservation</strong>(
@@ -519,7 +537,7 @@ value.</p>                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_newAcceptedReservation">
-        <div class="location">at line 437</div>
+        <div class="location">at line 432</div>
         <code>                    
     void
     <strong>newAcceptedReservation</strong>(
@@ -567,7 +585,7 @@ value.</p>                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_newDeclinedReservation">
-        <div class="location">at line 475</div>
+        <div class="location">at line 470</div>
         <code>                    
     void
     <strong>newDeclinedReservation</strong>(
@@ -615,7 +633,7 @@ value.</p>                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_emailSendFailed">
-        <div class="location">at line 587</div>
+        <div class="location">at line 579</div>
         <code>                    
     void
     <strong>emailSendFailed</strong>(
@@ -633,15 +651,13 @@ value.</p>                </div>
                 <td>
     String</td>
                 <td>$emailType</td>
-                <td>
-</td>
+                <td>Type of email that failed.</td>
             </tr>
                     <tr>
                 <td>
     <a href="../../Wprsrv/PostTypes/Objects/Reservation.html"><abbr title="Wprsrv\PostTypes\Objects\Reservation">Reservation</abbr></a></td>
                 <td>$reservation</td>
-                <td>
-</td>
+                <td>Reservation for which the email failed.</td>
             </tr>
             </table>
 
@@ -658,16 +674,6 @@ value.</p>                </div>
     </table>
 
             
-                            <h4>Exceptions</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td><a target="_blank" href="http://php.net/Exception"><abbr title="Exception">Exception</abbr></a></td>
-                <td>
-</td>
-            </tr>
-            </table>
-
             
                     </div>
     </div>
@@ -675,7 +681,7 @@ value.</p>                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_pruneReservations">
-        <div class="location">at line 620</div>
+        <div class="location">at line 610</div>
         <code>                    
     void
     <strong>pruneReservations</strong>()</code>

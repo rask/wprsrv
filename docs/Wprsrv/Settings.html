@@ -78,9 +78,34 @@
     <strong>Settings</strong>
 </p>
 
+            <div class="description">
+            <p>Class Settings</p>            <p>Settings handler for the plugin.</p>        </div>
     
     
     
+            <h2>Properties</h2>
+
+            <table class="table table-condensed">
+                    <tr>
+                <td class="type" id="property_logging">
+                                                                                
+    mixed
+                </td>
+                <td>$logging</td>
+                <td class="last">mixed$logging</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_email">
+                                                                                
+    mixed
+                </td>
+                <td>$email</td>
+                <td class="last">mixed$email</td>
+                <td></td>
+            </tr>
+            </table>
+
     
             <h2>Methods</h2>
 
@@ -101,7 +126,8 @@
     mixed
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method___get">__get</a>($key)
+                    <a href="#method___get">__get</a>(
+    String $key)
                                             <p>Magic settings getter.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
@@ -123,7 +149,7 @@
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at line 16</div>
+        <div class="location">at line 34</div>
         <code>                    
     void
     <strong>__construct</strong>()</code>
@@ -152,23 +178,24 @@
             </div>
                     <div class="method-item">
                     <h3 id="method___get">
-        <div class="location">at line 28</div>
+        <div class="location">at line 50</div>
         <code>                    
     mixed
-    <strong>__get</strong>($key)</code>
+    <strong>__get</strong>(
+    String $key)</code>
     </h3>
     <div class="details">
                     <div class="method-description">
-                                    <p>Magic settings getter.</p>                                </div>
+                                    <p>Magic settings getter.</p>                    <p>If this class itself does not have the property, try the settings array.</p>            </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
-                <td>$key</td>
                 <td>
-</td>
+    String</td>
+                <td>$key</td>
+                <td>Property name key.</td>
             </tr>
             </table>
 
@@ -192,7 +219,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getSettings">
-        <div class="location">at line 44</div>
+        <div class="location">at line 67</div>
         <code>                    
     mixed[]
     <strong>getSettings</strong>()</code>
