@@ -4,6 +4,8 @@
 ./assets/*      merge=ours
 ./docs/*        -diff
 ./docs/*        merge=ours
+./src/css/*     -diff
+./src/css/*     merge=ours
 
 ./tests/*           export-ignore
 ./src/*             export-ignore
