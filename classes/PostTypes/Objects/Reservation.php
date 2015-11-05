@@ -37,8 +37,10 @@ class Reservation
         $postData['post_type'] = 'reservation';
         $postData['post_status'] = 'reservation_pending';
 
-        if (!isset($metaData['reservable_id'])) {
+        if (!isset($metaData['reservable_id']) && $reservable === null) {
             throw new \InvalidArgumentException('Could not create a new reservation with the given post data.');
+        } elseif ($reservable !== null) {
+            $metaData['reservable_id'] = $reservable->ID;
         }
 
         $metaErrors = static::validateMeta($metaData);
@@ -383,6 +385,8 @@ class Reservation
             'post_status' => 'reservation_accepted'
         ]);
 
+        $this->post->post_status = 'reservation_accepted';
+
         do_action('wprsrv/reservation/new_accepted_reservation', $updated, $this);
 
         // Clear the prune date value to prevent accidentally pruning during cron.
@@ -403,6 +407,8 @@ class Reservation
             'ID' => (int) $this->ID,
             'post_status' => 'reservation_declined'
         ]);
+
+        $this->post->post_status = 'reservation_declined';
 
         $date = new \DateTime('now');
         $month = new \DateInterval('P1M');

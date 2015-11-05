@@ -110,6 +110,11 @@ trait CastsToPost
      * available through the `post` property or through the magic getters and
      * setters.
      *
+     * Note: if you update a post and attempt to access it using the `$post` property
+     * you might get stale data as the \WP_Post and `$this->post` are not
+     * live-synced. Feel free to update data directly to the `$post` property where
+     * needed.
+     *
      * @since 0.1.0
      * @throws \InvalidArgumentException If the given post or ID is not an actual
      *                                   WP\_Post reference or the instantiation of
