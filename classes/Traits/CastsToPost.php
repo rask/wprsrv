@@ -141,6 +141,10 @@ trait CastsToPost
      */
     protected function setupCache()
     {
-        $this->cachePrefix = 'wprsrv_' . strtolower(__CLASS__) . $this->ID . '_';
+        $fqcn = trim(__CLASS__, '\\');
+
+        $className = preg_replace('%^.*\\\\([a-zA-Z]+)$%', '$1', $fqcn);
+
+        $this->cachePrefix = 'wprsrv_' . strtolower($className) . $this->ID . '_';
     }
 }
