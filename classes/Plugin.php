@@ -196,7 +196,7 @@ class Plugin
      * @access protected
      * @return void
      */
-    protected function frontendInit()
+    public function frontendInit()
     {
         wp_register_script('customevent', $this->pluginUrl . '/assets/lib/customevent.js');
     }
@@ -208,7 +208,7 @@ class Plugin
      * @access protected
      * @return void
      */
-    protected function adminInit()
+    public function adminInit()
     {
         $this->make('admin_menu');
 

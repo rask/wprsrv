@@ -46,15 +46,11 @@ trait CastsToPost
      *
      * @param String $key The propery key.
      *
-     * @return mixed
+     * @return mixed|void
      */
     public function __get($key)
     {
-        if (property_exists($this->post, $key)) {
-            return $this->post->{$key};
-        }
-
-        throw new \Exception(sprintf('Object %s does not contain property %s.', __CLASS__, $key));
+        return $this->post->{$key};
     }
 
     /**
@@ -73,11 +69,7 @@ trait CastsToPost
      */
     public function __set($key, $value)
     {
-        if (property_exists($this->post, $key)) {
-            $this->post->{$key} = $value;
-        }
-
-        throw new \Exception(sprintf('Object %s does not contain property %s.', __CLASS__, $key));
+        $this->post->{$key} = $value;
     }
 
     /**

@@ -1,16 +1,38 @@
 <?php
 
-$testRoot = getenv('WP_TESTS_DIR');
+function getWpRootDir()
+{
+    $testRoot = getenv('WP_TESTS_DIR');
 
-if (!$testRoot) {
-    $testRoot = '/tmp/wordpress-tests-lib';
+    if (!$testRoot) {
+        $testRoot = '/tmp/wordpress-tests-lib';
+    }
+
+    if (!is_dir($testRoot)) {
+        $pathParts = explode('wp-content', __DIR__);
+        $testRoot = array_shift($pathParts);
+        $testRoot = rtrim($testRoot, '/');
+    }
+
+    return $testRoot;
 }
 
-if (!is_dir($testRoot)) {
-    $pathParts = explode('wp-content', __DIR__);
-    $testRoot = array_shift($pathParts);
-    $testRoot = rtrim($testRoot, '/');
+/**
+ * Override wp_mail to not send mail.
+ *
+ * @param $to
+ * @param $subject
+ * @param $message
+ * @param string $headers
+ * @param array $attachments
+ *
+ * @return bool
+ */
+function wp_mail($to, $subject, $message, $headers = '', $attachments = array()) {
+    return true;
 }
+
+$testRoot = getWpRootDir();
 
 if (!is_dir($testRoot)) {
     exit(1);
