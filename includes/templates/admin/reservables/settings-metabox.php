@@ -12,6 +12,16 @@ if (!$reservable instanceof Reservable) {
     $reservable = new Reservable($reservable);
 }
 
+$weekdays = [
+    'monday' => __('Monday'),
+    'tuesday' => __('Tuesday'),
+    'wednesday' => __('Wednesday'),
+    'thursday' => __('Thursday'),
+    'friday' => __('Friday'),
+    'saturday' => __('Saturday'),
+    'sunday' => __('Sunday')
+];
+
 ?>
 
 <table summary="Reservable settings">
@@ -37,7 +47,7 @@ if (!$reservable instanceof Reservable) {
             </th>
             <td>
                 <label for="wprsrv-reservable-singleday">
-                    <input type="checkbox" name="wprsrv[reservable_singleday]" <?php echo $reservable->isSingleDay() ? 'checked="checked"' : ''; ?> id="wprsrv-reservable-singleday">
+                    <input type="checkbox" name="wprsrv[reservable_singleday]" <?php echo $reservable->isSingleDay() ? 'checked' : ''; ?> id="wprsrv-reservable-singleday">
                     <?php _e('Single day reservations', 'wprsrv'); ?>
                 </label>
             </td>
@@ -50,7 +60,7 @@ if (!$reservable instanceof Reservable) {
             </th>
             <td>
                 <label for="wprsrv-reservable-loggedin">
-                    <input type="checkbox" name="wprsrv[reservable_loggedin_only]" <?php echo $reservable->isLoginRequired() ? 'checked="checked"' : ''; ?> id="wprsrv-reservable-loggedin">
+                    <input type="checkbox" name="wprsrv[reservable_loggedin_only]" <?php echo $reservable->isLoginRequired() ? 'checked' : ''; ?> id="wprsrv-reservable-loggedin">
                     <?php _e('Require login', 'wprsrv'); ?>
                 </label>
             </td>
@@ -89,6 +99,21 @@ if (!$reservable instanceof Reservable) {
                 <?php endforeach; endif; ?>
 
                 <button class="add-row button button-primary"><?php _ex('Add', 'add repeater row', 'wprsrv'); ?></button>
+            </td>
+        </tr>
+
+        <tr>
+            <th class="wprsrv-mainlabel" scope="row">
+                <label for="wprsrv-reservable-disabled-weekdays"><?php _ex('Disabled weekdays', 'reservable metabox form', 'wprsrv'); ?></label>
+                <em><?php _e('Choose the weekdays that should not be reservable.', 'wprsrv'); ?></em>
+            </th>
+            <td>
+                <?php foreach ($weekdays as $wdayVal => $wdayName) : ?>
+                <label for="wprsrv-disable-weekday-<?php echo $wdayVal; ?>">
+                    <input type="checkbox" name="wprsrv[reservable_disabled_weekdays][]" id="wprsrv-disable-weekday-<?php echo $wdayVal; ?>" value="<?php echo $wdayVal; ?>" <?php echo $reservable->isWeekdayDisabled($wdayVal) ? 'checked' : ''; ?>>
+                    <?php echo $wdayName; ?>
+                </label>
+                <?php endforeach; ?>
             </td>
         </tr>
 

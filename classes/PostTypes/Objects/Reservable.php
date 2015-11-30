@@ -91,7 +91,27 @@ class Reservable
         }
 
         $disabledRanges = $this->getDisabledDaysAdminData();
+        $disabledWeekdays = $this->getDisabledWeekdaysData();
         $reservations = $this->getReservations();
+
+        $weekInterval = new \DateInterval('P1W');
+
+        foreach ($disabledWeekdays as $weekday) {
+            $wdayDate = new \DateTime('now');
+            $wdayDate->modify($weekday);
+
+            // Pad to two years.
+            for ($i = 0; $i < 105; $i++) {
+                $range = [
+                    'start' => $wdayDate->format('Y-m-d'),
+                    'end' => $wdayDate->format('Y-m-d')
+                ];
+
+                $disabledRanges[] = $range;
+
+                $wdayDate->add($weekInterval);
+            }
+        }
 
         foreach ($reservations as $reservation) {
             if (!$reservation->isPending() && !$reservation->isAccepted()) {
@@ -248,6 +268,49 @@ class Reservable
     public function getDisabledDaysAdminData()
     {
         return $this->getMeta('admin_disabled_days', true);
+    }
+
+    /**
+     * Get admin disabled weekdays data.
+     *
+     * @since 0.1.1
+     * @return mixed
+     */
+    public function getDisabledWeekdaysData()
+    {
+        return $this->getMeta('disabled_weekdays');
+    }
+
+    /**
+     * Set the disabled weekdays for this reservable.
+     *
+     * @since 0.1.1
+     *
+     * @param mixed[]|Boolean $data Data for the disabled weekdays. Array of dayname
+     *                              slugs, e.g. 'monday', 'tuesday', etc. Clear this
+     *                              byb passing in `false`.
+     *
+     * @return void
+     */
+    public function setDisabledWeekdaysData($data)
+    {
+        $this->setMeta('disabled_weekdays', $data);
+    }
+
+    /**
+     * Does this reservable have a certain weekday disabled for reservations?
+     *
+     * @since 0.1.1
+     *
+     * @param String $weekday Weekday nicename, e.g. `monday`.
+     *
+     * @return Boolean
+     */
+    public function isWeekdayDisabled($weekday)
+    {
+        $disabledWeekdays = $this->getDisabledWeekdaysData();
+
+        return in_array($weekday, $disabledWeekdays);
     }
 
     /**

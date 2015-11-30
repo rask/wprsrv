@@ -151,6 +151,7 @@ class Reservable extends PostType
             'reservable_active',
             'reservable_singleday',
             'reservable_disabled_days',
+            'reservable_disabled_weekdays',
             'reservable_loggedin_only'
         ];
 
@@ -171,6 +172,10 @@ class Reservable extends PostType
 
                 case 'reservable_disabled_days':
                     $reservable->setDisabledDaysAdminData(false);
+                    break;
+
+                case 'reservable_disabled_weekdays':
+                    $reservable->setDisabledWeekdaysData(false);
                     break;
 
                 case 'reservable_loggedin_only':
@@ -209,6 +214,14 @@ class Reservable extends PostType
 
                     $reservable->setDisabledDaysAdminData($disabled);
 
+                    break;
+
+                case 'reservable_disabled_weekdays':
+                    $wdays = array_map(function ($item) {
+                        return preg_replace('%[^a-zöäå]%', '', $item);
+                    }, $value);
+
+                    $reservable->setDisabledWeekdaysData($wdays);
                     break;
 
                 case 'reservable_loggedin_only':
