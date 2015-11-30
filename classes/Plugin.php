@@ -198,7 +198,7 @@ class Plugin
      */
     public function frontendInit()
     {
-        wp_register_script('customevent', $this->pluginUrl . '/assets/lib/customevent.js');
+        wp_register_script('customevent', $this->pluginUrl . '/assets/js/customevent.js');
     }
 
     /**
