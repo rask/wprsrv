@@ -109,42 +109,42 @@ msgctxt "reservation form validation"
 msgid "You cannot reserve dates that are already reserved."
 msgstr ""
 
-#: classes\PostTypes\Objects\Reservation.php:201
+#: classes\PostTypes\Objects\Reservation.php:205
 msgctxt "validation error label"
 msgid "email address"
 msgstr ""
 
-#: classes\PostTypes\Objects\Reservation.php:203
+#: classes\PostTypes\Objects\Reservation.php:207
 msgctxt "validation error label"
 msgid "starting date or time"
 msgstr ""
 
-#: classes\PostTypes\Objects\Reservation.php:205
+#: classes\PostTypes\Objects\Reservation.php:209
 msgctxt "validation error label"
 msgid "ending date or time"
 msgstr ""
 
-#: classes\PostTypes\Objects\Reservation.php:219
+#: classes\PostTypes\Objects\Reservation.php:223
 msgctxt "validation error"
 msgid "Missing field: %s"
 msgstr ""
 
-#: classes\PostTypes\Objects\Reservation.php:235
+#: classes\PostTypes\Objects\Reservation.php:239
 msgctxt "validation error"
 msgid "Invalid number value for %s"
 msgstr ""
 
-#: classes\PostTypes\Objects\Reservation.php:247
+#: classes\PostTypes\Objects\Reservation.php:251
 msgctxt "validation error"
 msgid "Invalid date or time value for %s"
 msgstr ""
 
-#: classes\PostTypes\Objects\Reservation.php:259
+#: classes\PostTypes\Objects\Reservation.php:263
 msgctxt "validation error"
 msgid "Invalid email value for %s"
 msgstr ""
 
-#: classes\PostTypes\Objects\Reservation.php:277
+#: classes\PostTypes\Objects\Reservation.php:281
 msgctxt "validation error"
 msgid "Given reservation date range contains a date that has already been reserved"
 msgstr ""
@@ -199,17 +199,17 @@ msgctxt "post type labels"
 msgid "No reservables found in trash"
 msgstr ""
 
-#: classes\PostTypes\Reservable.php:563
+#: classes\PostTypes\Reservable.php:589
 msgctxt "reservable metabox title"
 msgid "Reservable settings"
 msgstr ""
 
-#: classes\PostTypes\Reservable.php:571
+#: classes\PostTypes\Reservable.php:597
 msgctxt "reservable metabox title"
 msgid "Reservation calendar"
 msgstr ""
 
-#: classes\PostTypes\Reservable.php:579
+#: classes\PostTypes\Reservable.php:605
 msgctxt "reservable metabox title"
 msgid "Reservable actions"
 msgstr ""
@@ -378,62 +378,71 @@ msgstr ""
 msgid "This reservable has no reservations."
 msgstr ""
 
-#: includes\templates\admin\reservables\settings-metabox.php:43
+#: includes\templates\admin\reservables\settings-metabox.php:63
 msgctxt "reservable metabox form"
 msgid "Reservable active"
 msgstr ""
 
-#: includes\templates\admin\reservables\settings-metabox.php:45
+#: includes\templates\admin\reservables\settings-metabox.php:65
 msgid "If the reservable is not active, it will be visible in the frontend but no reservation form will be shown."
 msgstr ""
 
-#: includes\templates\admin\reservables\settings-metabox.php:55
+#: includes\templates\admin\reservables\settings-metabox.php:75
 msgid "Active"
 msgstr ""
 
-#: includes\templates\admin\reservables\settings-metabox.php:69
+#: includes\templates\admin\reservables\settings-metabox.php:89
 msgctxt "reservable metabox form"
 msgid "Only single-day reservations"
 msgstr ""
 
-#: includes\templates\admin\reservables\settings-metabox.php:71
+#: includes\templates\admin\reservables\settings-metabox.php:91
 msgid "Disable date range selecting in the reservation form."
 msgstr ""
 
-#: includes\templates\admin\reservables\settings-metabox.php:81
+#: includes\templates\admin\reservables\settings-metabox.php:101
 msgid "Single day reservations"
 msgstr ""
 
-#: includes\templates\admin\reservables\settings-metabox.php:95
+#: includes\templates\admin\reservables\settings-metabox.php:115
 msgctxt "reservable metabox form"
 msgid "Only logged in users can reserve"
 msgstr ""
 
-#: includes\templates\admin\reservables\settings-metabox.php:97
+#: includes\templates\admin\reservables\settings-metabox.php:117
 msgid "Disable reservations from guests."
 msgstr ""
 
-#: includes\templates\admin\reservables\settings-metabox.php:107
+#: includes\templates\admin\reservables\settings-metabox.php:127
 msgid "Require login"
 msgstr ""
 
-#: includes\templates\admin\reservables\settings-metabox.php:121
+#: includes\templates\admin\reservables\settings-metabox.php:141
 msgctxt "reservable metabox form"
 msgid "Disabled days"
 msgstr ""
 
-#: includes\templates\admin\reservables\settings-metabox.php:123
+#: includes\templates\admin\reservables\settings-metabox.php:143
 msgid "Choose dates when this reservable is not available for reservation. Dates are inclusive."
 msgstr ""
 
-#: includes\templates\admin\reservables\settings-metabox.php:143, includes\templates\admin\reservables\settings-metabox.php:171
+#: includes\templates\admin\reservables\settings-metabox.php:163, includes\templates\admin\reservables\settings-metabox.php:191
 msgctxt "delete repeater row"
 msgid "Delete"
 msgstr ""
 
-#: includes\templates\admin\reservables\settings-metabox.php:181
+#: includes\templates\admin\reservables\settings-metabox.php:201
 msgctxt "add repeater row"
 msgid "Add"
+msgstr ""
+
+#: includes\templates\admin\reservables\settings-metabox.php:213
+msgctxt "reservable metabox form"
+msgid "Disabled weekdays"
+msgstr ""
+
+#: includes\templates\admin\reservables\settings-metabox.php:215
+msgid "Choose the weekdays that should not be reservable."
 msgstr ""
 
 #: includes\templates\admin\reservations\actions-metabox.php:37
