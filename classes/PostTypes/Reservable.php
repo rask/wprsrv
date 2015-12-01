@@ -289,7 +289,7 @@ class Reservable extends PostType
     public function editFormMetaBox($reservable)
     {
         add_action('admin_enqueue_scripts', function () {
-            wp_enqueue_style('edit-reservable', \Wprsrv\wprsrv()->pluginUrl . '/assets/css/admin/edit-reservable.css');
+            wp_enqueue_style('edit-reservable');
         });
 
         add_meta_box('reservablesettings', _x('Reservable settings', 'reservable metabox title', 'wprsrv'), function ($reservable) {

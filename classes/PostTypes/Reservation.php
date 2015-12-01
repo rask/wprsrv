@@ -119,7 +119,7 @@ class Reservation extends PostType
         remove_meta_box('submitdiv', 'reservation', 'side');
 
         add_action('admin_enqueue_scripts', function () {
-            wp_enqueue_style('edit-reservation', \Wprsrv\wprsrv()->pluginUrl . '/assets/css/admin/edit-reservation.css');
+            wp_enqueue_style('edit-reservation');
         });
 
         add_meta_box('reservationinfo', _x('Reservation information', 'metabox title', 'wprsrv'), function ($reservation) {

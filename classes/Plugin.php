@@ -171,6 +171,8 @@ class Plugin
 
         $this->setupPostTypes();
 
+        $this->registerScriptsAndStyles();
+
         if ($this->isAdmin()) {
             $this->adminInit();
         } else {
@@ -190,6 +192,49 @@ class Plugin
     }
 
     /**
+     * Register plugin-specific scripts and styles. Enqueue them elsewhere when
+     * needed.
+     *
+     * @since 0.1.1
+     * @access protected
+     * @return void
+     */
+    protected function registerScriptsAndStyles()
+    {
+        $purl = $this->pluginUrl . '/assets';
+
+        /**
+         * The Pikaday datepicker library CSS stylesheet file.
+         *
+         * Pikaday comes with its own CSS stylesheet. Developers can use their own
+         * Pikaday styles using this filter.
+         *
+         * @since 0.1.0
+         *
+         * @param String $pikadayCss Stylesheet URL.
+         */
+        $pikadayCssUrl = apply_filters('wprsrv/pikaday/css_url', $purl . '/lib/pikaday/css/pikaday.css');
+
+        // Lib scripts.
+        wp_register_script('customevent', $purl . '/js/custommevent.js');
+        wp_register_script('momentjs', $purl . '/lib/moment/min/moment.min.js', [], null, true);
+        wp_register_script('pikaday', $purl . '/lib/pikaday/pikaday.js', ['momentjs'], null, true);
+
+        // Plugin scripts.
+        wp_register_script('wprsrv-calendars', $purl . '/js/calendars.js', ['customevent', 'pikaday'], null, true);
+        wp_register_script('wprsrv-admin', $purl . '/js/admin.js', ['jquery', 'pikaday'], null, true);
+
+        // Lib styles.
+        wp_register_style('pikaday', $pikadayCssUrl);
+
+        // Plugin styles.
+        wp_register_style('wprsrv-reservation-form', $purl . '/css/reservation-form.css');
+        wp_register_style('edit-reservable', $purl . '/css/admin/edit-reservable.css');
+        wp_register_style('edit-reservation', $purl . '/css/admin/edit-reservation.css');
+        wp_register_style('wprsrv-export', $purl . '/css/admin/export.css');
+    }
+
+    /**
      * Frontend initializations.
      *
      * @since 0.1.0
@@ -198,7 +243,6 @@ class Plugin
      */
     public function frontendInit()
     {
-        wp_register_script('customevent', $this->pluginUrl . '/assets/js/customevent.js');
     }
 
     /**
@@ -212,7 +256,7 @@ class Plugin
     {
         $this->make('admin_menu');
 
-        wp_enqueue_script('wprsrv-admin', $this->pluginUrl . '/assets/js/admin.js', ['jquery'], null, true);
+        wp_enqueue_script('wprsrv-admin');
     }
 
     /**

@@ -2,6 +2,8 @@
  * WpRsrv wp-admin scripts.
  */
 
+/* globals jQuery, Pikaday, console, ajaxurl */
+
 function WprsrvAdmin($)
 {
     'use strict';
@@ -14,8 +16,15 @@ function WprsrvAdmin($)
         i18n: {
             previousMonth : 'Previous Month',
             nextMonth     : 'Next Month',
-            months        : ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-            weekdays      : ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+            months        : [
+                'January', 'February', 'March', 'April',
+                'May', 'June', 'July', 'August',
+                'September', 'October', 'November', 'December'
+            ],
+            weekdays      : [
+                'Sunday', 'Monday', 'Tuesday', 'Wednesday',
+                'Thursday', 'Friday', 'Saturday'
+            ],
             weekdaysShort : ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
         },
         format: 'YYYY-MM-DD'
@@ -24,6 +33,8 @@ function WprsrvAdmin($)
 
 WprsrvAdmin.prototype.spawnPikadayFields = function ($inputs)
 {
+    'use strict';
+
     var $fields;
 
     if ($inputs === undefined) {
@@ -106,7 +117,12 @@ WprsrvAdmin.prototype.reservationAdminNotes = function ()
 
         var noteContent = noteField.value;
 
-        var noteReq = this.$.post(ajaxurl, {'action': 'wprsrv_add_note', 'post_id': postId, 'user_id': userId, 'note_content': noteContent});
+        var noteReq = this.$.post(ajaxurl, {
+            'action': 'wprsrv_add_note',
+            'post_id': postId,
+            'user_id': userId,
+            'note_content': noteContent
+        });
 
         // If the request hangs, wait for 7.5secs and enable the form again.
         window.setTimeout(function () {
@@ -307,11 +323,12 @@ WprsrvAdmin.prototype.reservableEditScreen = function ()
     if ($repeaterClonables.length) {
         $repeaterClonables.each(setupRepeater);
 
-        $repeaterClonables.parent().find('.wprsrv-repeater-row').each(function(idx, el) {
-            var $row = this.$(el);
+        $repeaterClonables.parent()
+            .find('.wprsrv-repeater-row').each(function(idx, el) {
+                var $row = this.$(el);
 
-            $row.on('click', '.deletion', {'row': $row}, rowRemove);
-        }.bind(this));
+                $row.on('click', '.deletion', {'row': $row}, rowRemove);
+            }.bind(this));
     }
 
     this.reservableCalendars();

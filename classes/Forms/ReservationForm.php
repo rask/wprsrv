@@ -147,25 +147,11 @@ class ReservationForm
     {
         $assetsUrl = \Wprsrv\wprsrv()->pluginUrl . '/assets';
 
-        /**
-         * The Pikaday datepicker library CSS stylesheet file.
-         *
-         * Pikaday comes with its own CSS stylesheet. Developers can use their own
-         * Pikaday styles using this filter.
-         *
-         * @since 0.1.0
-         *
-         * @param String $pikadayCss Stylesheet URL.
-         */
-        $pikadayCss = apply_filters('wprsrv/pikaday/css_url', $assetsUrl . '/lib/pikaday/css/pikaday.css');
+        wp_enqueue_script('pikaday');
+        wp_enqueue_style('pikaday');
 
-        wp_enqueue_script('momentjs', $assetsUrl . '/lib/moment/min/moment.min.js', [], null, true);
-        wp_enqueue_script('pikaday', $assetsUrl . '/lib/pikaday/pikaday.js', ['momentjs'], null, true);
-        wp_enqueue_style('pikaday', $pikadayCss);
-
-        wp_enqueue_script('wprsrv-calendars', $assetsUrl . '/js/calendars.js', ['customevent', 'pikaday'], null, true);
-
-        wp_enqueue_style('wprsrv-reservation-form', $assetsUrl . '/css/reservation-form.css');
+        wp_enqueue_script('wprsrv-calendars');
+        wp_enqueue_style('wprsrv-reservation-form');
 
         wp_localize_script('wprsrv-calendars', 'WprsrvL10n', $this->getCalendarLocalization());
     }
