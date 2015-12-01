@@ -96,20 +96,22 @@ class Reservable
 
         $weekInterval = new \DateInterval('P1W');
 
-        foreach ($disabledWeekdays as $weekday) {
-            $wdayDate = new \DateTime('now');
-            $wdayDate->modify($weekday);
+        if (!empty($disabledWeekdays)) {
+            foreach ($disabledWeekdays as $weekday) {
+                $wdayDate = new \DateTime('now');
+                $wdayDate->modify($weekday);
 
-            // Pad to two years.
-            for ($i = 0; $i < 105; $i++) {
-                $range = [
-                    'start' => $wdayDate->format('Y-m-d'),
-                    'end' => $wdayDate->format('Y-m-d')
-                ];
+                // Pad to two years.
+                for ($i = 0; $i < 105; $i++) {
+                    $range = [
+                        'start' => $wdayDate->format('Y-m-d'),
+                        'end' => $wdayDate->format('Y-m-d')
+                    ];
 
-                $disabledRanges[] = $range;
+                    $disabledRanges[] = $range;
 
-                $wdayDate->add($weekInterval);
+                    $wdayDate->add($weekInterval);
+                }
             }
         }
 
