@@ -179,6 +179,14 @@ class ReservableCalendar
             __('Sunday')
         ];
 
+        $wdays = array_map(function ($name) {
+            $first = mb_substr($name, 0, 1);
+            $short = mb_substr($name, 1, 2);
+            $rest = mb_substr($name, 3, 99);
+
+            return sprintf('%s<span class="short">%s<span class="full">%s</span></span>', $first, $short, $rest);
+        }, $wdays);
+
         $now = $this->date;
         $month = new \DateInterval('P1M');
 

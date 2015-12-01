@@ -3,74 +3,77 @@
  */
 
 #reservablesettings.postbox {
-  .inside {
-    margin: 0;
-    padding: 0;
-  }
+    .inside {
+        margin: 0;
+        padding: 0;
+    }
 
-  table {
-    width: 100%;
-    border-collapse: collapse;
+    table {
+        width: 100%;
+        border-collapse: collapse;
 
-    tr {
-      &:last-of-type {
-        td, th {
-          border-bottom: 0;
+        tr {
+            &:last-of-type {
+                td, th {
+                    border-bottom: 0;
+                }
+            }
         }
-      }
+
+        td, th {
+            vertical-align: top;
+            padding: 10px;
+            border-bottom: 1px solid #e8e8e8;
+            border-right: 1px solid #e8e8e8;
+            width: 50%;
+        }
+
+        th[scope="row"] {
+            vertical-align: top;
+            text-align: left;
+            max-width: 450px;
+
+            em, label {
+                display: block;
+            }
+
+            em {
+                color: #808080;
+                font-weight: normal;
+            }
+        }
     }
 
-    td, th {
-      vertical-align: top;
-      padding: 10px;
-      border-bottom: 1px solid #e8e8e8;
-      border-right: 1px solid #e8e8e8;
-      width: 50%;
+    .wprsrv-repeater-row {
+        margin-bottom: 10px;
+        height: 30px;
+
+        & > div:first-child {
+            float: left;
+            height: 30px;
+            width: 80%;
+            font-size: 24px;
+        }
+
+        & > div:last-child {
+            float: right;
+            height: 30px;
+            width: 20%;
+        }
+
+        .deletion {
+            color: #900;
+        }
     }
 
-    th[scope="row"] {
-      vertical-align: top;
-      text-align: left;
-      max-width: 450px;
-
-      em, label {
+    td > label + label {
         display: block;
-      }
-
-      em {
-        color: #808080;
-        font-weight: normal;
-      }
-    }
-  }
-
-  .wprsrv-repeater-row {
-    margin-bottom: 10px;
-    height: 30px;
-
-    & > div:first-child {
-      float: left;
-      height: 30px;
-      width: 80%;
-      font-size: 24px;
+        margin-top: 5px;
     }
 
-    & > div:last-child {
-      float: right;
-      height: 30px;
-      width: 20%;
+    button.button-primary {
+        margin-top: 10px;
     }
-
-    .deletion {
-      color: #900;
-
-
-    }
-  }
-
-  button.button-primary {
-    margin-top: 10px;
-  }
 }
 
 #reservableactions.postbox {
@@ -116,6 +119,22 @@
             padding: 10px;
             border-bottom: 1px solid #e8e8e8;
             border-right: 1px solid #e8e8e8;
+        }
+
+        th .short {
+            display: none;
+
+            @media screen and (min-width: 520px) {
+                display: inline;
+            }
+
+            .full {
+                display: none;
+
+                @media screen and (min-width: 1180px) {
+                    display: inline;
+                }
+            }
         }
 
         td.single-day {

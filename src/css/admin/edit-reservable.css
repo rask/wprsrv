@@ -41,6 +41,10 @@
   #reservablesettings.postbox .wprsrv-repeater-row .deletion {
     color: #900; }
 
+#reservablesettings.postbox td > label + label {
+  display: block;
+  margin-top: 5px; }
+
 #reservablesettings.postbox button.button-primary {
   margin-top: 10px; }
 
@@ -71,6 +75,16 @@
     padding: 10px;
     border-bottom: 1px solid #e8e8e8;
     border-right: 1px solid #e8e8e8; }
+  #reservablereservations.postbox table th .short {
+    display: none; }
+    @media screen and (min-width: 520px) {
+      #reservablereservations.postbox table th .short {
+        display: inline; } }
+    #reservablereservations.postbox table th .short .full {
+      display: none; }
+      @media screen and (min-width: 1180px) {
+        #reservablereservations.postbox table th .short .full {
+          display: inline; } }
   #reservablereservations.postbox table td.single-day {
     width: 14.285%; }
     #reservablereservations.postbox table td.single-day.start-reservation_accepted {
