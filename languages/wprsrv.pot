@@ -406,27 +406,27 @@ msgctxt "note content for new declined reservation"
 msgid "Reservation marked as <em>declined</em>."
 msgstr ""
 
-#: classes/PostTypes/Reservation.php:575
+#: classes/PostTypes/Reservation.php:591
 msgctxt "reservation email"
 msgid "Your reservation has been accepted"
 msgstr ""
 
-#: classes/PostTypes/Reservation.php:582
+#: classes/PostTypes/Reservation.php:598
 msgctxt "reservation email"
 msgid "Your reservation has been declined"
 msgstr ""
 
-#: classes/PostTypes/Reservation.php:589
+#: classes/PostTypes/Reservation.php:605
 msgctxt "reservation email"
 msgid "You have a new pending reservation"
 msgstr ""
 
-#: classes/PostTypes/Reservation.php:596
+#: classes/PostTypes/Reservation.php:612
 msgctxt "reservation email"
 msgid "New pending reservation at %s"
 msgstr ""
 
-#: classes/PostTypes/Reservation.php:619
+#: classes/PostTypes/Reservation.php:635
 msgctxt "note content for new declined reservation"
 msgid "Reservation email notification failed. Attempted to send a `%s` email."
 msgstr ""

@@ -103,6 +103,15 @@ class Email
     protected $successCbArgs;
 
     /**
+     * Directories where templates should be looked for.
+     *
+     * @since 0.1.1
+     * @access protected
+     * @var String[]
+     */
+    protected $templateDirectories;
+
+    /**
      * Constructor. Set the email type.
      *
      * @since 0.1.0
@@ -114,6 +123,63 @@ class Email
     public function __construct($type)
     {
         $this->type = $type;
+
+        $this->setupTemplateDirectories();
+    }
+
+    /**
+     * Setup template directories for email templates. Attempt theme directories
+     * first in case devs want to override the email templates. Child themes should
+     * override parent themes.
+     *
+     * @since 0.1.1
+     * @access protected
+     * @return void
+     */
+    protected function setupTemplateDirectories()
+    {
+        $pluginEmailTemplates = wprsrv()->pluginDirectory . '/includes/templates/email';
+        $templateDir = get_template_directory();
+        $themeDir = get_stylesheet_directory();
+        $templateEmailTemplates = $templateDir . '/wprsrv/email';
+        $themeEmailTemplates = $themeDir . '/wprsrv/email';
+
+        $this->templateDirectories = [
+            $themeEmailTemplates,
+            $templateEmailTemplates,
+            $pluginEmailTemplates
+        ];
+    }
+
+    /**
+     * Locate an email template file. Attempt the designated template directories
+     * and then fallback to the plugin's own template.
+     *
+     * @since 0.1.1
+     * @access protected
+     *
+     * @param String $template Filename without path.
+     *
+     * @return String|null
+     */
+    protected function locateEmailTemplate($template)
+    {
+        $tmplFile = null;
+
+        foreach ($this->templateDirectories as $dir) {
+            if (!is_dir($dir)) {
+                continue;
+            }
+
+            if (file_exists($dir . '/' . $template)) {
+                $tmplFile = $dir . '/' . $template;
+
+                // Stop looking and use the first one which is available.
+                break;
+            }
+        }
+
+        return $tmplFile;
     }
 
     /**
@@ -121,17 +187,30 @@ class Email
      *
      * @since 0.1.0
      *
-     * @param $templateFile
+     * @param String $templateFile Template file name, will be searched for in
+     *                             various directories.
      *
      * @return self
      */
     public function setTemplate($templateFile)
     {
-        $tmplDir = wprsrv()->pluginDirectory . RDS . 'includes' . RDS . 'templates' . RDS . 'email';
+        /**
+         * Allow adjusting the filename of the email template file to load. Useful
+         * for loading a slightly different file depending on other configuration.
+         *
+         * @since 0.1.1
+         *
+         * @param String $templateFile Template filename with no path.
+         * @param \Wprsrv\Email self This email instance.
+         */
+        $templateFile = apply_filters('wprsrv/email_template_file_name', $templateFile, $this);
 
-        $template = $tmplDir . RDS . $templateFile;
+        // Prevent directory traversing for security.
+        $templateFile = basename($templateFile);
 
-        if (!file_exists($template)) {
+        $template = $this->locateEmailTemplate($templateFile);
+
+        if ($template === null) {
             throw new \InvalidArgumentException('Invalid template file for email template: ' . $templateFile);
         }
 
@@ -151,6 +230,10 @@ class Email
      */
     public function sendWith(Array $args)
     {
+        if ($this->template === null) {
+            throw new \Exception('Cannot send email without a template.');
+        }
+
         extract($args);
 
         $template = include($this->template);

@@ -556,6 +556,22 @@ class Reservation extends PostType
         $email = new Email('reservation_' . $noticeType);
         $email->setFailureCallback([$this, 'emailSendFailed'], [$noticeType, $reservation]);
 
+        $adminEmail = \Wprsrv\wprsrv()->make('settings')->email['admin_email'];
+
+        /**
+         * Allow adjusting the admin email address, where notifications of new
+         * pending reservations are sent to.
+         *
+         * @since 0.1.1
+         *
+         * @param String $adminEmail The admin email address.
+         * @param \Wprsrv\PostTypes\Objects\Reservation $reservation The reservation
+         *                                                           the current
+         *                                                           notice is being
+         *                                                           sent for.
+         */
+        $adminEmail = apply_filters('wprsrv/notification_admin_email', $adminEmail, $reservation);
+
         // General data used for templates.
         $emailData = [
             'from_date' => $reservation->getStartDate('Y-m-d H:i:s'),
@@ -594,7 +610,7 @@ class Reservation extends PostType
             case 'admin_pending':
                 $email
                     ->setSubject(sprintf(_x('New pending reservation at %s', 'reservation email', 'wprsrv'), $emailData['site_name']))
-                    ->setTo(\Wprsrv\wprsrv()->make('settings')->email['admin_email'])
+                    ->setTo($adminEmail)
                     ->setTemplate('admin-new-reservation.php');
                 break;
 
