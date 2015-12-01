@@ -105,7 +105,7 @@ class Email
     /**
      * Directories where templates should be looked for.
      *
-     * @since 0.1.1
+     * @since 0.2.0
      * @access protected
      * @var String[]
      */
@@ -132,7 +132,7 @@ class Email
      * first in case devs want to override the email templates. Child themes should
      * override parent themes.
      *
-     * @since 0.1.1
+     * @since 0.2.0
      * @access protected
      * @return void
      */
@@ -155,7 +155,7 @@ class Email
      * Locate an email template file. Attempt the designated template directories
      * and then fallback to the plugin's own template.
      *
-     * @since 0.1.1
+     * @since 0.2.0
      * @access protected
      *
      * @param String $template Filename without path.
@@ -198,7 +198,7 @@ class Email
          * Allow adjusting the filename of the email template file to load. Useful
          * for loading a slightly different file depending on other configuration.
          *
-         * @since 0.1.1
+         * @since 0.2.0
          *
          * @param String $templateFile Template filename with no path.
          * @param \Wprsrv\Email self This email instance.

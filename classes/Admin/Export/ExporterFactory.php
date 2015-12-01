@@ -9,7 +9,7 @@ use Wprsrv\PostTypes\Objects\Reservable;
  *
  * Create exporters.
  *
- * @since 0.1.1
+ * @since 0.2.0
  * @package Wprsrv\Admin\Export
  */
 class ExporterFactory
@@ -18,7 +18,7 @@ class ExporterFactory
      * Create a new exporter of a certain format and for a certain reservable.
      *
      * @static
-     * @since 0.1.1
+     * @since 0.2.0
      *
      * @param String $format Format to use for exports, e.g `csv`.
      * @param \Wprsrv\PostTypes\Objects\Reservable|null $reservable Reservable to

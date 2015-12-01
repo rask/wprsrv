@@ -7,7 +7,7 @@ use Wprsrv\PostTypes\Objects\Reservable;
 /**
  * Class ExportsHandler
  *
- * @since 0.1.1
+ * @since 0.2.0
  * @package Wprsrv\Admin\Export
  */
 class ExportHandler
@@ -15,7 +15,7 @@ class ExportHandler
     /**
      * Validate that an export request is valid.
      *
-     * @since 0.1.1
+     * @since 0.2.0
      * @access protected
      * @return Boolean
      */
@@ -37,7 +37,7 @@ class ExportHandler
     /**
      * Get the export request parameters.
      *
-     * @since 0.1.1
+     * @since 0.2.0
      * @access protected
      *
      * @param mixed[] $args Export request parameters.
@@ -73,7 +73,7 @@ class ExportHandler
     /**
      * Handle a requested export. Takes the request params and dumps the export data.
      *
-     * @since 0.1.1
+     * @since 0.2.0
      * @return void
      */
     public function handleExport()

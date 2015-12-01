@@ -50,7 +50,7 @@ class AdminMenu
         /**
          * Which capability is needed to access the reservations export menu.
          *
-         * @since 0.1.1
+         * @since 0.2.0
          *
          * @param String $capability The capability needed to access exports.
          *
@@ -96,7 +96,7 @@ class AdminMenu
     /**
      * Generate the exports page contents.
      *
-     * @since 0.1.1
+     * @since 0.2.0
      * @return void
      */
     public function generateExportPage()
@@ -121,7 +121,7 @@ class AdminMenu
     /**
      * Handle a submitted export file download request.
      *
-     * @since 0.1.1
+     * @since 0.2.0
      * @access protected
      * @return void
      */

@@ -57,17 +57,22 @@ msgctxt "export_column"
 msgid "Reservable ID"
 msgstr ""
 
-#: classes\Admin\Export\Exporter.php:471
+#: classes\Admin\Export\Exporter.php:475
 msgctxt "export column"
 msgid "Title"
 msgstr ""
 
-#: classes\Admin\Export\Exporter.php:473
+#: classes\Admin\Export\Exporter.php:477
 msgctxt "export column"
 msgid "Description"
 msgstr ""
 
-#: classes\Admin\Export\Exporter.php:527
+#: classes\Admin\Export\Exporter.php:479
+msgctxt "export column"
+msgid "Status"
+msgstr ""
+
+#: classes\Admin\Export\Exporter.php:533
 msgctxt "export column"
 msgid "Reservable title"
 msgstr ""

@@ -10,7 +10,7 @@ use Wprsrv\PostTypes\Objects\Reservation;
  *
  * Defines a base for different types of exporters.
  *
- * @since 0.1.1
+ * @since 0.2.0
  * @abstract
  * @package Wprsrv\Admin
  */
@@ -19,7 +19,7 @@ abstract class Exporter
     /**
      * Reservable to export for, or null for global export.
      *
-     * @since 0.1.1
+     * @since 0.2.0
      * @access protected
      * @var \Wprsrv\PostTypes\Objects\Reservable|null
      */
@@ -28,7 +28,7 @@ abstract class Exporter
     /**
      * Reservations that are going to be exported.
      *
-     * @since 0.1.1
+     * @since 0.2.0
      * @access protected
      * @var \Wprsrv\PostTypes\Objects\Reservation[]
      */
@@ -38,7 +38,7 @@ abstract class Exporter
      * Export data that can be either output to a file or dumped to a browser,
      * depending on the export format.
      *
-     * @since 0.1.1
+     * @since 0.2.0
      * @access protected
      * @var mixed
      */
@@ -47,7 +47,7 @@ abstract class Exporter
     /**
      * Exporter constructor.
      *
-     * @since 0.1.1
+     * @since 0.2.0
      *
      * @param \Wprsrv\PostTypes\Objects\Reservable|null $reservable If a reservable
      *                                                  is given, export data for the
@@ -65,7 +65,7 @@ abstract class Exporter
     /**
      * Gather all reservations.
      *
-     * @since 0.1.1
+     * @since 0.2.0
      * @access protected
      * @return \Wprsrv\PostTypes\Objects\Reservation[]
      */
@@ -102,7 +102,7 @@ abstract class Exporter
     /**
      * Validate that the reservation to be exported fits into the export date range.
      *
-     * @since 0.1.1
+     * @since 0.2.0
      * @access protected
      *
      * @param \Wprsrv\PostTypes\Objects\Reservation $reservation Reservation to
@@ -130,7 +130,7 @@ abstract class Exporter
     /**
      * Get all collective data for reservations.
      *
-     * @since 0.1.1
+     * @since 0.2.0
      * @access protected
      * @return mixed[][]
      */
@@ -158,7 +158,7 @@ abstract class Exporter
     /**
      * Get exportable data for a single reservable.
      *
-     * @since 0.1.1
+     * @since 0.2.0
      * @access protected
      *
      * @param \Wprsrv\PostTypes\Objects\Reservation $reservation Reservation to get
@@ -177,7 +177,7 @@ abstract class Exporter
     /**
      * Get the meta fields that should be exported for a reservable.
      *
-     * @since 0.1.1
+     * @since 0.2.0
      * @access protected
      *
      * @param \Wprsrv\PostTypes\Objects\Reservation $reservation Reservation to get
@@ -201,7 +201,7 @@ abstract class Exporter
          * database table. The values should indicate localized columns names that
          * should be used in a CSV export for instance.
          *
-         * @since 0.1.1
+         * @since 0.2.0
          *
          * @param String[] $metafields The metafields to get. Use `meta_key` field
          *                             name.
@@ -221,7 +221,7 @@ abstract class Exporter
     /**
      * Get the base (post) data for a reservation.
      *
-     * @since 0.1.1
+     * @since 0.2.0
      * @access protected
      *
      * @param \Wprsrv\PostTypes\Objects\Reservation $reservation Reservation to get
@@ -244,7 +244,7 @@ abstract class Exporter
     /**
      * Get the metadata for a reservation.
      *
-     * @since 0.1.1
+     * @since 0.2.0
      * @access protected
      *
      * @param \Wprsrv\PostTypes\Objects\Reservation $reservation Reservation to get
@@ -272,7 +272,7 @@ abstract class Exporter
     /**
      * Construct the export dump into a wanted format.
      *
-     * @since 0.1.1
+     * @since 0.2.0
      * @abstract
      * @access protected
      * @return mixed
@@ -282,7 +282,7 @@ abstract class Exporter
     /**
      * Output the export to the browser or similar.
      *
-     * @since 0.1.1
+     * @since 0.2.0
      * @abstract
      * @return void
      */

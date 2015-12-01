@@ -278,7 +278,7 @@ class Reservable
     /**
      * Get admin disabled weekdays data.
      *
-     * @since 0.1.1
+     * @since 0.2.0
      * @return mixed
      */
     public function getDisabledWeekdaysData()
@@ -289,7 +289,7 @@ class Reservable
     /**
      * Set the disabled weekdays for this reservable.
      *
-     * @since 0.1.1
+     * @since 0.2.0
      *
      * @param mixed[]|Boolean $data Data for the disabled weekdays. Array of dayname
      *                              slugs, e.g. 'monday', 'tuesday', etc. Clear this
@@ -305,7 +305,7 @@ class Reservable
     /**
      * Does this reservable have a certain weekday disabled for reservations?
      *
-     * @since 0.1.1
+     * @since 0.2.0
      *
      * @param String $weekday Weekday nicename, e.g. `monday`.
      *

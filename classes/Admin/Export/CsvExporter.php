@@ -13,7 +13,7 @@ class CsvExporter extends Exporter
      * Construct the export dump into CSV format. Return true if succeeded, false if
      * not.
      *
-     * @since 0.1.1
+     * @since 0.2.0
      * @access protected
      * @return Boolean
      */
@@ -56,7 +56,7 @@ class CsvExporter extends Exporter
     /**
      * Output the export to the browser or similar.
      *
-     * @since 0.1.1
+     * @since 0.2.0
      * @return void
      */
     public function dumpExport()

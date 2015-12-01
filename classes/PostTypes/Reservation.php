@@ -107,7 +107,7 @@ class Reservation extends PostType
     /**
      * Save reservation status updates in wp-admin.
      *
-     * @since 0.1.1
+     * @since 0.2.0
      * @see:wphook save_post_$post_type
      *
      * @param Integer $reservationId Post ID for reservation.
@@ -562,7 +562,7 @@ class Reservation extends PostType
          * Allow adjusting the admin email address, where notifications of new
          * pending reservations are sent to.
          *
-         * @since 0.1.1
+         * @since 0.2.0
          *
          * @param String $adminEmail The admin email address.
          * @param \Wprsrv\PostTypes\Objects\Reservation $reservation The reservation

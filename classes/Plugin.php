@@ -195,7 +195,7 @@ class Plugin
      * Register plugin-specific scripts and styles. Enqueue them elsewhere when
      * needed.
      *
-     * @since 0.1.1
+     * @since 0.2.0
      * @access protected
      * @return void
      */
