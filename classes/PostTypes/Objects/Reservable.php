@@ -312,6 +312,10 @@ class Reservable
     {
         $disabledWeekdays = $this->getDisabledWeekdaysData();
 
+        if (empty($disabledWeekdays)) {
+            return false;
+        }
+
         return in_array($weekday, $disabledWeekdays);
     }
 
