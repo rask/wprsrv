@@ -47,12 +47,15 @@ class Reservable
             return $reservations;
         }
 
+        $stati = ['reservation_pending', 'reservation_accepted', 'reservation_declined'];
+
         $query = vsprintf(
-            'SELECT p.ID FROM %s p LEFT JOIN %s pm ON (p.ID = pm.post_id) WHERE pm.meta_key = "_wprsrv_reservable_id" AND pm.meta_value = %s',
+            'SELECT p.ID FROM %s p LEFT JOIN %s pm ON (p.ID = pm.post_id) WHERE pm.meta_key = "_wprsrv_reservable_id" AND pm.meta_value = %s AND p.post_status IN ("%s")',
             [
                 $wpdb->posts,
                 $wpdb->postmeta,
-                $this->ID
+                $this->ID,
+                implode('","', $stati)
             ]
         );
 
