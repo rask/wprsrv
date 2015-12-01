@@ -1,0 +1,18 @@
+#wprsrv-export form {
+  background-color: #fff;
+  padding: 16px; }
+  #wprsrv-export form p {
+    margin: 0;
+    padding: 0; }
+  #wprsrv-export form p + p {
+    margin-top: 1.5em; }
+  #wprsrv-export form p > * + * {
+    margin-top: 0.5em; }
+  #wprsrv-export form label {
+    display: block;
+    font-weight: bold; }
+  #wprsrv-export form input {
+    display: block; }
+  #wprsrv-export form em {
+    display: block;
+    color: #808080; }

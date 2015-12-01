@@ -1,0 +1,33 @@
+#wprsrv-export {
+    form {
+        background-color: #fff;
+        padding: 16px;
+
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        p + p {
+            margin-top: 1.5em;
+        }
+
+        p > * + * {
+            margin-top: 0.5em;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+        }
+
+        input {
+            display: block;
+        }
+
+        em {
+            display: block;
+            color: #808080;
+        }
+    }
+}
