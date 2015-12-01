@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="robots" content="index, follow, all" />
-    <title>Wprsrv\Admin\ReservableCalendar | wprsrv PHP Documentation</title>
+    <title>Wprsrv\Admin\Export\Exporter | wprsrv PHP Documentation</title>
 
-            <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
-        <link rel="stylesheet" type="text/css" href="../../css/sami.css">
-        <script src="../../js/jquery-1.11.1.min.js"></script>
-        <script src="../../js/bootstrap.min.js"></script>
-        <script src="../../js/typeahead.min.js"></script>
-        <script src="../../sami.js"></script>
+            <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/sami.css">
+        <script src="../../../js/jquery-1.11.1.min.js"></script>
+        <script src="../../../js/bootstrap.min.js"></script>
+        <script src="../../../js/typeahead.min.js"></script>
+        <script src="../../../sami.js"></script>
         <meta name="MobileOptimized" content="width">
         <meta name="HandheldFriendly" content="true">
         <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
@@ -19,11 +19,11 @@
     
     </head>
 
-    <body id="class" data-name="class:Wprsrv_Admin_ReservableCalendar" data-root-path="../../">
+    <body id="class" data-name="class:Wprsrv_Admin_Export_Exporter" data-root-path="../../../">
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
-                <form id="search-form" action="../../search.html" method="GET">
+                <form id="search-form" action="../../../search.html" method="GET">
             <span class="glyphicon glyphicon-search"></span>
             <input name="search"
                    class="typeahead form-control"
@@ -45,16 +45,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="../../index.html">wprsrv PHP Documentation</a>
+                <a class="navbar-brand" href="../../../index.html">wprsrv PHP Documentation</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-elements">
                 <ul class="nav navbar-nav">
-                    <li><a href="../../classes.html">Classes</a></li>
-                                            <li><a href="../../namespaces.html">Namespaces</a></li>
-                                        <li><a href="../../interfaces.html">Interfaces</a></li>
-                    <li><a href="../../traits.html">Traits</a></li>
-                    <li><a href="../../doc-index.html">Index</a></li>
-                    <li><a href="../../search.html">Search</a></li>
+                    <li><a href="../../../classes.html">Classes</a></li>
+                                            <li><a href="../../../namespaces.html">Namespaces</a></li>
+                                        <li><a href="../../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../../traits.html">Traits</a></li>
+                    <li><a href="../../../doc-index.html">Index</a></li>
+                    <li><a href="../../../search.html">Search</a></li>
                 </ul>
             </div>
         </div>
@@ -63,24 +63,25 @@
                         <div class="namespace-breadcrumbs">
             <ol class="breadcrumb">
                 <li><span class="label label-default">class</span></li>
-                                                            <li><a href="../../Wprsrv.html">Wprsrv</a></li>
-                                        <li><a href="../../Wprsrv/Admin.html">Admin</a></li>
+                                                            <li><a href="../../../Wprsrv.html">Wprsrv</a></li>
+                                        <li><a href="../../../Wprsrv/Admin.html">Admin</a></li>
+                                        <li><a href="../../../Wprsrv/Admin/Export.html">Export</a></li>
     
-                <li>ReservableCalendar</li>
+                <li>Exporter</li>
             </ol>
         </div>
                 <div id="page-content">
                 
     <div class="page-header">
-        <h1>ReservableCalendar</h1>
+        <h1>Exporter</h1>
     </div>
 
     <p>    class
-    <strong>ReservableCalendar</strong>
+    <strong>Exporter</strong>
 </p>
 
             <div class="description">
-            <p>Class ReservableCalendar</p>            <p>Calendar to display reservations for a reservable.</p>        </div>
+            <p>Class Exporter</p>            <p>Defines a base for different types of exporters.</p>        </div>
     
     
     
@@ -95,21 +96,18 @@
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method___construct">__construct</a>(
-    <abbr title="Wprsrv\Admin\Wprsrv\PostTypes\Objects\Reservable">Reservable</abbr> $reservable, 
-    <abbr title="Wprsrv\Admin\DateTime">DateTime</abbr> $date, $firstOrLast = null)
-                                            <p>Constructor.</p>                </div>
+    <abbr title="Wprsrv\Admin\Export\Wprsrv\PostTypes\Objects\Reservable">Reservable</abbr> $reservable = null, $dateRange = array())
+                                            <p>Exporter constructor.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     
-    String
+    void
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_render">render</a>(
-    Boolean $invalidateCache = false, 
-    bool|<abbr title="Wprsrv\Admin\true">true</abbr> $echo = true)
-                                            <p>Render the calendar.</p>                </div>
+                    <a href="#method_dumpExport">dumpExport</a>()
+                                            <p>Output the export to the browser or similar.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
@@ -120,37 +118,29 @@
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at line 90</div>
+        <div class="location">at line 58</div>
         <code>                    
     void
     <strong>__construct</strong>(
-    <abbr title="Wprsrv\Admin\Wprsrv\PostTypes\Objects\Reservable">Reservable</abbr> $reservable, 
-    <abbr title="Wprsrv\Admin\DateTime">DateTime</abbr> $date, $firstOrLast = null)</code>
+    <abbr title="Wprsrv\Admin\Export\Wprsrv\PostTypes\Objects\Reservable">Reservable</abbr> $reservable = null, $dateRange = array())</code>
     </h3>
     <div class="details">
                     <div class="method-description">
-                                    <p>Constructor.</p>                                </div>
+                                    <p>Exporter constructor.</p>                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
                 <td>
-    <abbr title="Wprsrv\Admin\Wprsrv\PostTypes\Objects\Reservable">Reservable</abbr></td>
+    <abbr title="Wprsrv\Admin\Export\Wprsrv\PostTypes\Objects\Reservable">Reservable</abbr></td>
                 <td>$reservable</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td>
-    <abbr title="Wprsrv\Admin\DateTime">DateTime</abbr></td>
-                <td>$date</td>
-                <td>
-</td>
-            </tr>
-                    <tr>
                 <td></td>
-                <td>$firstOrLast</td>
+                <td>$dateRange</td>
                 <td>
 </td>
             </tr>
@@ -175,42 +165,23 @@
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_render">
-        <div class="location">at line 314</div>
-        <code>                    
-    String
-    <strong>render</strong>(
-    Boolean $invalidateCache = false, 
-    bool|<abbr title="Wprsrv\Admin\true">true</abbr> $echo = true)</code>
+                    <h3 id="method_dumpExport">
+        <div class="location">at line 287</div>
+        <code>    abstract                
+    void
+    <strong>dumpExport</strong>()</code>
     </h3>
     <div class="details">
                     <div class="method-description">
-                                    <p>Render the calendar.</p>                                </div>
+                                    <p>Output the export to the browser or similar.</p>                                </div>
                 <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>
-    Boolean</td>
-                <td>$invalidateCache</td>
-                <td>Clear the calendar cache before rendering?</td>
-            </tr>
-                    <tr>
-                <td>
-    bool|<abbr title="Wprsrv\Admin\true">true</abbr></td>
-                <td>$echo</td>
-                <td>Echo or return. Use true to echo.</td>
-            </tr>
-            </table>
-
             
                             <h4>Return Value</h4>
 
                     <table class="table table-condensed">
         <tr>
             <td>
-    String</td>
+    void</td>
             <td>
 </td>
         </tr>

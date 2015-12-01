@@ -151,7 +151,7 @@ but has extended methods and properties specific to reservable post type objects
                     <div class="row">
                 <div class="col-md-2 type">
                     
-    mixed
+    mixed|void
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method___get">__get</a>(
@@ -319,6 +319,38 @@ condition, or integer if it is a new meta key/value pair.</p>                </d
                     <div class="row">
                 <div class="col-md-2 type">
                     
+    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getDisabledWeekdaysData">getDisabledWeekdaysData</a>()
+                                            <p>Get admin disabled weekdays data.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    void
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_setDisabledWeekdaysData">setDisabledWeekdaysData</a>(
+    mixed[]|Boolean $data)
+                                            <p>Set the disabled weekdays for this reservable.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    Boolean
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_isWeekdayDisabled">isWeekdayDisabled</a>(
+    String $weekday)
+                                            <p>Does this reservable have a certain weekday disabled for reservations?</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
     Boolean
                 </div>
                 <div class="col-md-8 type">
@@ -424,7 +456,7 @@ reservation between two dates.</p>                </div>
         <div class="location">in 
     <a href="../../../Wprsrv/Traits/CastsToPost.html#method___get"><abbr title="Wprsrv\Traits\CastsToPost">CastsToPost</abbr></a> at line 51</div>
         <code>                    
-    mixed
+    mixed|void
     <strong>__get</strong>(
     String $key)</code>
     </h3>
@@ -450,7 +482,7 @@ injected WP&#95;Post object.</p>            </div>
                     <table class="table table-condensed">
         <tr>
             <td>
-    mixed</td>
+    mixed|void</td>
             <td>
 </td>
         </tr>
@@ -474,7 +506,7 @@ injected WP&#95;Post object.</p>            </div>
                     <div class="method-item">
                     <h3 id="method___set">
         <div class="location">in 
-    <a href="../../../Wprsrv/Traits/CastsToPost.html#method___set"><abbr title="Wprsrv\Traits\CastsToPost">CastsToPost</abbr></a> at line 74</div>
+    <a href="../../../Wprsrv/Traits/CastsToPost.html#method___set"><abbr title="Wprsrv\Traits\CastsToPost">CastsToPost</abbr></a> at line 70</div>
         <code>                    
     void
     <strong>__set</strong>(
@@ -533,7 +565,7 @@ injected WP&#95;Post object.</p>            </div>
                     <div class="method-item">
                     <h3 id="method___call">
         <div class="location">in 
-    <a href="../../../Wprsrv/Traits/CastsToPost.html#method___call"><abbr title="Wprsrv\Traits\CastsToPost">CastsToPost</abbr></a> at line 97</div>
+    <a href="../../../Wprsrv/Traits/CastsToPost.html#method___call"><abbr title="Wprsrv\Traits\CastsToPost">CastsToPost</abbr></a> at line 89</div>
         <code>                    
     mixed
     <strong>__call</strong>(
@@ -592,7 +624,7 @@ WP&#95;Post object.</p>            </div>
                     <div class="method-item">
                     <h3 id="method___construct">
         <div class="location">in 
-    <a href="../../../Wprsrv/Traits/CastsToPost.html#method___construct"><abbr title="Wprsrv\Traits\CastsToPost">CastsToPost</abbr></a> at line 122</div>
+    <a href="../../../Wprsrv/Traits/CastsToPost.html#method___construct"><abbr title="Wprsrv\Traits\CastsToPost">CastsToPost</abbr></a> at line 119</div>
         <code>                    
     void
     <strong>__construct</strong>(
@@ -602,7 +634,12 @@ WP&#95;Post object.</p>            </div>
                     <div class="method-description">
                                     <p>Constructor.</p>                    <p>Pass in either a post ID (integer) or a WP&#95;Post object. The post will be
 available through the <code>post</code> property or through the magic getters and
-setters.</p>            </div>
+setters.</p>
+
+<p>Note: if you update a post and attempt to access it using the <code>$post</code> property
+you might get stale data as the \WP_Post and <code>$this-&gt;post</code> are not
+live-synced. Feel free to update data directly to the <code>$post</code> property where
+needed.</p>            </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -705,7 +742,7 @@ blocked time which has been already reserved.</p>                               
             </div>
                     <div class="method-item">
                     <h3 id="method_isActive">
-        <div class="location">at line 133</div>
+        <div class="location">at line 155</div>
         <code>                    
     Boolean
     <strong>isActive</strong>()</code>
@@ -734,7 +771,7 @@ blocked time which has been already reserved.</p>                               
             </div>
                     <div class="method-item">
                     <h3 id="method_setActive">
-        <div class="location">at line 147</div>
+        <div class="location">at line 169</div>
         <code>                    
     void
     <strong>setActive</strong>(
@@ -775,7 +812,7 @@ blocked time which has been already reserved.</p>                               
             </div>
                     <div class="method-item">
                     <h3 id="method_setMeta">
-        <div class="location">at line 163</div>
+        <div class="location">at line 185</div>
         <code>                    
     Boolean|Integer
     <strong>setMeta</strong>(
@@ -824,7 +861,7 @@ condition, or integer if it is a new meta key/value pair.</p>                   
             </div>
                     <div class="method-item">
                     <h3 id="method_getMeta">
-        <div class="location">at line 181</div>
+        <div class="location">at line 203</div>
         <code>                    
     mixed
     <strong>getMeta</strong>($key, $single = true)</code>
@@ -870,7 +907,7 @@ condition, or integer if it is a new meta key/value pair.</p>                   
             </div>
                     <div class="method-item">
                     <h3 id="method_clearMeta">
-        <div class="location">at line 197</div>
+        <div class="location">at line 219</div>
         <code>                    
     void
     <strong>clearMeta</strong>(
@@ -911,7 +948,7 @@ condition, or integer if it is a new meta key/value pair.</p>                   
             </div>
                     <div class="method-item">
                     <h3 id="method_isSingleDay">
-        <div class="location">at line 208</div>
+        <div class="location">at line 230</div>
         <code>                    
     Boolean
     <strong>isSingleDay</strong>()</code>
@@ -940,7 +977,7 @@ condition, or integer if it is a new meta key/value pair.</p>                   
             </div>
                     <div class="method-item">
                     <h3 id="method_setSingleDay">
-        <div class="location">at line 222</div>
+        <div class="location">at line 244</div>
         <code>                    
     void
     <strong>setSingleDay</strong>(
@@ -981,7 +1018,7 @@ condition, or integer if it is a new meta key/value pair.</p>                   
             </div>
                     <div class="method-item">
                     <h3 id="method_setDisabledDaysAdminData">
-        <div class="location">at line 237</div>
+        <div class="location">at line 259</div>
         <code>                    
     void
     <strong>setDisabledDaysAdminData</strong>(
@@ -1023,7 +1060,7 @@ condition, or integer if it is a new meta key/value pair.</p>                   
             </div>
                     <div class="method-item">
                     <h3 id="method_getDisabledDaysAdminData">
-        <div class="location">at line 248</div>
+        <div class="location">at line 270</div>
         <code>                    
     mixed
     <strong>getDisabledDaysAdminData</strong>()</code>
@@ -1051,8 +1088,121 @@ condition, or integer if it is a new meta key/value pair.</p>                   
 
             </div>
                     <div class="method-item">
+                    <h3 id="method_getDisabledWeekdaysData">
+        <div class="location">at line 281</div>
+        <code>                    
+    mixed
+    <strong>getDisabledWeekdaysData</strong>()</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Get admin disabled weekdays data.</p>                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    mixed</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setDisabledWeekdaysData">
+        <div class="location">at line 297</div>
+        <code>                    
+    void
+    <strong>setDisabledWeekdaysData</strong>(
+    mixed[]|Boolean $data)</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Set the disabled weekdays for this reservable.</p>                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>
+    mixed[]|Boolean</td>
+                <td>$data</td>
+                <td>Data for the disabled weekdays. Array of dayname
+                             slugs, e.g. 'monday', 'tuesday', etc. Clear this
+                             byb passing in <code>false</code>.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    void</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_isWeekdayDisabled">
+        <div class="location">at line 311</div>
+        <code>                    
+    Boolean
+    <strong>isWeekdayDisabled</strong>(
+    String $weekday)</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Does this reservable have a certain weekday disabled for reservations?</p>                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>
+    String</td>
+                <td>$weekday</td>
+                <td>Weekday nicename, e.g. <code>monday</code>.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    Boolean</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
                     <h3 id="method_isLoginRequired">
-        <div class="location">at line 259</div>
+        <div class="location">at line 328</div>
         <code>                    
     Boolean
     <strong>isLoginRequired</strong>()</code>
@@ -1081,7 +1231,7 @@ condition, or integer if it is a new meta key/value pair.</p>                   
             </div>
                     <div class="method-item">
                     <h3 id="method_setLoginRequired">
-        <div class="location">at line 273</div>
+        <div class="location">at line 342</div>
         <code>                    
     void
     <strong>setLoginRequired</strong>(
@@ -1123,7 +1273,7 @@ condition, or integer if it is a new meta key/value pair.</p>                   
             </div>
                     <div class="method-item">
                     <h3 id="method_isDayReserved">
-        <div class="location">at line 288</div>
+        <div class="location">at line 357</div>
         <code>                    
     Boolean
     <strong>isDayReserved</strong>(
@@ -1171,7 +1321,7 @@ condition, or integer if it is a new meta key/value pair.</p>                   
             </div>
                     <div class="method-item">
                     <h3 id="method_getReservationForDate">
-        <div class="location">at line 337</div>
+        <div class="location">at line 406</div>
         <code>                    
     null|<a href="../../../Wprsrv/PostTypes/Objects/Reservation.html"><abbr title="Wprsrv\PostTypes\Objects\Reservation">Reservation</abbr></a>
     <strong>getReservationForDate</strong>(
@@ -1212,7 +1362,7 @@ condition, or integer if it is a new meta key/value pair.</p>                   
             </div>
                     <div class="method-item">
                     <h3 id="method_flushCache">
-        <div class="location">at line 356</div>
+        <div class="location">at line 425</div>
         <code>                    
     void
     <strong>flushCache</strong>()</code>
@@ -1241,7 +1391,7 @@ condition, or integer if it is a new meta key/value pair.</p>                   
             </div>
                     <div class="method-item">
                     <h3 id="method_calendarCacheFlushed">
-        <div class="location">at line 374</div>
+        <div class="location">at line 443</div>
         <code>                    
     Boolean
     <strong>calendarCacheFlushed</strong>()</code>
@@ -1270,7 +1420,7 @@ condition, or integer if it is a new meta key/value pair.</p>                   
             </div>
                     <div class="method-item">
                     <h3 id="method_clearCalendarFlush">
-        <div class="location">at line 385</div>
+        <div class="location">at line 454</div>
         <code>                    
     void
     <strong>clearCalendarFlush</strong>()</code>
@@ -1299,7 +1449,7 @@ condition, or integer if it is a new meta key/value pair.</p>                   
             </div>
                     <div class="method-item">
                     <h3 id="method_hasReservations">
-        <div class="location">at line 396</div>
+        <div class="location">at line 465</div>
         <code>                    
     Boolean
     <strong>hasReservations</strong>()</code>
@@ -1328,7 +1478,7 @@ condition, or integer if it is a new meta key/value pair.</p>                   
             </div>
                     <div class="method-item">
                     <h3 id="method_hasReservationInDateRange">
-        <div class="location">at line 414</div>
+        <div class="location">at line 483</div>
         <code>                    
     Boolean
     <strong>hasReservationInDateRange</strong>(
