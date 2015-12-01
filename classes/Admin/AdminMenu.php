@@ -2,6 +2,9 @@
 
 namespace Wprsrv\Admin;
 
+use Wprsrv\Admin\Export\ExportHandler;
+use Wprsrv\PostTypes\Objects\Reservable;
+
 /**
  * Class AdminMenu
  *
@@ -21,6 +24,7 @@ class AdminMenu
     public function __construct()
     {
         add_action('admin_menu', [$this, 'adminMenu']);
+        add_action('admin_init', [$this, 'handleExport']);
     }
 
     /**
@@ -31,8 +35,28 @@ class AdminMenu
      */
     public function adminMenu()
     {
-        // Allow adjusting the capability needed to access the pages.
+        /**
+         * Which capability is needed to access the general reservations menu.
+         *
+         * @since 0.1.0
+         *
+         * @param String $capability The capability needed to access reservations
+         *               menu.
+         *
+         * @return String
+         */
         $reserve_menu_capability = apply_filters('wprsrv/menu_capability', 'edit_posts');
+
+        /**
+         * Which capability is needed to access the reservations export menu.
+         *
+         * @since 0.1.1
+         *
+         * @param String $capability The capability needed to access exports.
+         *
+         * @return String
+         */
+        $export_menu_capability = apply_filters('wprsrv/export_capability', 'manage_options');
 
         // Collective top-level menu item.
         add_menu_page(
@@ -45,6 +69,15 @@ class AdminMenu
             '24.1234'
         );
 
+        add_submenu_page(
+            'wprsrv',
+            __('Export reservation data', 'wprsrv'),
+            __('Export', 'wprsrv'),
+            $export_menu_capability,
+            'wprsrv-export',
+            [$this, 'generateExportPage']
+        );
+
         do_action('wprsrv/admin_menu');
     }
 
@@ -53,10 +86,49 @@ class AdminMenu
      *
      * @todo Create the admin page.
      * @since 0.1.0
-     * @return Boolean
+     * @return void
      */
     public function generateAdminPage()
     {
-        return false;
+        // Create a menu page?
+    }
+
+    /**
+     * Generate the exports page contents.
+     *
+     * @since 0.1.1
+     * @return void
+     */
+    public function generateExportPage()
+    {
+        wp_enqueue_script('pikaday');
+        wp_enqueue_style('pikaday');
+        wp_enqueue_style('wprsrv-export');
+
+        $exportTemplate = [
+            \Wprsrv\wprsrv()->pluginDirectory,
+            'includes',
+            'templates',
+            'admin',
+            'export.php'
+        ];
+
+        $exportTemplate = implode(RDS, $exportTemplate);
+
+        require_once($exportTemplate);
+    }
+
+    /**
+     * Handle a submitted export file download request.
+     *
+     * @since 0.1.1
+     * @access protected
+     * @return void
+     */
+    public function handleExport()
+    {
+        $exportHandler = new ExportHandler();
+
+        $exportHandler->handleExport();
     }
 }
