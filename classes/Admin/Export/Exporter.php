@@ -231,10 +231,13 @@ abstract class Exporter
      */
     protected function getReservationBaseData(Reservation $reservation)
     {
+        $status = get_post_status_object($reservation->post_status);
+
         return [
             'ID' => $reservation->ID,
             _x('Title', 'export column', 'wprsrv') => $reservation->post_title,
-            _x('Description', 'export column', 'wprsrv') => $reservation->post_content
+            _x('Description', 'export column', 'wprsrv') => $reservation->post_content,
+            _x('Status', 'export column', 'wprsrv') => $status->label
         ];
     }
 
@@ -262,7 +265,6 @@ abstract class Exporter
         }
 
         $data[_x('Reservable title', 'export column', 'wprsrv')] = $reservation->getReservable()->post_title;
-
 
         return $data;
     }
