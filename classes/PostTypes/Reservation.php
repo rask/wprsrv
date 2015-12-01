@@ -96,10 +96,48 @@ class Reservation extends PostType
 
         register_post_type($this->postTypeSlug, $args);
 
+        add_action('save_post_reservation', [$this, 'saveReservationStatuses'], 25, 3);
+
         $this->registerPostTypeStatuses();
         $this->disableQuickEdit();
         $this->adminColumns();
         $this->pruning();
+    }
+
+    /**
+     * Save reservation status updates in wp-admin.
+     *
+     * @since 0.1.1
+     * @see:wphook save_post_$post_type
+     *
+     * @param Integer $reservationId Post ID for reservation.
+     * @param \WP_Post $reservationPost Reservation WP_Post object.
+     * @param Boolean $update Is this a new reservation or an update?
+     *
+     * @return void
+     */
+    public function saveReservationStatuses($reservationId, $reservationPost, $update)
+    {
+        if (!$update) {
+            return;
+        }
+
+        $reservation = new \Wprsrv\PostTypes\Objects\Reservation($reservationPost);
+
+        $shouldAccept = isset($_POST['accept-reservation']);
+        $shouldDecline = isset($_POST['decline-reservation']);
+
+        // Prevent infinite loop.
+        remove_action('save_post_reservation', [$this, 'saveReservationStatuses'], 25);
+
+        if ($shouldAccept) {
+            $reservation->accept();
+        } elseif ($shouldDecline) {
+            $reservation->decline();
+        }
+
+        // Infinite loop danger over, re-enable.
+        add_action('save_post_reservation', [$this, 'saveReservationStatuses'], 25, 3);
     }
 
     /**

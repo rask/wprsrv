@@ -149,93 +149,6 @@ WprsrvAdmin.prototype.reservationAdminNotes = function ()
     }.bind(this));
 };
 
-WprsrvAdmin.prototype.reservationStatusChanges = function ()
-{
-    'use strict';
-
-    var acceptButton = document.getElementById('accept-reservation');
-    var declineButton = document.getElementById('decline-reservation');
-
-    var postIdField = document.getElementById('post_ID');
-    var postId = postIdField.value;
-    var userIdField = document.getElementById('user-id');
-    var userId = userIdField.value;
-
-    if (acceptButton) {
-        var accspinner = document.createElement('div');
-        accspinner.className = 'spinner';
-
-        acceptButton.parentNode.insertBefore(accspinner, acceptButton.nextSibling);
-
-        var $acceptButton = this.$(acceptButton);
-
-        $acceptButton.on('click', function (evt) {
-            evt.preventDefault();
-
-            accspinner.className += ' is-active';
-
-            var acceptReq = this.$.post(ajaxurl, {
-                action: 'wprsrv_accept_reservation',
-                post_id: postId,
-                user_id: userId
-            });
-
-            acceptReq.done(function (res) {
-                if (parseInt(res) === 0) {
-                    acceptButton.disabled = true;
-
-                    window.setTimeout(function () {
-                        acceptButton.disabled = false;
-                    }, 5000);
-                }
-            });
-
-            acceptReq.always(function (res) {
-                accspinner.className = 'spinner';
-            });
-
-            return false;
-        }.bind(this));
-    }
-
-    if (declineButton) {
-        var decspinner = document.createElement('div');
-        decspinner.className = 'spinner';
-
-        declineButton.parentNode.insertBefore(decspinner, declineButton.nextSibling);
-
-        var $declineButton = this.$(declineButton);
-
-        $declineButton.on('click', function (evt) {
-            evt.preventDefault();
-
-            decspinner.className += ' is-active';
-
-            var declineReq = this.$.post(ajaxurl, {
-                action: 'wprsrv_decline_reservation',
-                post_id: postId,
-                user_id: userId
-            });
-
-            declineReq.done(function (res) {
-                if (parseInt(res) === 0) {
-                    declineButton.disabled = true;
-
-                    window.setTimeout(function () {
-                        declineButton.disabled = false;
-                    }, 5000);
-                }
-            });
-
-            declineReq.always(function (res) {
-                decspinner.className = 'spinner';
-            });
-
-            return false;
-        }.bind(this));
-    }
-};
-
 WprsrvAdmin.prototype.reservationAjaxActions = function ()
 {
     'use strict';
@@ -252,7 +165,6 @@ WprsrvAdmin.prototype.reservationAjaxActions = function ()
     }
 
     this.reservationAdminNotes();
-    this.reservationStatusChanges();
 };
 
 WprsrvAdmin.prototype.reservableEditScreen = function ()

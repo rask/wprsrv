@@ -325,108 +325,108 @@ msgctxt "post type rewrite slug"
 msgid "reservations"
 msgstr ""
 
-#: classes/PostTypes/Reservation.php:125
+#: classes/PostTypes/Reservation.php:163
 msgctxt "metabox title"
 msgid "Reservation information"
 msgstr ""
 
-#: classes/PostTypes/Reservation.php:129
+#: classes/PostTypes/Reservation.php:167
 msgctxt "metabox title"
 msgid "Reservation actions"
 msgstr ""
 
-#: classes/PostTypes/Reservation.php:133
+#: classes/PostTypes/Reservation.php:171
 msgctxt "metabox title"
 msgid "Reservation notes"
 msgstr ""
 
-#: classes/PostTypes/Reservation.php:137
+#: classes/PostTypes/Reservation.php:175
 msgctxt "metabox title"
 msgid "Publish"
 msgstr ""
 
-#: classes/PostTypes/Reservation.php:236
+#: classes/PostTypes/Reservation.php:274
 msgid "Status"
 msgstr ""
 
-#: classes/PostTypes/Reservation.php:237
+#: classes/PostTypes/Reservation.php:275
 msgid "Reserved item"
 msgstr ""
 
-#: classes/PostTypes/Reservation.php:267
+#: classes/PostTypes/Reservation.php:305
 msgctxt "reservation admin column"
 msgid "No reservable determined"
 msgstr ""
 
-#: classes/PostTypes/Reservation.php:284
+#: classes/PostTypes/Reservation.php:322
 msgctxt "post status"
 msgid "Pending reservation"
 msgstr ""
 
-#: classes/PostTypes/Reservation.php:289
+#: classes/PostTypes/Reservation.php:327
 msgid "Pending reservations <span class="count">(%s)</span>"
 msgid_plural "Pending reservations <span class="count">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: classes/PostTypes/Reservation.php:294
+#: classes/PostTypes/Reservation.php:332
 msgctxt "post status"
 msgid "Accepted reservation"
 msgstr ""
 
-#: classes/PostTypes/Reservation.php:299
+#: classes/PostTypes/Reservation.php:337
 msgid "Accepted reservations <span class="count">(%s)</span>"
 msgid_plural "Accepted reservations <span class="count">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: classes/PostTypes/Reservation.php:304
+#: classes/PostTypes/Reservation.php:342
 msgctxt "post status"
 msgid "Declined reservation"
 msgstr ""
 
-#: classes/PostTypes/Reservation.php:309
+#: classes/PostTypes/Reservation.php:347
 msgid "Declined reservations <span class="count">(%s)</span>"
 msgid_plural "Declined reservations <span class="count">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: classes/PostTypes/Reservation.php:419
+#: classes/PostTypes/Reservation.php:457
 msgctxt "note content for new pending reservation"
 msgid "Reservation marked as <em>pending</em>."
 msgstr ""
 
-#: classes/PostTypes/Reservation.php:457
+#: classes/PostTypes/Reservation.php:495
 msgctxt "note content for new accepted reservation"
 msgid "Reservation marked as <em>accepted</em>."
 msgstr ""
 
-#: classes/PostTypes/Reservation.php:494
+#: classes/PostTypes/Reservation.php:532
 msgctxt "note content for new declined reservation"
 msgid "Reservation marked as <em>declined</em>."
 msgstr ""
 
-#: classes/PostTypes/Reservation.php:537
+#: classes/PostTypes/Reservation.php:575
 msgctxt "reservation email"
 msgid "Your reservation has been accepted"
 msgstr ""
 
-#: classes/PostTypes/Reservation.php:544
+#: classes/PostTypes/Reservation.php:582
 msgctxt "reservation email"
 msgid "Your reservation has been declined"
 msgstr ""
 
-#: classes/PostTypes/Reservation.php:551
+#: classes/PostTypes/Reservation.php:589
 msgctxt "reservation email"
 msgid "You have a new pending reservation"
 msgstr ""
 
-#: classes/PostTypes/Reservation.php:558
+#: classes/PostTypes/Reservation.php:596
 msgctxt "reservation email"
 msgid "New pending reservation at %s"
 msgstr ""
 
-#: classes/PostTypes/Reservation.php:581
+#: classes/PostTypes/Reservation.php:619
 msgctxt "note content for new declined reservation"
 msgid "Reservation email notification failed. Attempted to send a `%s` email."
 msgstr ""
@@ -461,10 +461,6 @@ msgstr ""
 
 #: includes/templates/admin/reservables/actions-metabox.php:8
 msgid "Flush cache"
-msgstr ""
-
-#: includes/templates/admin/reservables/actions-metabox.php:12
-msgid "CSV export"
 msgstr ""
 
 #: includes/templates/admin/reservables/calendars-metabox.php:56
