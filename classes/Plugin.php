@@ -165,9 +165,7 @@ class Plugin
             return;
         }
 
-        add_action('plugins_loaded', function () {
-            load_plugin_textdomain('wprsrv', false, __DIR__ . RDS . 'languages');
-        });
+        load_plugin_textdomain('wprsrv', false, __DIR__ . RDS . 'languages');
 
         $this->setupPostTypes();
 

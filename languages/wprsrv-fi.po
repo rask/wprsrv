@@ -6,621 +6,625 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Otto Rask <ojrask@gmail.com>\n"
+"PO-Revision-Date: 2015-12-02 14:59+0200\n"
+"Last-Translator: Otto Rask <otto.rask@aucor.fi>\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
-"X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"POT-Creation-Date: \n"
+"Language-Team: \n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-SearchPath-0: .\n"
 
 #: classes/Admin/AdminMenu.php:63, classes/Admin/AdminMenu.php:64
 msgid "Reservations"
-msgstr ""
+msgstr "Varaukset"
 
 #: classes/Admin/AdminMenu.php:74, includes/templates/admin/export.php:19
 msgid "Export reservation data"
-msgstr ""
+msgstr "Vie varaustietoja"
 
 #: classes/Admin/AdminMenu.php:75
 msgid "Export"
-msgstr ""
+msgstr "Vie"
 
 #: classes/Admin/Export/Exporter.php:189
 msgctxt "export column"
 msgid "Reserver name"
-msgstr ""
+msgstr "Varaajan nimi"
 
 #: classes/Admin/Export/Exporter.php:190
 msgctxt "export column"
 msgid "Reserver email"
-msgstr ""
+msgstr "Varaajan sähköposti"
 
 #: classes/Admin/Export/Exporter.php:191
 msgctxt "export column"
 msgid "Date start"
-msgstr ""
+msgstr "Alkamispäivä"
 
 #: classes/Admin/Export/Exporter.php:192
 msgctxt "export column"
 msgid "Date end"
-msgstr ""
+msgstr "Loppumispäivä"
 
 #: classes/Admin/Export/Exporter.php:193
 msgctxt "export column"
 msgid "Date"
-msgstr ""
+msgstr "Päivämäärä"
 
 #: classes/Admin/Export/Exporter.php:194
 msgctxt "export_column"
 msgid "Reservable ID"
-msgstr ""
+msgstr "Varattavan ID"
 
 #: classes/Admin/Export/Exporter.php:238
 msgctxt "export column"
 msgid "Title"
-msgstr ""
+msgstr "Otsake"
 
 #: classes/Admin/Export/Exporter.php:239
 msgctxt "export column"
 msgid "Description"
-msgstr ""
+msgstr "Lisätiedot"
 
 #: classes/Admin/Export/Exporter.php:240
 msgctxt "export column"
 msgid "Status"
-msgstr ""
+msgstr "Tila"
 
 #: classes/Admin/Export/Exporter.php:267
 msgctxt "export column"
 msgid "Reservable title"
-msgstr ""
+msgstr "Varattavan otsikko"
 
 #: classes/Admin/Export/ExportHandler.php:98
 msgid "The selected date range has no reservation data to export."
-msgstr ""
+msgstr "Valitulla aikajaksolla ei ole vietäviä varaustietoja."
 
 #: classes/Admin/Export/ExportHandler.php:102
 msgid "There was an error with the export, please try again."
-msgstr ""
+msgstr "Vientitiedostoa luodessa tapahtui virhe, ole hyvä ja yritä uudestaan."
 
 #: classes/Forms/Fields/CalendarEndField.php:25
 msgctxt "calendar placeholder"
 msgid "To ..."
-msgstr ""
+msgstr "Loppuu ..."
 
 #: classes/Forms/Fields/CalendarStartField.php:25
 msgctxt "calendar placeholder"
 msgid "From ..."
-msgstr ""
+msgstr "Alkaa ..."
 
 #: classes/Forms/ReservationForm.php:121
 msgctxt "reservation form honeypot failure"
 msgid "Invalid spam check, please validate your submission."
-msgstr ""
+msgstr "Invalidi roskapostitarkistus, yritä uudelleen."
 
 #: classes/Forms/ReservationForm.php:171
 msgctxt "reservation form field label"
 msgid "Your name"
-msgstr ""
+msgstr "Nimesi"
 
 #: classes/Forms/ReservationForm.php:176
 msgctxt "reservation form field label"
 msgid "Your email address"
-msgstr ""
+msgstr "Sähköpostiosoitteesi"
 
 #: classes/Forms/ReservationForm.php:184
 msgctxt "reservation form field label"
 msgid "Day to reserve"
-msgstr ""
+msgstr "Varattava päivä"
 
 #: classes/Forms/ReservationForm.php:185
 msgctxt "reservation form field label"
 msgid "Date range to reserve"
-msgstr ""
+msgstr "Varattava päivämääräväli"
 
 #: classes/Forms/ReservationForm.php:189
 msgctxt "reservation form field label"
 msgid "Additional information"
-msgstr ""
+msgstr "Lisätietoja"
 
 #: classes/Forms/ReservationForm.php:436
 msgctxt "reservation form error"
 msgid "The data you gave looked invalid, please check your fields and try again."
-msgstr ""
+msgstr "Antamasi tiedot näyttivät puutteellisilta, ole hyvä ja tarkista syöttämäsi tiedot ja yritä uudestaan."
 
 #: classes/Forms/ReservationForm.php:440
 msgctxt "reservation form error"
 msgid "Sorry, something went wrong in the reservation system, please try again."
-msgstr ""
+msgstr "Pahoittelut, jotain meni mönkään varausjärjestelmässä. Ole hyvä ja yritä uudelleen."
 
 #: classes/Forms/ReservationForm.php:450
 msgctxt "reservation form success"
 msgid "Thank you for your reservation. You will get a confirmation email in a few moments."
-msgstr ""
+msgstr "Kiitoksia varauksestanne! Saatte pian vahvistussähköpostin."
 
 #: classes/Forms/ReservationForm.php:462
 msgctxt "reservation form disabled for reservable"
 msgid "Reservations are disabled for this item at the moment."
-msgstr ""
+msgstr "Varaukset tähän kohteeseen ovat tällä hetkellä pois käytöstä."
 
 #: classes/Forms/ReservationForm.php:486
 msgctxt "reservation form disabled for guest users"
 msgid "Reservations are restricted to registered users. Please log in first."
-msgstr ""
+msgstr "Varaukset tähän kohteeseen on rajattu kirjautuneille käyttäjille. Kirjaudu sisään tehdäksesi varauksen."
 
 #: classes/Forms/ReservationForm.php:526
 msgctxt "pikaday calendars"
 msgid "Previous Month"
-msgstr ""
+msgstr "Edellinen kuukausi"
 
 #: classes/Forms/ReservationForm.php:527
 msgctxt "pikaday calendars"
 msgid "Next Month"
-msgstr ""
+msgstr "Seuraava kuukausi"
 
 #: classes/Forms/ReservationForm.php:532
 msgctxt "pikaday calendars"
 msgid "From &hellip;"
-msgstr ""
+msgstr "Alkaen &hellip;"
 
 #: classes/Forms/ReservationForm.php:533
 msgctxt "pikaday calendars"
 msgid "To &hellip;"
-msgstr ""
+msgstr "Loppuen &hellip;"
 
 #: classes/Forms/ReservationForm.php:534
 msgctxt "reservation form validation"
 msgid "You cannot reserve dates that are already reserved."
-msgstr ""
+msgstr "Et voi varata päiviä, jotka ovat jo varattuja."
 
 #: classes/PostTypes/Objects/Reservation.php:103
 msgctxt "validation error label"
 msgid "email address"
-msgstr ""
+msgstr "sähköpostiosoite"
 
 #: classes/PostTypes/Objects/Reservation.php:104
 msgctxt "validation error label"
 msgid "starting date or time"
-msgstr ""
+msgstr "alkamispäivä tai -aika"
 
 #: classes/PostTypes/Objects/Reservation.php:105
 msgctxt "validation error label"
 msgid "ending date or time"
-msgstr ""
+msgstr "loppumispäivä tai -aika"
 
 #: classes/PostTypes/Objects/Reservation.php:112
 msgctxt "validation error"
 msgid "Missing field: %s"
-msgstr ""
+msgstr "Puuttuva kenttä: %s"
 
 #: classes/PostTypes/Objects/Reservation.php:120
 msgctxt "validation error"
 msgid "Invalid number value for %s"
-msgstr ""
+msgstr "Vääränlainen numeroarvo kentälle %s"
 
 #: classes/PostTypes/Objects/Reservation.php:126
 msgctxt "validation error"
 msgid "Invalid date or time value for %s"
-msgstr ""
+msgstr "Vääränlainen päivä- tai aikamuoto kentälle %s"
 
 #: classes/PostTypes/Objects/Reservation.php:132
 msgctxt "validation error"
 msgid "Invalid email value for %s"
-msgstr ""
+msgstr "Vääränlainen sähköpostiosoite kentälle %s"
 
 #: classes/PostTypes/Objects/Reservation.php:141
 msgctxt "validation error"
 msgid "Given reservation date range contains a date that has already been reserved"
-msgstr ""
+msgstr "Annettu varausaikaväli sisältää päiviä, jotka ovat jo varattu"
 
 #: classes/PostTypes/Reservable.php:50
 msgctxt "post type labels"
 msgid "Reservables"
-msgstr ""
+msgstr "Varauskohteet"
 
 #: classes/PostTypes/Reservable.php:51
 msgctxt "post type labels"
 msgid "Reservable"
-msgstr ""
+msgstr "Varauskohde"
 
 #: classes/PostTypes/Reservable.php:52, classes/PostTypes/Reservation.php:52
 msgctxt "post type labels"
 msgid "Add new"
-msgstr ""
+msgstr "Lisää uusi"
 
 #: classes/PostTypes/Reservable.php:53
 msgctxt "post type labels"
 msgid "Add new reservable"
-msgstr ""
+msgstr "Lisää uusi varauskohde"
 
 #: classes/PostTypes/Reservable.php:54
 msgctxt "post type labels"
 msgid "Edit reservable"
-msgstr ""
+msgstr "Muokkaa varauskohdetta"
 
 #: classes/PostTypes/Reservable.php:55
 msgctxt "post type labels"
 msgid "New reservable"
-msgstr ""
+msgstr "Uusi varauskohde"
 
 #: classes/PostTypes/Reservable.php:56
 msgctxt "post type labels"
 msgid "Show reservable"
-msgstr ""
+msgstr "Näytä varauskohde"
 
 #: classes/PostTypes/Reservable.php:57
 msgctxt "post type labels"
 msgid "Find reservables"
-msgstr ""
+msgstr "Etsi varauskohteita"
 
 #: classes/PostTypes/Reservable.php:58
 msgctxt "post type labels"
 msgid "No reservables found"
-msgstr ""
+msgstr "Varauskohteita ei löytynyt"
 
 #: classes/PostTypes/Reservable.php:59
 msgctxt "post type labels"
 msgid "No reservables found in trash"
-msgstr ""
+msgstr "Varauskohteita ei löytynyt roskakorista"
 
 #: classes/PostTypes/Reservable.php:296
 msgctxt "reservable metabox title"
 msgid "Reservable settings"
-msgstr ""
+msgstr "Varauskohteen asetukset"
 
 #: classes/PostTypes/Reservable.php:300
 msgctxt "reservable metabox title"
 msgid "Reservation calendar"
-msgstr ""
+msgstr "Varauskalenteri"
 
 #: classes/PostTypes/Reservable.php:304
 msgctxt "reservable metabox title"
 msgid "Reservable actions"
-msgstr ""
+msgstr "Varauskohteen toiminnot"
 
 #: classes/PostTypes/Reservation.php:50
 msgctxt "post type labels"
 msgid "Reservations"
-msgstr ""
+msgstr "Varaukset"
 
 #: classes/PostTypes/Reservation.php:51
 msgctxt "post type labels"
 msgid "reservation"
-msgstr ""
+msgstr "Varaus"
 
 #: classes/PostTypes/Reservation.php:53
 msgctxt "post type labels"
 msgid "Add new reservation"
-msgstr ""
+msgstr "Lisää uusi varaus"
 
 #: classes/PostTypes/Reservation.php:54
 msgctxt "post type labels"
 msgid "Edit reservation"
-msgstr ""
+msgstr "Muokkaa varausta"
 
 #: classes/PostTypes/Reservation.php:55
 msgctxt "post type labels"
 msgid "New reservation"
-msgstr ""
+msgstr "Uusi varaus"
 
 #: classes/PostTypes/Reservation.php:56
 msgctxt "post type labels"
 msgid "Show reservation"
-msgstr ""
+msgstr "Näytä varaus"
 
 #: classes/PostTypes/Reservation.php:57
 msgctxt "post type labels"
 msgid "Find reservations"
-msgstr ""
+msgstr "Etsi varauksia"
 
 #: classes/PostTypes/Reservation.php:58
 msgctxt "post type labels"
 msgid "No reservations found"
-msgstr ""
+msgstr "Varauksia ei löytynyt"
 
 #: classes/PostTypes/Reservation.php:59
 msgctxt "post type labels"
 msgid "No reservations found in trash"
-msgstr ""
+msgstr "Varauksia ei löytynyt roskakorista"
 
 #: classes/PostTypes/Reservation.php:69
 msgctxt "post type rewrite slug"
 msgid "reservations"
-msgstr ""
+msgstr "varaukset"
 
 #: classes/PostTypes/Reservation.php:163
 msgctxt "metabox title"
 msgid "Reservation information"
-msgstr ""
+msgstr "Varaustiedot"
 
 #: classes/PostTypes/Reservation.php:167
 msgctxt "metabox title"
 msgid "Reservation actions"
-msgstr ""
+msgstr "Varaustoiminnot"
 
 #: classes/PostTypes/Reservation.php:171
 msgctxt "metabox title"
 msgid "Reservation notes"
-msgstr ""
+msgstr "Varauksen muistiinpanot"
 
 #: classes/PostTypes/Reservation.php:175
 msgctxt "metabox title"
 msgid "Publish"
-msgstr ""
+msgstr "Julkaise"
 
 #: classes/PostTypes/Reservation.php:274
 msgid "Status"
-msgstr ""
+msgstr "Tila"
 
 #: classes/PostTypes/Reservation.php:275
 msgid "Reserved item"
-msgstr ""
+msgstr "Varauskohde"
 
 #: classes/PostTypes/Reservation.php:305
 msgctxt "reservation admin column"
 msgid "No reservable determined"
-msgstr ""
+msgstr "Varauskohdetta ei ole määritelty"
 
 #: classes/PostTypes/Reservation.php:322
 msgctxt "post status"
 msgid "Pending reservation"
-msgstr ""
+msgstr "Odottava varaus"
 
 #: classes/PostTypes/Reservation.php:327
-msgid "Pending reservations <span class=\"count\">(%s)</span>"
+msgid "Pending reservations <span class="count">(%s)</span>"
 msgid_plural "Pending reservations <span class="count">(%s)</span>"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Odottavat varaukset <span class=\"count\">(%s)</span>"
+msgstr[1] "Odottavat varaukset <span class=\"count\">(%s)</span>"
 
 #: classes/PostTypes/Reservation.php:332
 msgctxt "post status"
 msgid "Accepted reservation"
-msgstr ""
+msgstr "Hyväksytty varaus"
 
 #: classes/PostTypes/Reservation.php:337
-msgid "Accepted reservations <span class=\"count\">(%s)</span>"
+msgid "Accepted reservations <span class="count">(%s)</span>"
 msgid_plural "Accepted reservations <span class="count">(%s)</span>"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Hyväksytyt varaukset <span class=\"count\">(%s)</span>"
+msgstr[1] "Hyväksytyt varaukset <span class=\"count\">(%s)</span>"
 
 #: classes/PostTypes/Reservation.php:342
 msgctxt "post status"
 msgid "Declined reservation"
-msgstr ""
+msgstr "Hylätty varaus"
 
 #: classes/PostTypes/Reservation.php:347
-msgid "Declined reservations <span class=\"count\">(%s)</span>"
+msgid "Declined reservations <span class="count">(%s)</span>"
 msgid_plural "Declined reservations <span class="count">(%s)</span>"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Hylätyt varaukset <span class=\"count\">(%s)</span>"
+msgstr[1] "Hylätyt varaukset <span class=\"count\">(%s)</span>"
 
 #: classes/PostTypes/Reservation.php:457
 msgctxt "note content for new pending reservation"
 msgid "Reservation marked as <em>pending</em>."
-msgstr ""
+msgstr "Varaus merkittiin <em>odottavaksi</em>."
 
 #: classes/PostTypes/Reservation.php:495
 msgctxt "note content for new accepted reservation"
 msgid "Reservation marked as <em>accepted</em>."
-msgstr ""
+msgstr "Varaus merkittiin <em>hyväksytyksi</em>."
 
 #: classes/PostTypes/Reservation.php:532
 msgctxt "note content for new declined reservation"
 msgid "Reservation marked as <em>declined</em>."
-msgstr ""
+msgstr "Varaus merkittiin <em>hylätyksi</em>."
 
 #: classes/PostTypes/Reservation.php:591
 msgctxt "reservation email"
 msgid "Your reservation has been accepted"
-msgstr ""
+msgstr "Varauksesi on hyväksytty"
 
 #: classes/PostTypes/Reservation.php:598
 msgctxt "reservation email"
 msgid "Your reservation has been declined"
-msgstr ""
+msgstr "Varauksesi on hylätty"
 
 #: classes/PostTypes/Reservation.php:605
 msgctxt "reservation email"
 msgid "You have a new pending reservation"
-msgstr ""
+msgstr "Sinulla on uusi odottava varaus"
 
 #: classes/PostTypes/Reservation.php:612
 msgctxt "reservation email"
 msgid "New pending reservation at %s"
-msgstr ""
+msgstr "Uusi odottava varaus sivustolla %s"
 
 #: classes/PostTypes/Reservation.php:635
 msgctxt "note content for new declined reservation"
 msgid "Reservation email notification failed. Attempted to send a `%s` email."
-msgstr ""
+msgstr "Varauksen sähköposti-ilmoitus epäonnistui. Yritettiin lähettää`%s`-tyyppinen sähköposti."
 
 #: includes/templates/admin/export.php:22
 msgid "Choose a reservable to export reservation data for. Currently only CSV exports are supported."
-msgstr ""
+msgstr "Valitse varauskohde, jonka varaustiedot viedään. Tällä hetkellä vain CSV-vienti on tuettu."
 
 #: includes/templates/admin/export.php:28
 msgid "There are not reservables with reservations available for exporting. Gather some reservations first!"
-msgstr ""
+msgstr "Yhdelläkään varauskohteella ei ole varauksia, joita voisi viedä. Kerää ensin varauksia!"
 
 #: includes/templates/admin/export.php:36
 msgid "Choose a reservable"
-msgstr ""
+msgstr "Valitse varauskohde"
 
 #: includes/templates/admin/export.php:45
 msgid "From date"
-msgstr ""
+msgstr "Alkaen"
 
 #: includes/templates/admin/export.php:47
 msgid "Use YYYY-MM-DD format. Reservations with ending dates earlier than this date will not be included."
-msgstr ""
+msgstr "Käytä VVVV-KK-PP formaattia. Varaukset, joiden loppumispäivä on aikaisemmin kuin tämä päivämäärä eivät sisälly vientiin."
 
 #: includes/templates/admin/export.php:51
 msgid "To date"
-msgstr ""
+msgstr "Loppuen"
 
 #: includes/templates/admin/export.php:53
 msgid "Use YYYY-MM-DD format. Reservations with starting dates later that this date will not be included."
-msgstr ""
+msgstr "Käytä VVVV-KK-PP formaattia. Varaukset, joiden alkamispäivämäärä on myöhemmin kuin tämä päivämäärä eivät sisälly vientiin."
 
 #: includes/templates/admin/reservables/actions-metabox.php:8
 msgid "Flush cache"
-msgstr ""
+msgstr "Tyhjennä välimuisti"
 
 #: includes/templates/admin/reservables/calendars-metabox.php:56
 msgid "This reservable has no reservations."
-msgstr ""
+msgstr "Tällä varauskohteella ei ole varauksia."
 
 #: includes/templates/admin/reservables/settings-metabox.php:32
 msgctxt "reservable metabox form"
 msgid "Reservable active"
-msgstr ""
+msgstr "Varauskohde aktiivisena"
 
 #: includes/templates/admin/reservables/settings-metabox.php:33
 msgid "If the reservable is not active, it will be visible in the frontend but no reservation form will be shown."
-msgstr ""
+msgstr "Jos varauskohde ei ole aktiivisena, se näytetään julkisella sivustolla, mutta varauslomaketta ei näytetä."
 
 #: includes/templates/admin/reservables/settings-metabox.php:38
 msgid "Active"
-msgstr ""
+msgstr "Aktiivinen"
 
 #: includes/templates/admin/reservables/settings-metabox.php:45
 msgctxt "reservable metabox form"
 msgid "Only single-day reservations"
-msgstr ""
+msgstr "Vain yhden päivän varauksia"
 
 #: includes/templates/admin/reservables/settings-metabox.php:46
 msgid "Disable date range selecting in the reservation form."
-msgstr ""
+msgstr "Poista päivämääräväli käytöstä varauslomakkeessa."
 
 #: includes/templates/admin/reservables/settings-metabox.php:51
 msgid "Single day reservations"
-msgstr ""
+msgstr "Vain yhden päivän varaukset"
 
 #: includes/templates/admin/reservables/settings-metabox.php:58
 msgctxt "reservable metabox form"
 msgid "Only logged in users can reserve"
-msgstr ""
+msgstr "Vain kirjautuneet käyttäjät voivat varata"
 
 #: includes/templates/admin/reservables/settings-metabox.php:59
 msgid "Disable reservations from guests."
-msgstr ""
+msgstr "Älä anna vieraiden tehdä varauksia."
 
 #: includes/templates/admin/reservables/settings-metabox.php:64
 msgid "Require login"
-msgstr ""
+msgstr "Vaadi kirjautuminen"
 
 #: includes/templates/admin/reservables/settings-metabox.php:71
 msgctxt "reservable metabox form"
 msgid "Disabled days"
-msgstr ""
+msgstr "Suljetut päivät"
 
 #: includes/templates/admin/reservables/settings-metabox.php:72
 msgid "Choose dates when this reservable is not available for reservation. Dates are inclusive."
-msgstr ""
+msgstr "Valitse päivämääriä, milloin tämä varauskohde ei ole varattavissa. Päivämäärävälit ovat sisällyttäviä."
 
 #: includes/templates/admin/reservables/settings-metabox.php:82, includes/templates/admin/reservables/settings-metabox.php:96
 msgctxt "delete repeater row"
 msgid "Delete"
-msgstr ""
+msgstr "Poista"
 
 #: includes/templates/admin/reservables/settings-metabox.php:101
 msgctxt "add repeater row"
 msgid "Add"
-msgstr ""
+msgstr "Lisää"
 
 #: includes/templates/admin/reservables/settings-metabox.php:107
 msgctxt "reservable metabox form"
 msgid "Disabled weekdays"
-msgstr ""
+msgstr "Suljetut viikonpäivät"
 
 #: includes/templates/admin/reservables/settings-metabox.php:108
 msgid "Choose the weekdays that should not be reservable."
-msgstr ""
+msgstr "Valitse viikonpäivät, joita ei pysty varaamaan."
 
 #: includes/templates/admin/reservations/actions-metabox.php:19
 msgctxt "actions metabox for reservation"
 msgid "If you want to decline this reservation, use this button. An email will be sent to the person who made this reservation, informing them of the declination."
-msgstr ""
+msgstr "Jos haluat hylätä tämän varauksen, käytä tätä nappia. Varaajalle lähetetään sähköpostitse tieto hylkäämisestä."
 
 #: includes/templates/admin/reservations/actions-metabox.php:22, includes/templates/admin/reservations/actions-metabox.php:25
 msgctxt "actions metabox for reservation"
 msgid "Decline reservation"
-msgstr ""
+msgstr "Hylkää varaus"
 
 #: includes/templates/admin/reservations/actions-metabox.php:23
 msgctxt "actions metabox for reservation"
 msgid "This reservation has already been declined."
-msgstr ""
+msgstr "Tämä varaus on jo hylätty."
 
 #: includes/templates/admin/reservations/actions-metabox.php:30
 msgctxt "actions metabox for reservation"
 msgid "If you want to approve this reservation, use this button. An email will be sent to the person who made this reservation, informing them about the accepted reservation."
-msgstr ""
+msgstr "Jos haluat hyväksyä varauksen, käytä tätä nappia. Varaajalle lähetetään sähköpostitse tieto hyväksymisestä."
 
 #: includes/templates/admin/reservations/actions-metabox.php:33, includes/templates/admin/reservations/actions-metabox.php:36
 msgctxt "actions metabox for reservation"
 msgid "Accept reservation"
-msgstr ""
+msgstr "Hyväksy varaus"
 
 #: includes/templates/admin/reservations/actions-metabox.php:34
 msgctxt "actions metabox for reservation"
 msgid "This reservation has already been accepted."
-msgstr ""
+msgstr "Tämä varaus on jo hyväksytty."
 
 #: includes/templates/admin/reservations/info-metabox.php:19
 msgctxt "info metabox for reservation"
 msgid "Submitted at"
-msgstr ""
+msgstr "Lähetetty"
 
 #: includes/templates/admin/reservations/info-metabox.php:23
 msgctxt "info metabox for reservation, post status"
 msgid "Status"
-msgstr ""
+msgstr "Tila"
 
 #: includes/templates/admin/reservations/info-metabox.php:29
 msgctxt "info metabox for reservation"
 msgid "Reservation timespan"
-msgstr ""
+msgstr "Varauksen aikaväli"
 
 #: includes/templates/admin/reservations/info-metabox.php:32
 msgctxt "info metabox for reservation"
 msgid "Reserved from %s to %s"
-msgstr ""
+msgstr "Varattu alkaen %s ja loppuen %s"
 
 #: includes/templates/admin/reservations/info-metabox.php:35
 msgctxt "info metabox for reservation"
 msgid "Reserved item"
-msgstr ""
+msgstr "Varattu kohde"
 
 #: includes/templates/admin/reservations/info-metabox.php:47
 msgctxt "info metabox for reservation"
 msgid "Description (from reserver)"
-msgstr ""
+msgstr "Lisätietoja (varaajalta)"
 
 #: includes/templates/admin/reservations/notes-metabox.php:21
 msgid "Add a note"
-msgstr ""
+msgstr "Lisää muistiinpano"
 
 #: includes/templates/admin/reservations/notes-metabox.php:25
 msgid "Add"
-msgstr ""
+msgstr "Lisää"
 
 #: includes/templates/admin/reservations/notes-metabox.php:31
 msgid "No reservation notes available."
-msgstr ""
+msgstr "Varausmuistiinpanoja ei ole saatavilla."
 
 #: includes/templates/admin/reservations/notes-metabox.php:37
 msgid "Notes (newest first)"
-msgstr ""
+msgstr "Muistiinpanot (uusin ensin)"
 
 #: includes/templates/admin/reservations/notes-metabox.php:43
 msgctxt "notes metabox for reservation, %s replaced with datetime"
 msgid "Note at %s"
-msgstr ""
+msgstr "Muistiinpano, %s"
 
 #: includes/templates/admin/reservations/reservable-filterbox.php:22
 msgctxt "reservation filters"
 msgid "All reservables"
-msgstr ""
+msgstr "Kaikki varauskohteet"
+
