@@ -2,6 +2,8 @@
  * WPReserve Gulpfile.js
  */
 
+/* globals require */
+
 /**=====================================================================================================================
  * REQUIRE
  *====================================================================================================================*/
@@ -24,28 +26,32 @@ var pot = require('gulp-wp-pot');
 
 var zip = require('gulp-zip');
 
-/**=====================================================================================================================
+/**==================================================================================
  * BOWER
- *====================================================================================================================*/
+ *=================================================================================*/
 
 /**
  * Move src/lib packages to assets/lib.
  */
 gulp.task('bower', function () {
 
+    'use strict';
+
     return gulp.src('./src/lib/**/*')
         .pipe(gulp.dest('./assets/lib'));
 
 });
 
-/**=====================================================================================================================
+/**==================================================================================
  * JS
- *====================================================================================================================*/
+ *=================================================================================*/
 
 /**
  * Minify JavaScripts from src to assets.
  */
 gulp.task('js', function () {
+
+    'use strict';
 
     return gulp.src('./src/js/**/*.js')
         .pipe(plumber(function (error) {
@@ -58,14 +64,16 @@ gulp.task('js', function () {
 
 });
 
-/**=====================================================================================================================
+/**==================================================================================
  * CSS
- *====================================================================================================================*/
+ *=================================================================================*/
 
 /**
  * Compile and minify Sass to assets.
  */
 gulp.task('sass', function () {
+
+    'use strict';
 
     return gulp.src('./src/sass/**/*.scss')
         .pipe(plumber(function (error) {
@@ -79,6 +87,8 @@ gulp.task('sass', function () {
 
 gulp.task('css', function() {
 
+    'use strict';
+
     return gulp.src('./src/css/**/*.css')
         .pipe(plumber(function (error) {
             gulpUtil.log(gulpUtil.colors.red('Error (' + error.plugin + '): ' + error.message));
@@ -89,14 +99,16 @@ gulp.task('css', function() {
 
 });
 
-/**=====================================================================================================================
+/**==================================================================================
  * GENERAL
- *====================================================================================================================*/
+ *=================================================================================*/
 
 /**
  * POT file generator.
  */
 gulp.task('pot', function () {
+
+    'use strict';
 
     var src = [
         './**/*.php',
@@ -117,9 +129,13 @@ gulp.task('pot', function () {
 /**
  * Compiler.
  */
-gulp.task('compile', ['bower', 'js', 'sass', 'css', 'pot'], function (cb) {
+gulp.task('compile', function (cb) {
 
-    runSeq(['bower', 'js', 'pot'], 'sass', 'css', cb);
+    'use strict';
+
+    gulpUtil.log(gulpUtil.colors.yellow('Compiling all assets...'));
+
+    runSeq(['bower', 'js', 'pot'], ['sass', 'css'], cb);
 
 });
 
@@ -127,6 +143,8 @@ gulp.task('compile', ['bower', 'js', 'sass', 'css', 'pot'], function (cb) {
  * Watcher.
  */
 gulp.task('watch', ['compile'], function () {
+
+    'use strict';
 
     var potSrc = ['./**/*.php', '!./vendor/**/*'];
 
@@ -136,14 +154,20 @@ gulp.task('watch', ['compile'], function () {
     gulp.watch('./src/lib/**/*', ['bower']);
     gulp.watch(potSrc, ['pot']);
 
-    console.log('Watching for changes, Ctrl-C to quit...');
+    gulpUtil.log(gulpUtil.colors.yellow('Watching for changes, Ctrl-C to quit...'));
 
 });
+
+/**==================================================================================
+ * BUILDS
+ *=================================================================================*/
 
 /**
  * Build a release.
  */
 gulp.task('build', function () {
+
+    'use strict';
 
     var stream = null;
 
@@ -192,7 +216,7 @@ gulp.task('build', function () {
         var versionNumber = getPluginVersion('./wprsrv.php');
 
         if (!versionNumber) {
-            console.log('Build failed, could not read version number from `wprsrv.php`!');
+            gulpUtil.log(gulpUtil.colors.red('Build failed, could not read version number from `wprsrv.php`!'));
             return false;
         }
 
@@ -219,4 +243,4 @@ gulp.task('build', function () {
 /**
  * Default to watching.
  */
-gulp.task('default', ['watch'], function() {});
+gulp.task('default', ['watch']);
