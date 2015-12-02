@@ -75,7 +75,7 @@ $weekdays = [
                 <div class="wprsrv-clonerow" style="display:none !important;">
                     <div>
                         <input type="text" name="clone_start" class="wprsrv-pikaday">
-                        &rarr;
+                        <span>&rarr;</span>
                         <input type="text" name="clone_end" class="wprsrv-pikaday">
                     </div>
                     <div>

@@ -48,16 +48,52 @@
         margin-bottom: 10px;
         height: 30px;
 
+        & > div {
+            height: 30px;
+        }
+
         & > div:first-child {
+            position: relative;
             float: left;
             height: 30px;
             width: 80%;
             font-size: 24px;
+
+            input {
+                width: 40%;
+
+                &:first-of-type {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    bottom: 0;
+                }
+
+                &:last-of-type {
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    bottom: 0;
+                }
+            }
+
+            span {
+                text-align: center;
+                line-height: 30px;
+                position: absolute;
+                left: 40%;
+                right: 40%;
+                top: 0;
+                bottom: 0;
+                width: 20%;
+            }
         }
 
         & > div:last-child {
             float: right;
             height: 30px;
+            line-height: 30px;
+            text-align: center;
             width: 20%;
         }
 

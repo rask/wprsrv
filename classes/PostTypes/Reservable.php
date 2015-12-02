@@ -290,6 +290,7 @@ class Reservable extends PostType
     {
         add_action('admin_enqueue_scripts', function () {
             wp_enqueue_style('edit-reservable');
+            wp_enqueue_style('pikaday');
         });
 
         add_meta_box('reservablesettings', _x('Reservable settings', 'reservable metabox title', 'wprsrv'), function ($reservable) {

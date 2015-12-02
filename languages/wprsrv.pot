@@ -15,612 +15,612 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n\n"
 
-#: classes\Admin\AdminMenu.php:125, classes\Admin\AdminMenu.php:127
+#: classes/Admin/AdminMenu.php:63, classes/Admin/AdminMenu.php:64
 msgid "Reservations"
 msgstr ""
 
-#: classes\Admin\AdminMenu.php:147, includes\templates\admin\export.php:37
+#: classes/Admin/AdminMenu.php:74, includes/templates/admin/export.php:19
 msgid "Export reservation data"
 msgstr ""
 
-#: classes\Admin\AdminMenu.php:149
+#: classes/Admin/AdminMenu.php:75
 msgid "Export"
 msgstr ""
 
-#: classes\Admin\Export\Exporter.php:377
+#: classes/Admin/Export/Exporter.php:189
 msgctxt "export column"
 msgid "Reserver name"
 msgstr ""
 
-#: classes\Admin\Export\Exporter.php:379
+#: classes/Admin/Export/Exporter.php:190
 msgctxt "export column"
 msgid "Reserver email"
 msgstr ""
 
-#: classes\Admin\Export\Exporter.php:381
+#: classes/Admin/Export/Exporter.php:191
 msgctxt "export column"
 msgid "Date start"
 msgstr ""
 
-#: classes\Admin\Export\Exporter.php:383
+#: classes/Admin/Export/Exporter.php:192
 msgctxt "export column"
 msgid "Date end"
 msgstr ""
 
-#: classes\Admin\Export\Exporter.php:385
+#: classes/Admin/Export/Exporter.php:193
 msgctxt "export column"
 msgid "Date"
 msgstr ""
 
-#: classes\Admin\Export\Exporter.php:387
+#: classes/Admin/Export/Exporter.php:194
 msgctxt "export_column"
 msgid "Reservable ID"
 msgstr ""
 
-#: classes\Admin\Export\Exporter.php:475
+#: classes/Admin/Export/Exporter.php:238
 msgctxt "export column"
 msgid "Title"
 msgstr ""
 
-#: classes\Admin\Export\Exporter.php:477
+#: classes/Admin/Export/Exporter.php:239
 msgctxt "export column"
 msgid "Description"
 msgstr ""
 
-#: classes\Admin\Export\Exporter.php:479
+#: classes/Admin/Export/Exporter.php:240
 msgctxt "export column"
 msgid "Status"
 msgstr ""
 
-#: classes\Admin\Export\Exporter.php:533
+#: classes/Admin/Export/Exporter.php:267
 msgctxt "export column"
 msgid "Reservable title"
 msgstr ""
 
-#: classes\Admin\Export\ExportHandler.php:195
+#: classes/Admin/Export/ExportHandler.php:98
 msgid "The selected date range has no reservation data to export."
 msgstr ""
 
-#: classes\Admin\Export\ExportHandler.php:203
+#: classes/Admin/Export/ExportHandler.php:102
 msgid "There was an error with the export, please try again."
 msgstr ""
 
-#: classes\Forms\Fields\CalendarEndField.php:49
+#: classes/Forms/Fields/CalendarEndField.php:25
 msgctxt "calendar placeholder"
 msgid "To ..."
 msgstr ""
 
-#: classes\Forms\Fields\CalendarStartField.php:49
+#: classes/Forms/Fields/CalendarStartField.php:25
 msgctxt "calendar placeholder"
 msgid "From ..."
 msgstr ""
 
-#: classes\Forms\ReservationForm.php:241
+#: classes/Forms/ReservationForm.php:121
 msgctxt "reservation form honeypot failure"
 msgid "Invalid spam check, please validate your submission."
 msgstr ""
 
-#: classes\Forms\ReservationForm.php:341
+#: classes/Forms/ReservationForm.php:171
 msgctxt "reservation form field label"
 msgid "Your name"
 msgstr ""
 
-#: classes\Forms\ReservationForm.php:351
+#: classes/Forms/ReservationForm.php:176
 msgctxt "reservation form field label"
 msgid "Your email address"
 msgstr ""
 
-#: classes\Forms\ReservationForm.php:367
+#: classes/Forms/ReservationForm.php:184
 msgctxt "reservation form field label"
 msgid "Day to reserve"
 msgstr ""
 
-#: classes\Forms\ReservationForm.php:369
+#: classes/Forms/ReservationForm.php:185
 msgctxt "reservation form field label"
 msgid "Date range to reserve"
 msgstr ""
 
-#: classes\Forms\ReservationForm.php:377
+#: classes/Forms/ReservationForm.php:189
 msgctxt "reservation form field label"
 msgid "Additional information"
 msgstr ""
 
-#: classes\Forms\ReservationForm.php:871
+#: classes/Forms/ReservationForm.php:436
 msgctxt "reservation form error"
 msgid "The data you gave looked invalid, please check your fields and try again."
 msgstr ""
 
-#: classes\Forms\ReservationForm.php:879
+#: classes/Forms/ReservationForm.php:440
 msgctxt "reservation form error"
 msgid "Sorry, something went wrong in the reservation system, please try again."
 msgstr ""
 
-#: classes\Forms\ReservationForm.php:899
+#: classes/Forms/ReservationForm.php:450
 msgctxt "reservation form success"
 msgid "Thank you for your reservation. You will get a confirmation email in a few moments."
 msgstr ""
 
-#: classes\Forms\ReservationForm.php:923
+#: classes/Forms/ReservationForm.php:462
 msgctxt "reservation form disabled for reservable"
 msgid "Reservations are disabled for this item at the moment."
 msgstr ""
 
-#: classes\Forms\ReservationForm.php:971
+#: classes/Forms/ReservationForm.php:486
 msgctxt "reservation form disabled for guest users"
 msgid "Reservations are restricted to registered users. Please log in first."
 msgstr ""
 
-#: classes\Forms\ReservationForm.php:1051
+#: classes/Forms/ReservationForm.php:526
 msgctxt "pikaday calendars"
 msgid "Previous Month"
 msgstr ""
 
-#: classes\Forms\ReservationForm.php:1053
+#: classes/Forms/ReservationForm.php:527
 msgctxt "pikaday calendars"
 msgid "Next Month"
 msgstr ""
 
-#: classes\Forms\ReservationForm.php:1063
+#: classes/Forms/ReservationForm.php:532
 msgctxt "pikaday calendars"
 msgid "From &hellip;"
 msgstr ""
 
-#: classes\Forms\ReservationForm.php:1065
+#: classes/Forms/ReservationForm.php:533
 msgctxt "pikaday calendars"
 msgid "To &hellip;"
 msgstr ""
 
-#: classes\Forms\ReservationForm.php:1067
+#: classes/Forms/ReservationForm.php:534
 msgctxt "reservation form validation"
 msgid "You cannot reserve dates that are already reserved."
 msgstr ""
 
-#: classes\PostTypes\Objects\Reservation.php:205
+#: classes/PostTypes/Objects/Reservation.php:103
 msgctxt "validation error label"
 msgid "email address"
 msgstr ""
 
-#: classes\PostTypes\Objects\Reservation.php:207
+#: classes/PostTypes/Objects/Reservation.php:104
 msgctxt "validation error label"
 msgid "starting date or time"
 msgstr ""
 
-#: classes\PostTypes\Objects\Reservation.php:209
+#: classes/PostTypes/Objects/Reservation.php:105
 msgctxt "validation error label"
 msgid "ending date or time"
 msgstr ""
 
-#: classes\PostTypes\Objects\Reservation.php:223
+#: classes/PostTypes/Objects/Reservation.php:112
 msgctxt "validation error"
 msgid "Missing field: %s"
 msgstr ""
 
-#: classes\PostTypes\Objects\Reservation.php:239
+#: classes/PostTypes/Objects/Reservation.php:120
 msgctxt "validation error"
 msgid "Invalid number value for %s"
 msgstr ""
 
-#: classes\PostTypes\Objects\Reservation.php:251
+#: classes/PostTypes/Objects/Reservation.php:126
 msgctxt "validation error"
 msgid "Invalid date or time value for %s"
 msgstr ""
 
-#: classes\PostTypes\Objects\Reservation.php:263
+#: classes/PostTypes/Objects/Reservation.php:132
 msgctxt "validation error"
 msgid "Invalid email value for %s"
 msgstr ""
 
-#: classes\PostTypes\Objects\Reservation.php:281
+#: classes/PostTypes/Objects/Reservation.php:141
 msgctxt "validation error"
 msgid "Given reservation date range contains a date that has already been reserved"
 msgstr ""
 
-#: classes\PostTypes\Reservable.php:99
+#: classes/PostTypes/Reservable.php:50
 msgctxt "post type labels"
 msgid "Reservables"
 msgstr ""
 
-#: classes\PostTypes\Reservable.php:101
+#: classes/PostTypes/Reservable.php:51
 msgctxt "post type labels"
 msgid "Reservable"
 msgstr ""
 
-#: classes\PostTypes\Reservable.php:103, classes\PostTypes\Reservation.php:103
+#: classes/PostTypes/Reservable.php:52, classes/PostTypes/Reservation.php:52
 msgctxt "post type labels"
 msgid "Add new"
 msgstr ""
 
-#: classes\PostTypes\Reservable.php:105
+#: classes/PostTypes/Reservable.php:53
 msgctxt "post type labels"
 msgid "Add new reservable"
 msgstr ""
 
-#: classes\PostTypes\Reservable.php:107
+#: classes/PostTypes/Reservable.php:54
 msgctxt "post type labels"
 msgid "Edit reservable"
 msgstr ""
 
-#: classes\PostTypes\Reservable.php:109
+#: classes/PostTypes/Reservable.php:55
 msgctxt "post type labels"
 msgid "New reservable"
 msgstr ""
 
-#: classes\PostTypes\Reservable.php:111
+#: classes/PostTypes/Reservable.php:56
 msgctxt "post type labels"
 msgid "Show reservable"
 msgstr ""
 
-#: classes\PostTypes\Reservable.php:113
+#: classes/PostTypes/Reservable.php:57
 msgctxt "post type labels"
 msgid "Find reservables"
 msgstr ""
 
-#: classes\PostTypes\Reservable.php:115
+#: classes/PostTypes/Reservable.php:58
 msgctxt "post type labels"
 msgid "No reservables found"
 msgstr ""
 
-#: classes\PostTypes\Reservable.php:117
+#: classes/PostTypes/Reservable.php:59
 msgctxt "post type labels"
 msgid "No reservables found in trash"
 msgstr ""
 
-#: classes\PostTypes\Reservable.php:589
+#: classes/PostTypes/Reservable.php:296
 msgctxt "reservable metabox title"
 msgid "Reservable settings"
 msgstr ""
 
-#: classes\PostTypes\Reservable.php:597
+#: classes/PostTypes/Reservable.php:300
 msgctxt "reservable metabox title"
 msgid "Reservation calendar"
 msgstr ""
 
-#: classes\PostTypes\Reservable.php:605
+#: classes/PostTypes/Reservable.php:304
 msgctxt "reservable metabox title"
 msgid "Reservable actions"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:99
+#: classes/PostTypes/Reservation.php:50
 msgctxt "post type labels"
 msgid "Reservations"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:101
+#: classes/PostTypes/Reservation.php:51
 msgctxt "post type labels"
 msgid "reservation"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:105
+#: classes/PostTypes/Reservation.php:53
 msgctxt "post type labels"
 msgid "Add new reservation"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:107
+#: classes/PostTypes/Reservation.php:54
 msgctxt "post type labels"
 msgid "Edit reservation"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:109
+#: classes/PostTypes/Reservation.php:55
 msgctxt "post type labels"
 msgid "New reservation"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:111
+#: classes/PostTypes/Reservation.php:56
 msgctxt "post type labels"
 msgid "Show reservation"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:113
+#: classes/PostTypes/Reservation.php:57
 msgctxt "post type labels"
 msgid "Find reservations"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:115
+#: classes/PostTypes/Reservation.php:58
 msgctxt "post type labels"
 msgid "No reservations found"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:117
+#: classes/PostTypes/Reservation.php:59
 msgctxt "post type labels"
 msgid "No reservations found in trash"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:137
+#: classes/PostTypes/Reservation.php:69
 msgctxt "post type rewrite slug"
 msgid "reservations"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:325
+#: classes/PostTypes/Reservation.php:163
 msgctxt "metabox title"
 msgid "Reservation information"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:333
+#: classes/PostTypes/Reservation.php:167
 msgctxt "metabox title"
 msgid "Reservation actions"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:341
+#: classes/PostTypes/Reservation.php:171
 msgctxt "metabox title"
 msgid "Reservation notes"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:349
+#: classes/PostTypes/Reservation.php:175
 msgctxt "metabox title"
 msgid "Publish"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:547
+#: classes/PostTypes/Reservation.php:274
 msgid "Status"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:549
+#: classes/PostTypes/Reservation.php:275
 msgid "Reserved item"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:609
+#: classes/PostTypes/Reservation.php:305
 msgctxt "reservation admin column"
 msgid "No reservable determined"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:643
+#: classes/PostTypes/Reservation.php:322
 msgctxt "post status"
 msgid "Pending reservation"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:653
+#: classes/PostTypes/Reservation.php:327
 msgid "Pending reservations <span class="count">(%s)</span>"
 msgid_plural "Pending reservations <span class="count">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: classes\PostTypes\Reservation.php:663
+#: classes/PostTypes/Reservation.php:332
 msgctxt "post status"
 msgid "Accepted reservation"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:673
+#: classes/PostTypes/Reservation.php:337
 msgid "Accepted reservations <span class="count">(%s)</span>"
 msgid_plural "Accepted reservations <span class="count">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: classes\PostTypes\Reservation.php:683
+#: classes/PostTypes/Reservation.php:342
 msgctxt "post status"
 msgid "Declined reservation"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:693
+#: classes/PostTypes/Reservation.php:347
 msgid "Declined reservations <span class="count">(%s)</span>"
 msgid_plural "Declined reservations <span class="count">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: classes\PostTypes\Reservation.php:913
+#: classes/PostTypes/Reservation.php:457
 msgctxt "note content for new pending reservation"
 msgid "Reservation marked as <em>pending</em>."
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:989
+#: classes/PostTypes/Reservation.php:495
 msgctxt "note content for new accepted reservation"
 msgid "Reservation marked as <em>accepted</em>."
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:1063
+#: classes/PostTypes/Reservation.php:532
 msgctxt "note content for new declined reservation"
 msgid "Reservation marked as <em>declined</em>."
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:1181
+#: classes/PostTypes/Reservation.php:591
 msgctxt "reservation email"
 msgid "Your reservation has been accepted"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:1195
+#: classes/PostTypes/Reservation.php:598
 msgctxt "reservation email"
 msgid "Your reservation has been declined"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:1209
+#: classes/PostTypes/Reservation.php:605
 msgctxt "reservation email"
 msgid "You have a new pending reservation"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:1223
+#: classes/PostTypes/Reservation.php:612
 msgctxt "reservation email"
 msgid "New pending reservation at %s"
 msgstr ""
 
-#: classes\PostTypes\Reservation.php:1269
+#: classes/PostTypes/Reservation.php:635
 msgctxt "note content for new declined reservation"
 msgid "Reservation email notification failed. Attempted to send a `%s` email."
 msgstr ""
 
-#: includes\templates\admin\export.php:43
+#: includes/templates/admin/export.php:22
 msgid "Choose a reservable to export reservation data for. Currently only CSV exports are supported."
 msgstr ""
 
-#: includes\templates\admin\export.php:55
+#: includes/templates/admin/export.php:28
 msgid "There are not reservables with reservations available for exporting. Gather some reservations first!"
 msgstr ""
 
-#: includes\templates\admin\export.php:71
+#: includes/templates/admin/export.php:36
 msgid "Choose a reservable"
 msgstr ""
 
-#: includes\templates\admin\export.php:89
+#: includes/templates/admin/export.php:45
 msgid "From date"
 msgstr ""
 
-#: includes\templates\admin\export.php:93
+#: includes/templates/admin/export.php:47
 msgid "Use YYYY-MM-DD format. Reservations with ending dates earlier than this date will not be included."
 msgstr ""
 
-#: includes\templates\admin\export.php:101
+#: includes/templates/admin/export.php:51
 msgid "To date"
 msgstr ""
 
-#: includes\templates\admin\export.php:105
+#: includes/templates/admin/export.php:53
 msgid "Use YYYY-MM-DD format. Reservations with starting dates later that this date will not be included."
 msgstr ""
 
-#: includes\templates\admin\reservables\actions-metabox.php:15
+#: includes/templates/admin/reservables/actions-metabox.php:8
 msgid "Flush cache"
 msgstr ""
 
-#: includes\templates\admin\reservables\calendars-metabox.php:111
+#: includes/templates/admin/reservables/calendars-metabox.php:56
 msgid "This reservable has no reservations."
 msgstr ""
 
-#: includes\templates\admin\reservables\settings-metabox.php:63
+#: includes/templates/admin/reservables/settings-metabox.php:32
 msgctxt "reservable metabox form"
 msgid "Reservable active"
 msgstr ""
 
-#: includes\templates\admin\reservables\settings-metabox.php:65
+#: includes/templates/admin/reservables/settings-metabox.php:33
 msgid "If the reservable is not active, it will be visible in the frontend but no reservation form will be shown."
 msgstr ""
 
-#: includes\templates\admin\reservables\settings-metabox.php:75
+#: includes/templates/admin/reservables/settings-metabox.php:38
 msgid "Active"
 msgstr ""
 
-#: includes\templates\admin\reservables\settings-metabox.php:89
+#: includes/templates/admin/reservables/settings-metabox.php:45
 msgctxt "reservable metabox form"
 msgid "Only single-day reservations"
 msgstr ""
 
-#: includes\templates\admin\reservables\settings-metabox.php:91
+#: includes/templates/admin/reservables/settings-metabox.php:46
 msgid "Disable date range selecting in the reservation form."
 msgstr ""
 
-#: includes\templates\admin\reservables\settings-metabox.php:101
+#: includes/templates/admin/reservables/settings-metabox.php:51
 msgid "Single day reservations"
 msgstr ""
 
-#: includes\templates\admin\reservables\settings-metabox.php:115
+#: includes/templates/admin/reservables/settings-metabox.php:58
 msgctxt "reservable metabox form"
 msgid "Only logged in users can reserve"
 msgstr ""
 
-#: includes\templates\admin\reservables\settings-metabox.php:117
+#: includes/templates/admin/reservables/settings-metabox.php:59
 msgid "Disable reservations from guests."
 msgstr ""
 
-#: includes\templates\admin\reservables\settings-metabox.php:127
+#: includes/templates/admin/reservables/settings-metabox.php:64
 msgid "Require login"
 msgstr ""
 
-#: includes\templates\admin\reservables\settings-metabox.php:141
+#: includes/templates/admin/reservables/settings-metabox.php:71
 msgctxt "reservable metabox form"
 msgid "Disabled days"
 msgstr ""
 
-#: includes\templates\admin\reservables\settings-metabox.php:143
+#: includes/templates/admin/reservables/settings-metabox.php:72
 msgid "Choose dates when this reservable is not available for reservation. Dates are inclusive."
 msgstr ""
 
-#: includes\templates\admin\reservables\settings-metabox.php:163, includes\templates\admin\reservables\settings-metabox.php:191
+#: includes/templates/admin/reservables/settings-metabox.php:82, includes/templates/admin/reservables/settings-metabox.php:96
 msgctxt "delete repeater row"
 msgid "Delete"
 msgstr ""
 
-#: includes\templates\admin\reservables\settings-metabox.php:201
+#: includes/templates/admin/reservables/settings-metabox.php:101
 msgctxt "add repeater row"
 msgid "Add"
 msgstr ""
 
-#: includes\templates\admin\reservables\settings-metabox.php:213
+#: includes/templates/admin/reservables/settings-metabox.php:107
 msgctxt "reservable metabox form"
 msgid "Disabled weekdays"
 msgstr ""
 
-#: includes\templates\admin\reservables\settings-metabox.php:215
+#: includes/templates/admin/reservables/settings-metabox.php:108
 msgid "Choose the weekdays that should not be reservable."
 msgstr ""
 
-#: includes\templates\admin\reservations\actions-metabox.php:37
+#: includes/templates/admin/reservations/actions-metabox.php:19
 msgctxt "actions metabox for reservation"
 msgid "If you want to decline this reservation, use this button. An email will be sent to the person who made this reservation, informing them of the declination."
 msgstr ""
 
-#: includes\templates\admin\reservations\actions-metabox.php:43, includes\templates\admin\reservations\actions-metabox.php:49
+#: includes/templates/admin/reservations/actions-metabox.php:22, includes/templates/admin/reservations/actions-metabox.php:25
 msgctxt "actions metabox for reservation"
 msgid "Decline reservation"
 msgstr ""
 
-#: includes\templates\admin\reservations\actions-metabox.php:45
+#: includes/templates/admin/reservations/actions-metabox.php:23
 msgctxt "actions metabox for reservation"
 msgid "This reservation has already been declined."
 msgstr ""
 
-#: includes\templates\admin\reservations\actions-metabox.php:59
+#: includes/templates/admin/reservations/actions-metabox.php:30
 msgctxt "actions metabox for reservation"
 msgid "If you want to approve this reservation, use this button. An email will be sent to the person who made this reservation, informing them about the accepted reservation."
 msgstr ""
 
-#: includes\templates\admin\reservations\actions-metabox.php:65, includes\templates\admin\reservations\actions-metabox.php:71
+#: includes/templates/admin/reservations/actions-metabox.php:33, includes/templates/admin/reservations/actions-metabox.php:36
 msgctxt "actions metabox for reservation"
 msgid "Accept reservation"
 msgstr ""
 
-#: includes\templates\admin\reservations\actions-metabox.php:67
+#: includes/templates/admin/reservations/actions-metabox.php:34
 msgctxt "actions metabox for reservation"
 msgid "This reservation has already been accepted."
 msgstr ""
 
-#: includes\templates\admin\reservations\info-metabox.php:37
+#: includes/templates/admin/reservations/info-metabox.php:19
 msgctxt "info metabox for reservation"
 msgid "Submitted at"
 msgstr ""
 
-#: includes\templates\admin\reservations\info-metabox.php:45
+#: includes/templates/admin/reservations/info-metabox.php:23
 msgctxt "info metabox for reservation, post status"
 msgid "Status"
 msgstr ""
 
-#: includes\templates\admin\reservations\info-metabox.php:57
+#: includes/templates/admin/reservations/info-metabox.php:29
 msgctxt "info metabox for reservation"
 msgid "Reservation timespan"
 msgstr ""
 
-#: includes\templates\admin\reservations\info-metabox.php:63
+#: includes/templates/admin/reservations/info-metabox.php:32
 msgctxt "info metabox for reservation"
 msgid "Reserved from %s to %s"
 msgstr ""
 
-#: includes\templates\admin\reservations\info-metabox.php:69
+#: includes/templates/admin/reservations/info-metabox.php:35
 msgctxt "info metabox for reservation"
 msgid "Reserved item"
 msgstr ""
 
-#: includes\templates\admin\reservations\info-metabox.php:93
+#: includes/templates/admin/reservations/info-metabox.php:47
 msgctxt "info metabox for reservation"
 msgid "Description (from reserver)"
 msgstr ""
 
-#: includes\templates\admin\reservations\notes-metabox.php:41
+#: includes/templates/admin/reservations/notes-metabox.php:21
 msgid "Add a note"
 msgstr ""
 
-#: includes\templates\admin\reservations\notes-metabox.php:49
+#: includes/templates/admin/reservations/notes-metabox.php:25
 msgid "Add"
 msgstr ""
 
-#: includes\templates\admin\reservations\notes-metabox.php:61
+#: includes/templates/admin/reservations/notes-metabox.php:31
 msgid "No reservation notes available."
 msgstr ""
 
-#: includes\templates\admin\reservations\notes-metabox.php:73
+#: includes/templates/admin/reservations/notes-metabox.php:37
 msgid "Notes (newest first)"
 msgstr ""
 
-#: includes\templates\admin\reservations\notes-metabox.php:85
+#: includes/templates/admin/reservations/notes-metabox.php:43
 msgctxt "notes metabox for reservation, %s replaced with datetime"
 msgid "Note at %s"
 msgstr ""
 
-#: includes\templates\admin\reservations\reservable-filterbox.php:43
+#: includes/templates/admin/reservations/reservable-filterbox.php:22
 msgctxt "reservation filters"
 msgid "All reservables"
 msgstr ""

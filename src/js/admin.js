@@ -189,8 +189,6 @@ WprsrvAdmin.prototype.reservableEditScreen = function ()
 
         var $row = evt.data.row;
 
-        console.log('removing...');
-
         $row.remove();
 
         return false;
@@ -202,13 +200,9 @@ WprsrvAdmin.prototype.reservableEditScreen = function ()
         var $addBtn = evt.data.addBtn;
         var $clonable = evt.data.clonable;
 
-        console.log('Cloning...');
-
         var $new = $clonable.clone();
 
         $new.one('click', '.deletion', {'row': $new}, rowRemove);
-
-        console.log($new);
 
         $new.insertBefore($addBtn);
         $new[0].className = 'wprsrv-repeater-row';

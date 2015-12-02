@@ -29,14 +29,40 @@
 #reservablesettings.postbox .wprsrv-repeater-row {
   margin-bottom: 10px;
   height: 30px; }
+  #reservablesettings.postbox .wprsrv-repeater-row > div {
+    height: 30px; }
   #reservablesettings.postbox .wprsrv-repeater-row > div:first-child {
+    position: relative;
     float: left;
     height: 30px;
     width: 80%;
     font-size: 24px; }
+    #reservablesettings.postbox .wprsrv-repeater-row > div:first-child input {
+      width: 40%; }
+      #reservablesettings.postbox .wprsrv-repeater-row > div:first-child input:first-of-type {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0; }
+      #reservablesettings.postbox .wprsrv-repeater-row > div:first-child input:last-of-type {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0; }
+    #reservablesettings.postbox .wprsrv-repeater-row > div:first-child span {
+      text-align: center;
+      line-height: 30px;
+      position: absolute;
+      left: 40%;
+      right: 40%;
+      top: 0;
+      bottom: 0;
+      width: 20%; }
   #reservablesettings.postbox .wprsrv-repeater-row > div:last-child {
     float: right;
     height: 30px;
+    line-height: 30px;
+    text-align: center;
     width: 20%; }
   #reservablesettings.postbox .wprsrv-repeater-row .deletion {
     color: #900; }
