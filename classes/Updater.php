@@ -57,7 +57,7 @@ class Updater
      *
      * @since 0.1.0
      * @access protected
-     * @var mixed[]
+     * @var \stdClass
      */
     protected $githubResponseData = null;
 
@@ -356,12 +356,15 @@ class Updater
      */
     protected function getGithubReleaseZipUrl()
     {
-        $repoId = $this->githubRepoId;
-        $newVersion = $this->getGithubVersion();
+        $releaseAssets = $this->githubResponseData->assets;
 
-        $packageUrl = sprintf('https://github.com/%s/releases/download/%s/wprsrv-%s.zip', $repoId, $newVersion, $newVersion);
+        if (empty($releaseAssets)) {
+            throw new \Exception('Cannot update wprsrv, no release asset (zip) available for the release.');
+        }
 
-        return $packageUrl;
+        $releaseZip = array_shift($releaseAssets);
+
+        return $releaseZip->browser_download_url;
     }
 
     /**
