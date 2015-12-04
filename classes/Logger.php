@@ -42,6 +42,15 @@ class Logger implements LoggerInterface
     protected $mode;
 
     /**
+     * Use this as a null logger (no log file activity at all)?
+     *
+     * @since 0.2.2
+     * @access protected
+     * @var Boolean
+     */
+    protected $nullLogger = false;
+
+    /**
      * Constructor.
      *
      * @since 0.1.0
@@ -54,6 +63,12 @@ class Logger implements LoggerInterface
     public function __construct($logSettings)
     {
         $this->logSettings = $logSettings;
+
+        $this->nullLogger = apply_filters('wprsrv/null_logger', false);
+
+        if ($this->nullLogger) {
+            return;
+        }
 
         $this->validateLogFile();
         $this->determineMode();
@@ -165,7 +180,7 @@ class Logger implements LoggerInterface
      */
     protected function writeToLog($msg)
     {
-        if ($this->logFile !== null) {
+        if ($this->logFile !== null && !$this->nullLogger) {
             file_put_contents($this->logFile, $msg . "\n", FILE_APPEND);
         }
     }
@@ -241,6 +256,10 @@ class Logger implements LoggerInterface
      */
     protected function generateLogMessage($type, $msg, $ctx)
     {
+        if ($this->nullLogger) {
+            return '';
+        }
+
         $timestamp = date('Y-m-d H:i:s');
         $typeLabel = $this->generateTypeLabel($type);
         $modeLabel = sprintf('[%s]', $this->mode);
