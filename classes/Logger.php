@@ -66,6 +66,10 @@ class Logger implements LoggerInterface
 
         $this->nullLogger = apply_filters('wprsrv/null_logger', false);
 
+        if (defined('WPRSRV_NULL_LOGGER') && WPRSRV_NULL_LOGGER) {
+            $this->nullLogger = true;
+        }
+
         if ($this->nullLogger) {
             return;
         }
