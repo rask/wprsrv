@@ -115,6 +115,10 @@ class Plugin
             }
         ];
 
+        add_action('plugins_loaded', function () {
+            load_plugin_textdomain('wprsrv', false, basename(WPRSRV_DIR) . RDS . 'languages');
+        });
+
         /**
          * Allow filtering the used classes for the plugin.
          *
@@ -164,8 +168,6 @@ class Plugin
         if ($this->initialized) {
             return;
         }
-
-        load_plugin_textdomain('wprsrv', false, __DIR__ . RDS . 'languages');
 
         $this->setupPostTypes();
 
