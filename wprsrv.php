@@ -5,7 +5,7 @@ namespace Wprsrv;
 /**
  * Plugin name: wprsrv
  * Description: A basic reservation system, for WordPress.
- * Version: 0.2.0
+ * Version: 0.2.1
  * Plugin URI: https://github.com/rask/wprsrv
  * Author: Otto J. Rask
  * Author URI: http://www.ottorask.com
