@@ -6,11 +6,13 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-12-02 14:59+0200\n"
+"PO-Revision-Date: 2015-12-04 13:22+0200\n"
 "Last-Translator: Otto Rask <otto.rask@aucor.fi>\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "POT-Creation-Date: \n"
@@ -130,17 +132,25 @@ msgstr "Lisätietoja"
 
 #: classes/Forms/ReservationForm.php:436
 msgctxt "reservation form error"
-msgid "The data you gave looked invalid, please check your fields and try again."
-msgstr "Antamasi tiedot näyttivät puutteellisilta, ole hyvä ja tarkista syöttämäsi tiedot ja yritä uudestaan."
+msgid ""
+"The data you gave looked invalid, please check your fields and try again."
+msgstr ""
+"Antamasi tiedot näyttivät puutteellisilta, ole hyvä ja tarkista syöttämäsi "
+"tiedot ja yritä uudestaan."
 
 #: classes/Forms/ReservationForm.php:440
 msgctxt "reservation form error"
-msgid "Sorry, something went wrong in the reservation system, please try again."
-msgstr "Pahoittelut, jotain meni mönkään varausjärjestelmässä. Ole hyvä ja yritä uudelleen."
+msgid ""
+"Sorry, something went wrong in the reservation system, please try again."
+msgstr ""
+"Pahoittelut, jotain meni mönkään varausjärjestelmässä. Ole hyvä ja yritä "
+"uudelleen."
 
 #: classes/Forms/ReservationForm.php:450
 msgctxt "reservation form success"
-msgid "Thank you for your reservation. You will get a confirmation email in a few moments."
+msgid ""
+"Thank you for your reservation. You will get a confirmation email in a few "
+"moments."
 msgstr "Kiitoksia varauksestanne! Saatte pian vahvistussähköpostin."
 
 #: classes/Forms/ReservationForm.php:462
@@ -151,7 +161,9 @@ msgstr "Varaukset tähän kohteeseen ovat tällä hetkellä pois käytöstä."
 #: classes/Forms/ReservationForm.php:486
 msgctxt "reservation form disabled for guest users"
 msgid "Reservations are restricted to registered users. Please log in first."
-msgstr "Varaukset tähän kohteeseen on rajattu kirjautuneille käyttäjille. Kirjaudu sisään tehdäksesi varauksen."
+msgstr ""
+"Varaukset tähän kohteeseen on rajattu kirjautuneille käyttäjille. Kirjaudu "
+"sisään tehdäksesi varauksen."
 
 #: classes/Forms/ReservationForm.php:526
 msgctxt "pikaday calendars"
@@ -215,7 +227,8 @@ msgstr "Vääränlainen sähköpostiosoite kentälle %s"
 
 #: classes/PostTypes/Objects/Reservation.php:141
 msgctxt "validation error"
-msgid "Given reservation date range contains a date that has already been reserved"
+msgid ""
+"Given reservation date range contains a date that has already been reserved"
 msgstr "Annettu varausaikaväli sisältää päiviä, jotka ovat jo varattu"
 
 #: classes/PostTypes/Reservable.php:50
@@ -372,8 +385,8 @@ msgid "Pending reservation"
 msgstr "Odottava varaus"
 
 #: classes/PostTypes/Reservation.php:327
-msgid "Pending reservations <span class="count">(%s)</span>"
-msgid_plural "Pending reservations <span class="count">(%s)</span>"
+msgid "Pending reservations <span class=\"count\">(%s)</span>"
+msgid_plural "Pending reservations <span class=\"count\">(%s)</span>"
 msgstr[0] "Odottavat varaukset <span class=\"count\">(%s)</span>"
 msgstr[1] "Odottavat varaukset <span class=\"count\">(%s)</span>"
 
@@ -383,8 +396,8 @@ msgid "Accepted reservation"
 msgstr "Hyväksytty varaus"
 
 #: classes/PostTypes/Reservation.php:337
-msgid "Accepted reservations <span class="count">(%s)</span>"
-msgid_plural "Accepted reservations <span class="count">(%s)</span>"
+msgid "Accepted reservations <span class=\"count\">(%s)</span>"
+msgid_plural "Accepted reservations <span class=\"count\">(%s)</span>"
 msgstr[0] "Hyväksytyt varaukset <span class=\"count\">(%s)</span>"
 msgstr[1] "Hyväksytyt varaukset <span class=\"count\">(%s)</span>"
 
@@ -394,8 +407,8 @@ msgid "Declined reservation"
 msgstr "Hylätty varaus"
 
 #: classes/PostTypes/Reservation.php:347
-msgid "Declined reservations <span class="count">(%s)</span>"
-msgid_plural "Declined reservations <span class="count">(%s)</span>"
+msgid "Declined reservations <span class=\"count\">(%s)</span>"
+msgid_plural "Declined reservations <span class=\"count\">(%s)</span>"
 msgstr[0] "Hylätyt varaukset <span class=\"count\">(%s)</span>"
 msgstr[1] "Hylätyt varaukset <span class=\"count\">(%s)</span>"
 
@@ -437,15 +450,25 @@ msgstr "Uusi odottava varaus sivustolla %s"
 #: classes/PostTypes/Reservation.php:635
 msgctxt "note content for new declined reservation"
 msgid "Reservation email notification failed. Attempted to send a `%s` email."
-msgstr "Varauksen sähköposti-ilmoitus epäonnistui. Yritettiin lähettää`%s`-tyyppinen sähköposti."
+msgstr ""
+"Varauksen sähköposti-ilmoitus epäonnistui. Yritettiin lähettää`%s`-tyyppinen "
+"sähköposti."
 
 #: includes/templates/admin/export.php:22
-msgid "Choose a reservable to export reservation data for. Currently only CSV exports are supported."
-msgstr "Valitse varauskohde, jonka varaustiedot viedään. Tällä hetkellä vain CSV-vienti on tuettu."
+msgid ""
+"Choose a reservable to export reservation data for. Currently only CSV "
+"exports are supported."
+msgstr ""
+"Valitse varauskohde, jonka varaustiedot viedään. Tällä hetkellä vain CSV-"
+"vienti on tuettu."
 
 #: includes/templates/admin/export.php:28
-msgid "There are not reservables with reservations available for exporting. Gather some reservations first!"
-msgstr "Yhdelläkään varauskohteella ei ole varauksia, joita voisi viedä. Kerää ensin varauksia!"
+msgid ""
+"There are not reservables with reservations available for exporting. Gather "
+"some reservations first!"
+msgstr ""
+"Yhdelläkään varauskohteella ei ole varauksia, joita voisi viedä. Kerää ensin "
+"varauksia!"
 
 #: includes/templates/admin/export.php:36
 msgid "Choose a reservable"
@@ -456,16 +479,24 @@ msgid "From date"
 msgstr "Alkaen"
 
 #: includes/templates/admin/export.php:47
-msgid "Use YYYY-MM-DD format. Reservations with ending dates earlier than this date will not be included."
-msgstr "Käytä VVVV-KK-PP formaattia. Varaukset, joiden loppumispäivä on aikaisemmin kuin tämä päivämäärä eivät sisälly vientiin."
+msgid ""
+"Use YYYY-MM-DD format. Reservations with ending dates earlier than this date "
+"will not be included."
+msgstr ""
+"Käytä VVVV-KK-PP formaattia. Varaukset, joiden loppumispäivä on aikaisemmin "
+"kuin tämä päivämäärä eivät sisälly vientiin."
 
 #: includes/templates/admin/export.php:51
 msgid "To date"
 msgstr "Loppuen"
 
 #: includes/templates/admin/export.php:53
-msgid "Use YYYY-MM-DD format. Reservations with starting dates later that this date will not be included."
-msgstr "Käytä VVVV-KK-PP formaattia. Varaukset, joiden alkamispäivämäärä on myöhemmin kuin tämä päivämäärä eivät sisälly vientiin."
+msgid ""
+"Use YYYY-MM-DD format. Reservations with starting dates later that this date "
+"will not be included."
+msgstr ""
+"Käytä VVVV-KK-PP formaattia. Varaukset, joiden alkamispäivämäärä on "
+"myöhemmin kuin tämä päivämäärä eivät sisälly vientiin."
 
 #: includes/templates/admin/reservables/actions-metabox.php:8
 msgid "Flush cache"
@@ -481,8 +512,12 @@ msgid "Reservable active"
 msgstr "Varauskohde aktiivisena"
 
 #: includes/templates/admin/reservables/settings-metabox.php:33
-msgid "If the reservable is not active, it will be visible in the frontend but no reservation form will be shown."
-msgstr "Jos varauskohde ei ole aktiivisena, se näytetään julkisella sivustolla, mutta varauslomaketta ei näytetä."
+msgid ""
+"If the reservable is not active, it will be visible in the frontend but no "
+"reservation form will be shown."
+msgstr ""
+"Jos varauskohde ei ole aktiivisena, se näytetään julkisella sivustolla, "
+"mutta varauslomaketta ei näytetä."
 
 #: includes/templates/admin/reservables/settings-metabox.php:38
 msgid "Active"
@@ -520,10 +555,15 @@ msgid "Disabled days"
 msgstr "Suljetut päivät"
 
 #: includes/templates/admin/reservables/settings-metabox.php:72
-msgid "Choose dates when this reservable is not available for reservation. Dates are inclusive."
-msgstr "Valitse päivämääriä, milloin tämä varauskohde ei ole varattavissa. Päivämäärävälit ovat sisällyttäviä."
+msgid ""
+"Choose dates when this reservable is not available for reservation. Dates "
+"are inclusive."
+msgstr ""
+"Valitse päivämääriä, milloin tämä varauskohde ei ole varattavissa. "
+"Päivämäärävälit ovat sisällyttäviä."
 
-#: includes/templates/admin/reservables/settings-metabox.php:82, includes/templates/admin/reservables/settings-metabox.php:96
+#: includes/templates/admin/reservables/settings-metabox.php:82,
+#: includes/templates/admin/reservables/settings-metabox.php:96
 msgctxt "delete repeater row"
 msgid "Delete"
 msgstr "Poista"
@@ -544,10 +584,16 @@ msgstr "Valitse viikonpäivät, joita ei pysty varaamaan."
 
 #: includes/templates/admin/reservations/actions-metabox.php:19
 msgctxt "actions metabox for reservation"
-msgid "If you want to decline this reservation, use this button. An email will be sent to the person who made this reservation, informing them of the declination."
-msgstr "Jos haluat hylätä tämän varauksen, käytä tätä nappia. Varaajalle lähetetään sähköpostitse tieto hylkäämisestä."
+msgid ""
+"If you want to decline this reservation, use this button. An email will be "
+"sent to the person who made this reservation, informing them of the "
+"declination."
+msgstr ""
+"Jos haluat hylätä tämän varauksen, käytä tätä nappia. Varaajalle lähetetään "
+"sähköpostitse tieto hylkäämisestä."
 
-#: includes/templates/admin/reservations/actions-metabox.php:22, includes/templates/admin/reservations/actions-metabox.php:25
+#: includes/templates/admin/reservations/actions-metabox.php:22,
+#: includes/templates/admin/reservations/actions-metabox.php:25
 msgctxt "actions metabox for reservation"
 msgid "Decline reservation"
 msgstr "Hylkää varaus"
@@ -559,10 +605,16 @@ msgstr "Tämä varaus on jo hylätty."
 
 #: includes/templates/admin/reservations/actions-metabox.php:30
 msgctxt "actions metabox for reservation"
-msgid "If you want to approve this reservation, use this button. An email will be sent to the person who made this reservation, informing them about the accepted reservation."
-msgstr "Jos haluat hyväksyä varauksen, käytä tätä nappia. Varaajalle lähetetään sähköpostitse tieto hyväksymisestä."
+msgid ""
+"If you want to approve this reservation, use this button. An email will be "
+"sent to the person who made this reservation, informing them about the "
+"accepted reservation."
+msgstr ""
+"Jos haluat hyväksyä varauksen, käytä tätä nappia. Varaajalle lähetetään "
+"sähköpostitse tieto hyväksymisestä."
 
-#: includes/templates/admin/reservations/actions-metabox.php:33, includes/templates/admin/reservations/actions-metabox.php:36
+#: includes/templates/admin/reservations/actions-metabox.php:33,
+#: includes/templates/admin/reservations/actions-metabox.php:36
 msgctxt "actions metabox for reservation"
 msgid "Accept reservation"
 msgstr "Hyväksy varaus"
@@ -627,4 +679,3 @@ msgstr "Muistiinpano, %s"
 msgctxt "reservation filters"
 msgid "All reservables"
 msgstr "Kaikki varauskohteet"
-
