@@ -5,11 +5,13 @@ temp/
 logs/
 log/
 
-src/lib
+src/
+assets
+tests/
+languages/
 node_modules/
 .sass-cache/
 docs-cache/
-tests/coverage/
 _site/
 
 *.tmp
@@ -18,5 +20,4 @@ _site/
 *.bak
 *.out
 
-wprsrv*.zip
 builds/
