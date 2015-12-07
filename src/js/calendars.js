@@ -161,12 +161,21 @@ Date.prototype.toYmd = function (sep)
             var endDate = self.endPicker.getDate();
 
             self.startPicker.setStartRange(startDate);
+            self.startPicker.setEndRange(endDate);
+            self.endPicker.setEndRange(endDate);
             self.endPicker.setStartRange(startDate);
+
             self.endPicker.setMinDate(startDate);
+            self.startPicker.setMaxDate(endDate);
 
             // Validate that range does not cross blocked days.
             if (startDate && endDate) {
-                if (this.datesContainDisabled(startDate, endDate)) {
+                var containsDisabled = this.datesContainDisabled(
+                    startDate.toYmd('-'),
+                    endDate.toYmd('-')
+                );
+
+                if (containsDisabled) {
                     this.showValidationError(this.l10n.already_reserved);
                 } else {
                     this.hideValidationError();
@@ -184,13 +193,22 @@ Date.prototype.toYmd = function (sep)
             var startDate = self.startPicker.getDate();
             var endDate = self.endPicker.getDate();
 
+            self.startPicker.setStartRange(startDate);
             self.startPicker.setEndRange(endDate);
-            self.startPicker.setMaxDate(endDate);
             self.endPicker.setEndRange(endDate);
+            self.endPicker.setStartRange(startDate);
+
+            self.endPicker.setMinDate(startDate);
+            self.startPicker.setMaxDate(endDate);
 
             // Validate that range does not cross blocked days.
             if (startDate && endDate) {
-                if (this.datesContainDisabled(startDate, endDate)) {
+                var containsDisabled = this.datesContainDisabled(
+                    startDate.toYmd('-'),
+                    endDate.toYmd('-')
+                );
+
+                if (containsDisabled) {
                     this.showValidationError(this.l10n.already_reserved);
                 } else {
                     this.hideValidationError();
@@ -201,8 +219,8 @@ Date.prototype.toYmd = function (sep)
         /**
          * Do two dates contain a disabled date inbetween them?
          *
-         * @param {Date} start
-         * @param {Date} end
+         * @param {String} start Y-m-d
+         * @param {String} end Y-m-d
          *
          * @return {Boolean}
          */
@@ -212,14 +230,17 @@ Date.prototype.toYmd = function (sep)
                 return false;
             }
 
-            while (start.toYmd() < end.toYmd()) {
-                var startYmd = start.toYmd('-');
+            var sdate = new Date(start + 'T00:00:00');
+            var edate = new Date(end + 'T00:00:00');
+
+            while (sdate.toYmd() < edate.toYmd()) {
+                var startYmd = sdate.toYmd('-');
 
                 if (this.disabledDates.indexOf(startYmd) !== -1) {
                     return true;
                 }
 
-                start.addDays(1);
+                sdate.addDays(1);
             }
 
             return false;
