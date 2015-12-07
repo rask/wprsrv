@@ -1,2 +1,2 @@
-exclude: ['node_modules', 'docs-cache', 'tests', '.sass-cache', 'vendor']
-baseurl: '/wprsrv'
+exclude: ['node_modules', 'docs-cache', 'tests', '.sass-cache', 'vendor', 'src', 'temp', 'languages', 'docs-cache', 'assets', 'builds']
+baseurl: ''
