@@ -164,10 +164,6 @@ Date.prototype.toYmd = function (sep)
             self.endPicker.setStartRange(startDate);
             self.endPicker.setMinDate(startDate);
 
-            // Redraw the calendars as we're in container mode.
-            self.endPicker.draw();
-            self.startPicker.draw();
-
             // Validate that range does not cross blocked days.
             if (startDate && endDate) {
                 if (this.datesContainDisabled(startDate, endDate)) {
@@ -191,10 +187,6 @@ Date.prototype.toYmd = function (sep)
             self.startPicker.setEndRange(endDate);
             self.startPicker.setMaxDate(endDate);
             self.endPicker.setEndRange(endDate);
-
-            // Redraw the calendars as we're in container mode.
-            self.startPicker.draw();
-            self.endPicker.draw();
 
             // Validate that range does not cross blocked days.
             if (startDate && endDate) {
@@ -269,7 +261,7 @@ Date.prototype.toYmd = function (sep)
          *
          * @return {Object}
          */
-        getPikadayConfig: function (self, calContainer)
+        getPikadayConfig: function (self)
         {
             var l10n = self.l10n.pikaday || {
                 previousMonth: 'Previous Month',
@@ -322,9 +314,7 @@ Date.prototype.toYmd = function (sep)
                 format: dateDisplayFormat,
                 yearRange: enabledYearRange,
                 disableDayFn: disabledDays,
-                minDate: minimumCalDate,
-                container: calContainer,
-                bound: false
+                minDate: minimumCalDate
             };
         },
 
@@ -365,9 +355,7 @@ Date.prototype.toYmd = function (sep)
          */
         spawnSinglePicker: function (field)
         {
-            var calendarContainer = this.spawnCalendarContainer(field);
-
-            var calOpts = this.getPikadayConfig(this, calendarContainer);
+            var calOpts = this.getPikadayConfig(this);
 
             calOpts.field = field;
 
@@ -386,9 +374,7 @@ Date.prototype.toYmd = function (sep)
         {
             var fromText = this.l10n.date_form || 'From ...';
 
-            var calContainer = this.spawnCalendarContainer(field, fromText);
-
-            var calOpts = this.getPikadayConfig(this, calContainer);
+            var calOpts = this.getPikadayConfig(this);
 
             calOpts.field = field;
 
@@ -412,9 +398,7 @@ Date.prototype.toYmd = function (sep)
         {
             var toText = this.l10n.date_to || 'To ...';
 
-            var calContainer = this.spawnCalendarContainer(field, toText);
-
-            var calOpts = this.getPikadayConfig(this, calContainer);
+            var calOpts = this.getPikadayConfig(this);
 
             calOpts.field = field;
 

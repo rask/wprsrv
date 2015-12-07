@@ -22,7 +22,7 @@ class CalendarField extends FormField
      */
     public function generateMarkup()
     {
-        $noscript = sprintf('<noscript>%s</noscript>', 'Format using YYYY-MM-DD');
-        return sprintf('<input type="hidden" id="datepicker-field" class="datepicker-field" name="%s" value="%s"> %s', $this->name, $this->value, $noscript);
+        $noscript = sprintf('<noscript>%s</noscript>', __('Format using YYYY-MM-DD', 'wprsrv'));
+        return sprintf('<input type="text" id="datepicker-field" class="datepicker-field" name="%s" value="%s"> %s', $this->name, $this->value, $noscript);
     }
 }
