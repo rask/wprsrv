@@ -5,9 +5,20 @@
 <head>
 
     <meta charset="utf-8">
-    <title>{{ page.title }}</title>
+    <title>{{ page.title }} &mdash; wprsrv</title>
 
     <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/main.css">
+
+    <script type="text/javascript">
+        // Redirect to correct domain.
+        if (
+            window.location.href.indexOf('wprsrv.org') === -1 &&
+            window.location.href.indexOf('localhost') === -1 &&
+            window.location.href.indexOf('127.0.0.1') === -1
+        ) {
+            window.location = 'http://www.wprsrv.org';
+        }
+    </script>
 
 </head>
 
