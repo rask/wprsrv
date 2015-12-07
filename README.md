@@ -17,7 +17,7 @@ been warned.
 
 A custom post type makes modifying reservable items easy.
 
--   Block off dates and date ranges (disable reservations for those days)
+-   Block off dates, date ranges and weekdays (disable reservations for those days)
 -   Deactivate reservations when needed
 -   Only allow logged in users to make reservations
 -   Browse pending and accepted reservations from a calendar view
@@ -42,15 +42,9 @@ available as of now.
 
 ## Installation
 
-Currently the installation procedure is manual, as the plugin is under development.
+There are development builds available at the GitHub repo's releases section.
 
 ### Requirements
-
--   Git
--   Composer
--   npm
--   Bower
--   Gulp
 
 The plugin has been developed on WordPress 4.3+ and PHP 5.5+. Minimum versions may
 change when testing continues. Assumably WP4+ works fine. This plugin does
@@ -58,18 +52,9 @@ not work with PHP 5.3 at all.
 
 ### Installation guide
 
-    $ cd /wordpress/wp-content/plugins
-    $ git clone <this repo> wprsrv
-    $ cd wprsrv
-    $ composer install
-    $ npm install
-    $ bower install
-    $ gulp compile
-
-Then just activate in `wp-admin`.
-
-Use `gulp build` to generate a ZIP from the current plugin state. Built ZIPs are
-stored inside `builds/`.
+Download the wanted version from GitHub releases, unzip to the WP plugins directory
+Then just activate in `wp-admin`. Versions from 0.2.0 and up should then update
+automatically from the GitHub releases system.
 
 ### Uninstallation
 
@@ -79,6 +64,29 @@ directory only may leave traces of content around.
 **NOTE**: uninstalling the plugin using this procedure also destroys all posts this
 plugin has created (reservables and reservations). If not then the feature is *still*
 missing or there is a bug.
+
+## FAQ & Info
+
+**Is this production ready?**
+
+Yes and no. I use it in production on a site I work with often so keeping things in
+check is a breeze. I suggest that you wait a little longer for a really stable 1.0.0
+version before using this in production.
+
+**The plugin updates are sloooow!*
+
+As far as I know, this is an issue with the GitHub releases system and the speed it
+offers. I'd like to keep this updatable directly from this GitHub repo, but if the
+speed does not get any better later on perhaps the wordpress.org plugin directory
+has its place here. Or maybe I'll just create a cache system, who knows.
+
+But yes, the slowness has been experienced and testing is on its way to make it
+faster.
+
+**Can you create feature X that allows me to do Y and Z?**
+
+Yes and no. Make a feature request at the issue tracker on GitHub and we'll see
+whether the idea is worth implementing.
 
 ## Upcoming features
 
@@ -96,13 +104,15 @@ Allow reservers to pick starting and ending times and allow single-day reservati
 to use time pickers with wanted lengths per reservable, e.g. split the day to 30
 minute blocks which can be reserved.
 
+### WP REST API endpoints
+
+With the WP REST API being implemented in core, proper endpoints should be created
+for the plugin.
+
 ## Known issues
 
--   All emails do not send as expected. Pending reservation notices are mailed fine.
--   UI quirks here and there. Perhaps drop AJAX from some actions.
 -   Not enough of the codebase is covered by tests.
--   Reservation statuses are a bit wonky. Trashed reservations are seen in
-    reservation calendars and so on.
+-   Not enough documentation for current features and such.
     
 There's more and most are not documented yet. Appearing issues, bugs and such will
 be added to the issue tracker.

@@ -1,6 +1,6 @@
 # Contributing to wprsrv
 
-*wprsrv* is available at Github. Contributions should be done there also.
+*wprsrv* is available at GitHub. Contributions should be done there also.
 
 ## About these contribution guidelines
 
@@ -64,16 +64,16 @@ If the feature or change is large, consider creating tests for it. *wprsrv* uses
 PHPUnit. You can then be at ease when someone says it does not work.
 
 When you think your new shiny feature or fix or change is ready to be added to the 
-main plugin repository, create a good-old pull request at Github. Begin by pushing
-your feature branch to your Github fork of the plugin.
+main plugin repository, create a good-old pull request at GitHub. Begin by pushing
+your feature branch to your GitHub fork of the plugin.
 
 >   "Whew, now it works! Time to get it upstream for consideration!"
 >
 >       $ git push origin feature-abc
         
-Browse to your fork's page at Github, open the feature branch and initiate a pull
+Browse to your fork's page at GitHub, open the feature branch and initiate a pull
 request against the main repo's develop. Remember to rebase ontop of the main repo's
-latest changes before sending a pull request to avoid unwanted surprises. Github has
+latest changes before sending a pull request to avoid unwanted surprises. GitHub has
 an in-depth guide on pull requests if you want to know more.
 
 If your feature, fix, change or whatever is considered helpful and usable, it can be
@@ -88,16 +88,25 @@ will not be accepted.
 
 Perhaps you created something that would work well as a plugin on its own? Perhaps
 you didn't follow the code style well enough? Perhaps the fix was already implemented
-by another contributor? Perhaps you clumped too many differrent changes to a single
+by another contributor? Perhaps you clumped too many different changes to a single
 pull request?
 
 Helpful tip: before beginning work on a larger feature or change, create an issue to
-the Github issue tracker and ask for opinions whether the feature would be a good
+the GitHub issue tracker and ask for opinions whether the feature would be a good
 contribution.
 
 Bottom-line: we do not turn down pull requests for no reason. If you feel like your
 contribution should have been included, feel free to contact me/us to get some 
 clarification as to why that happened.
+
+### Generating a build
+
+You can use `gulp build` to make a standalone plugin build archive from the current
+local repository contents. Builds take the plugin version defined in `wprsrv.php` and
+are placed inside the `builds` directory in the repo root directory.
+
+This is how the official builds are created too. Checkout a tag and `gulp build` to
+generate a build that matches the official plugin available for the same tag.
 
 ## Translations
 
@@ -117,4 +126,4 @@ repository in case translations do not keep in pace with plugin version releases
 ## Contributing by other means
 
 If you do not want or know how to contribute using the above guidelines, you can
-always just share the word, discuss issues at Github or send feedback in general.
+always just share the word, discuss issues at GitHub or send feedback in general.
