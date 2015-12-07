@@ -216,7 +216,7 @@ class Plugin
         $pikadayCssUrl = apply_filters('wprsrv/pikaday/css_url', $purl . '/lib/pikaday/css/pikaday.css');
 
         // Lib scripts.
-        wp_register_script('customevent', $purl . '/js/custommevent.js');
+        wp_register_script('customevent', $purl . '/js/customevent.js');
         wp_register_script('momentjs', $purl . '/lib/moment/min/moment.min.js', [], null, true);
         wp_register_script('pikaday', $purl . '/lib/pikaday/pikaday.js', ['momentjs'], null, true);
 
