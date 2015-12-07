@@ -324,7 +324,7 @@ class Reservation extends PostType
             'exclude_from_search'       => true,
             'show_in_admin_all_list'    => true,
             'show_in_admin_status_list' => true,
-            'label_count'               => _n_noop('Pending reservations <span class=\"count\">(%s)</span>', 'Pending reservations <span class="count">(%s)</span>', 'wprsrv')
+            'label_count'               => _n_noop("Pending reservations <span class='count'>(%s)</span>", "Pending reservations <span class='count'>(%s)</span>", 'wprsrv')
         ]);
 
         // Accepted reservations.
@@ -334,7 +334,7 @@ class Reservation extends PostType
             'exclude_from_search'       => true,
             'show_in_admin_all_list'    => true,
             'show_in_admin_status_list' => true,
-            'label_count'               => _n_noop('Accepted reservations <span class=\"count\">(%s)</span>', 'Accepted reservations <span class="count">(%s)</span>', 'wprsrv')
+            'label_count'               => _n_noop("Accepted reservations <span class='count'>(%s)</span>", "Accepted reservations <span class='count'>(%s)</span>", 'wprsrv')
         ]);
 
         // Declined reservations.
@@ -344,7 +344,7 @@ class Reservation extends PostType
             'exclude_from_search'       => true,
             'show_in_admin_all_list'    => true,
             'show_in_admin_status_list' => true,
-            'label_count'               => _n_noop('Declined reservations <span class=\"count\">(%s)</span>', 'Declined reservations <span class="count">(%s)</span>', 'wprsrv')
+            'label_count'               => _n_noop("Declined reservations <span class='count'>(%s)</span>", "Declined reservations <span class='count'>(%s)</span>", 'wprsrv')
         ]);
 
         $this->postStatusActions();

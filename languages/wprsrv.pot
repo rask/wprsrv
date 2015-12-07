@@ -90,6 +90,10 @@ msgctxt "calendar placeholder"
 msgid "To ..."
 msgstr ""
 
+#: classes/Forms/Fields/CalendarField.php:25
+msgid "Format using YYYY-MM-DD"
+msgstr ""
+
 #: classes/Forms/Fields/CalendarStartField.php:25
 msgctxt "calendar placeholder"
 msgid "From ..."
@@ -369,8 +373,8 @@ msgid "Pending reservation"
 msgstr ""
 
 #: classes/PostTypes/Reservation.php:327
-msgid "Pending reservations <span class=\"count\">(%s)</span>"
-msgid_plural "Pending reservations <span class="count">(%s)</span>"
+msgid "Pending reservations <span class='count'>(%s)</span>"
+msgid_plural "Pending reservations <span class='count'>(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -380,8 +384,8 @@ msgid "Accepted reservation"
 msgstr ""
 
 #: classes/PostTypes/Reservation.php:337
-msgid "Accepted reservations <span class=\"count\">(%s)</span>"
-msgid_plural "Accepted reservations <span class="count">(%s)</span>"
+msgid "Accepted reservations <span class='count'>(%s)</span>"
+msgid_plural "Accepted reservations <span class='count'>(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -391,8 +395,8 @@ msgid "Declined reservation"
 msgstr ""
 
 #: classes/PostTypes/Reservation.php:347
-msgid "Declined reservations <span class=\"count\">(%s)</span>"
-msgid_plural "Declined reservations <span class="count">(%s)</span>"
+msgid "Declined reservations <span class='count'>(%s)</span>"
+msgid_plural "Declined reservations <span class='count'>(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -623,4 +627,14 @@ msgstr ""
 #: includes/templates/admin/reservations/reservable-filterbox.php:22
 msgctxt "reservation filters"
 msgid "All reservables"
+msgstr ""
+
+#: includes/templates/frontend/reservation-form.php:8
+msgctxt "reservation frontend form"
+msgid "Make a reservation"
+msgstr ""
+
+#: includes/templates/frontend/reservation-form.php:24
+msgctxt "reservation frontend form"
+msgid "Submit reservation"
 msgstr ""
