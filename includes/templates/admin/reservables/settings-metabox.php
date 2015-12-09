@@ -68,6 +68,19 @@ $weekdays = [
 
         <tr>
             <th class="wprsrv-mainlabel" scope="row">
+                <label for="wprsrv-reservable-allow-overlapping"><?php _ex('Allow reservation overlaps', 'reservable metabox form', 'wprsrv'); ?></label>
+                <em><?php _e('Allow the reservable&rsquo;s reservations&rsquo; starting and ending dates to overlap. E.g. reservations end at 11:00 and a new reservation can begin at 16:00 at the same day.', 'wprsrv'); ?></em>
+            </th>
+            <td>
+                <label for="wprsrv-reservable-allow-overlapping">
+                    <input type="checkbox" name="wprsrv[reservable_overlapping_days]" <?php echo $reservable->allowsOverlappingReservations() ? 'checked' : ''; ?> id="wprsrv-reservable-allow-overlapping">
+                    <?php _e('Allow overlapping reservation days', 'wprsrv'); ?>
+                </label>
+            </td>
+        </tr>
+
+        <tr>
+            <th class="wprsrv-mainlabel" scope="row">
                 <label for="wprsrv-reservable-disabled-days"><?php _ex('Disabled days', 'reservable metabox form', 'wprsrv'); ?></label>
                 <em><?php _e('Choose dates when this reservable is not available for reservation. Dates are inclusive.', 'wprsrv'); ?></em>
             </th>

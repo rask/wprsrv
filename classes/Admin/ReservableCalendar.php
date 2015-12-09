@@ -114,6 +114,9 @@ class ReservableCalendar
     /**
      * Generate a table cell for a single day.
      *
+     * @todo Validate reservations are shown correctly for overlapping
+     *        reservation dates.
+     *
      * @since 0.1.0
      * @access protected
      *
@@ -141,6 +144,8 @@ class ReservableCalendar
         } else {
             $tdClasses = [];
         }
+
+        //FIXME editlink fetch fails randomly.
 
         $status = $reservation->post_status;
         $editLink = $reservation->getEditLink();
@@ -276,10 +281,10 @@ class ReservableCalendar
      */
     protected function generateCalendarOutput(\DateTime $now)
     {
-        if ($now->format('Y-m') == $this->date->format('Y-m')) {
-            $output = sprintf('<table class="reservations-calendar active" id="cal-%s-%s" summary="Reservations">', $this->year, $this->month);
+        if ($now->format('Y-m') === $this->date->format('Y-m')) {
+            $output = sprintf('<table class="reservations-calendar active" id="cal-%1$s-%2$s" data-year="%1$s" data-month="%2$s" summary="Reservations">', $this->year, $this->month);
         } else {
-            $output = sprintf('<table class="reservations-calendar" id="cal-%s-%s" summary="Reservations">', $this->year, $this->month);
+            $output = sprintf('<table class="reservations-calendar" id="cal-%1$s-%2$s" data-year="%1$s" data-month="%2$s" summary="Reservations">', $this->year, $this->month);
         }
 
         $output .= $this->generateCalendarHead();

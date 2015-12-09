@@ -89,7 +89,7 @@ class ReservationForm
     protected function printDisabledDaysJson()
     {
         add_action('wp_print_footer_scripts', function () {
-            $disabledDaysData = $this->reservable->getDisabledDaysData();
+            $disabledDaysData = $this->reservable->getDisabledDaysData(true);
 
             $json = json_encode($disabledDaysData);
 
