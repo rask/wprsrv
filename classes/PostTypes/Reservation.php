@@ -574,8 +574,8 @@ class Reservation extends PostType
 
         // General data used for templates.
         $emailData = [
-            'from_date' => $reservation->getStartDate('Y-m-d H:i:s'),
-            'to_date' => $reservation->getEndDate('Y-m-d H:i:s'),
+            'from_date' => $reservation->getStartDate('Y-m-d'),
+            'to_date' => $reservation->getEndDate('Y-m-d'),
             'reservable_title' => $reservation->getReservable()->post_title,
             'site_name' => get_bloginfo('name'),
             'site_url' => get_bloginfo('url'),
