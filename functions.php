@@ -213,7 +213,7 @@ add_action('wp_ajax_wprsrv_flush_reservable_cache', function ()
  * AJAX
  * Get a reservation calendar for a certain month and reservable.
  *
- * @since 0.3.1
+ * @since 0.4.0
  * @return void
  */
 add_action('wp_ajax_wprsrv_get_reservation_calendar_view', function ()

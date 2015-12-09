@@ -264,7 +264,7 @@ class Plugin
     /**
      * Load localization data for admin scripts.
      *
-     * @since 0.3.1
+     * @since 0.4.0
      * @access protected
      * @return mixed[]
      */

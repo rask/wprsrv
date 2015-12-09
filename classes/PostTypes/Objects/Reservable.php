@@ -551,7 +551,7 @@ class Reservable
      * bordering reservations, and allows reservers to reserve dates that contain
      * ending or starting reservations.
      *
-     * @since 0.3.1
+     * @since 0.4.0
      *
      * @param String $start Starting Y-m-d.
      * @param String $end Ending Y-m-d.
@@ -588,7 +588,7 @@ class Reservable
     /**
      * Set the value for overlapping reservations allowed.
      *
-     * @since 0.3.1
+     * @since 0.4.0
      *
      * @param Boolean $allow Allowed? Defaults to true.
      *
@@ -602,7 +602,7 @@ class Reservable
     /**
      * Does this reservable allow overlapping reservation starting and ending dates?
      *
-     * @since 0.3.1
+     * @since 0.4.0
      * @return Boolean
      */
     public function allowsOverlappingReservations()
