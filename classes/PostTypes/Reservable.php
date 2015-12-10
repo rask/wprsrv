@@ -142,17 +142,13 @@ class Reservable extends PostType
 
         $reservable = new ReservableObj($post);
 
-        // Flush caches on save.
-        if ($update) {
-            $reservable->flushCache();
-        }
-
         $keysAvailable = [
             'reservable_active',
             'reservable_singleday',
             'reservable_disabled_days',
             'reservable_disabled_weekdays',
-            'reservable_loggedin_only'
+            'reservable_loggedin_only',
+            'reservable_overlapping_days'
         ];
 
         // Set null values if not given on update.
@@ -180,6 +176,10 @@ class Reservable extends PostType
 
                 case 'reservable_loggedin_only':
                     $reservable->setLoginRequired(false);
+                    break;
+
+                case 'reservable_overlapping_days':
+                    $reservable->setAllowOverlappingReservations(false);
                     break;
             }
         }
@@ -227,7 +227,16 @@ class Reservable extends PostType
                 case 'reservable_loggedin_only':
                     $reservable->setLoginRequired($value === 'on' ? true : false);
                     break;
+
+                case 'reservable_overlapping_days':
+                    $reservable->setAllowOverlappingReservations($value === 'on' ? true : false);
+                    break;
             }
+        }
+
+        // Flush caches on save.
+        if ($update) {
+            $reservable->flushCache();
         }
 
         /**

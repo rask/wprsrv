@@ -15,6 +15,7 @@ var runSeq = require('run-sequence');
 var sort = require('gulp-sort');
 var fs = require('fs');
 var git = require('gulp-git');
+var sourcemaps = require('gulp-sourcemaps');
 
 var uglify = require('gulp-uglify');
 var stripDebug = require('gulp-strip-debug');
@@ -58,8 +59,12 @@ gulp.task('js', function () {
             gulpUtil.log(gulpUtil.colors.red('Error (' + error.plugin + '): ' + error.message));
             this.emit('end');
         }))
+        .pipe(sourcemaps.init({
+            includeSource: false
+        }))
         //.pipe(stripDebug())
         .pipe(uglify())
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest('./assets/js'));
 
 });

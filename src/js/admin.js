@@ -10,23 +10,10 @@ function WprsrvAdmin($)
 
     this.$ = $;
     this.$body = this.$('body');
+    this.l10n = window.wprsrv_admin_l10n;
 
-    // TODO allow localization
     this.pikadaySettings = {
-        i18n: {
-            previousMonth : 'Previous Month',
-            nextMonth     : 'Next Month',
-            months        : [
-                'January', 'February', 'March', 'April',
-                'May', 'June', 'July', 'August',
-                'September', 'October', 'November', 'December'
-            ],
-            weekdays      : [
-                'Sunday', 'Monday', 'Tuesday', 'Wednesday',
-                'Thursday', 'Friday', 'Saturday'
-            ],
-            weekdaysShort : ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
-        },
+        i18n: this.l10n.calendars,
         format: 'YYYY-MM-DD'
     };
 }
@@ -296,45 +283,168 @@ WprsrvAdmin.prototype.reservableCalendars = function ()
     'use strict';
 
     var calendarMetabox = document.getElementById('reservablereservations');
+    var reservableId = document.getElementById('post_ID').value;
+
+    if (!reservableId) {
+        return;
+    }
 
     if (!calendarMetabox) {
         return;
     }
 
-    var showPrev = function (evt) {
-        var $link = evt.data.link;
+    var noCalendarText = this.l10n.could_not_fetch_calendar;
+    var loader = document.getElementById('res-cal-loader');
 
+    if (!loader) {
+        loader = document.createElement('div');
+        loader.id = 'res-cal-loader';
+        loader.innerHTML = '<span class="spinner"></span>';
+
+        calendarMetabox.parentNode.insertBefore(loader, calendarMetabox);
+    }
+
+    var showAjaxLoader = function () {
+        loader.className += ' is-active';
+    };
+
+    var hideAjaxLoader = function () {
+        loader.className = loader.className.replace(' is-active', '');
+    };
+
+    var getCalendarRequest = function (calDate) {
+        var yearNum = calDate.getFullYear();
+        var monthNum = calDate.getMonth() + 1;
+
+        if (monthNum.toString().length < 2) {
+            monthNum = '0' + monthNum;
+        }
+
+        var paramDate = yearNum + '-' + monthNum;
+
+        return this.$.post(ajaxurl, {
+            action: 'wprsrv_get_reservation_calendar_view',
+            reservable_id: reservableId,
+            reservable_calendar_month: paramDate
+        }, null, 'html');
+    }.bind(this);
+
+    var showPrev = function ($link) {
         var $curTable = $link.parents('table');
         var $prevTable = $curTable.prev('table');
 
-        $curTable.removeClass('active');
-        $prevTable.addClass('active');
+        var curYear = parseInt($curTable.data('year'));
+        var curMonth = parseInt($curTable.data('month'));
+
+        var curDate = new Date();
+        curDate.setFullYear(curYear);
+        curDate.setMonth(curMonth-1);
+        curDate.setMonth(curDate.getMonth()-1);
+
+        var curPrettyMonth = (function () {
+            var mon = (curDate.getMonth + 1).toString();
+
+            if (mon.length < 2) {
+                mon = '0' + mon;
+            }
+
+            return mon;
+        })();
+
+        if (!$prevTable.length) {
+            showAjaxLoader();
+
+            var req = getCalendarRequest(curDate);
+
+            req.done(function (res, status) {
+                if (parseInt(res) === 1) {
+                    $curTable.before('<p class="empty-notice">' + noCalendarText + '</p>');
+                    $curTable.removeClass('active');
+                    return;
+                }
+
+                $curTable.before(res);
+                $prevTable = $curTable.prev('table');
+                $prevTable.data('year', curDate.getFullYear());
+                $prevTable.data('month', curPrettyMonth);
+
+                $curTable.removeClass('active');
+                $prevTable.addClass('active');
+            });
+
+            req.always(function () {
+                hideAjaxLoader();
+            })
+        } else {
+            $curTable.removeClass('active');
+            $prevTable.addClass('active');
+        }
     };
 
-    var showNext = function (evt) {
-        var $link = evt.data.link;
-
+    var showNext = function ($link) {
         var $curTable = $link.parents('table');
         var $nextTable = $curTable.next('table');
 
-        $curTable.removeClass('active');
-        $nextTable.addClass('active');
+        var curYear = parseInt($curTable.data('year'));
+        var curMonth = parseInt($curTable.data('month'));
+
+        var curDate = new Date();
+        curDate.setFullYear(curYear);
+        curDate.setMonth(curMonth-1);
+        curDate.setMonth(curDate.getMonth()+1);
+
+        var curPrettyMonth = (function () {
+            var mon = (curDate.getMonth + 1).toString();
+
+            if (mon.length < 2) {
+                mon = '0' + mon;
+            }
+
+            return mon;
+        })();
+
+        if (!$nextTable.length) {
+            showAjaxLoader();
+
+            var req = getCalendarRequest(curDate);
+
+            req.done(function (res, status) {
+                if (parseInt(res) === 1) {
+                    $curTable.after('<p class="empty-notice">' + noCalendarText + '</p>');
+                    $curTable.removeClass('active');
+                    return;
+                }
+
+                $curTable.after(res);
+                $nextTable = $curTable.next('table');
+                $nextTable.data('year', curDate.getFullYear());
+                $nextTable.data('month', curPrettyMonth);
+
+                $curTable.removeClass('active');
+                $nextTable.addClass('active');
+            });
+
+            req.always(function () {
+                hideAjaxLoader();
+            })
+        } else {
+            $curTable.removeClass('active');
+            $nextTable.addClass('active');
+        }
     };
 
     var $cmb = this.$(calendarMetabox);
-    var $prevLinks = $cmb.find('.prev-month');
-    var $nextLinks = $cmb.find('.next-month');
 
-    $prevLinks.each(function (idx, link) {
-        var $link = this.$(link);
+    $cmb.on('click', '.prev-month', function (e) {
+        var $link = this.$(e.target);
 
-        $link.on('click', {link: $link}, showPrev);
+        showPrev($link);
     }.bind(this));
 
-    $nextLinks.each(function (idx, link) {
-        var $link = this.$(link);
+    $cmb.on('click', '.next-month', function (e) {
+        var $link = this.$(e.target);
 
-        $link.on('click', {link: $link}, showNext);
+        showNext($link);
     }.bind(this));
 };
 

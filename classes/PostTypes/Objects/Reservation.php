@@ -137,8 +137,16 @@ class Reservation
 
         $reservable = new Reservable($meta['reservable_id']);
 
-        if ($reservable->hasReservationInDateRange($meta['start_date'], $meta['end_date'])) {
-            $errors[] = _x('Given reservation date range contains a date that has already been reserved', 'validation error', 'wprsrv');
+        $dayOverlapErrorMessage = _x('Given reservation date range contains a date that has already been reserved', 'validation error', 'wprsrv');
+
+        if (!$reservable->allowsOverlappingReservations()) {
+            if ($reservable->hasReservationInDateRange($meta['start_date'], $meta['end_date'])) {
+                $errors[] = $dayOverlapErrorMessage;
+            }
+        } else {
+            if (!$reservable->canReserveOverlapping($meta['start_date'], $meta['end_date'])) {
+                $errors[] = $dayOverlapErrorMessage;
+            }
         }
 
         return $errors;
@@ -207,7 +215,7 @@ class Reservation
      * @param String|Integer $format Optional. Date format. Use `'object'` if you
      *                               want the DateTime object itself.
      *
-     * @return String
+     * @return String|\DateTime
      */
     public function getStartDate($format = 'Y-m-d')
     {
@@ -233,7 +241,7 @@ class Reservation
      * @param String|Integer $format Optional. Date format. Use `'object'` if you
      *                               want the DateTime object itself.
      *
-     * @return String
+     * @return String|\DateTime
      */
     public function getEndDate($format = 'Y-m-d')
     {

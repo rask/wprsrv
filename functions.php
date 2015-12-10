@@ -2,6 +2,7 @@
 
 namespace Wprsrv;
 
+use Wprsrv\Admin\ReservableCalendar;
 use Wprsrv\Forms\ReservationForm;
 use Wprsrv\PostTypes\Objects\Reservable;
 use Wprsrv\PostTypes\Objects\Reservation;
@@ -205,5 +206,38 @@ add_action('wp_ajax_wprsrv_flush_reservable_cache', function ()
     $reservable->flushCache();
 
     echo 0;
+    exit;
+});
+
+/**
+ * AJAX
+ * Get a reservation calendar for a certain month and reservable.
+ *
+ * @since 0.4.0
+ * @return void
+ */
+add_action('wp_ajax_wprsrv_get_reservation_calendar_view', function ()
+{
+    if (!isset($_POST) || !isset($_POST['reservable_id'])) {
+        echo 1;
+        exit;
+    }
+
+    $post = $_POST;
+
+    $reservableId = $post['reservable_id'];
+    $calMonth = $post['reservable_calendar_month'];
+
+    if (!$reservableId || !$calMonth) {
+        echo 1;
+        exit;
+    }
+
+    $reservable = new Reservable($reservableId);
+
+    $cal = new ReservableCalendar($reservable, \DateTime::createFromFormat('Y-m', $calMonth));
+
+    //FIXME caching for calendars?
+    $cal->render(false);
     exit;
 });

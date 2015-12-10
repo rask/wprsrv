@@ -257,6 +257,20 @@ class Plugin
         $this->make('admin_menu');
 
         wp_enqueue_script('wprsrv-admin');
+
+        wp_localize_script('wprsrv-admin', 'wprsrv_admin_l10n', $this->getAdminScriptsLocalization());
+    }
+
+    /**
+     * Load localization data for admin scripts.
+     *
+     * @since 0.4.0
+     * @access protected
+     * @return mixed[]
+     */
+    protected function getAdminScriptsLocalization()
+    {
+        return include($this->pluginDirectory . '/includes/admin-l10n.php');
     }
 
     /**

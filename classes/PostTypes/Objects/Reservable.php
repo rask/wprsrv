@@ -27,7 +27,9 @@ class Reservable
     protected $cacheKeys = [
         'reservations',
         'calendars',
-        'disdays'
+        'disdays',
+        'disdays_0',
+        'disdays_1'
     ];
 
     /**
@@ -82,12 +84,16 @@ class Reservable
      * blocked time which has been already reserved.
      *
      * @since 0.1.0
+     *
+     * @param Boolean $forFrontendCalendar Optional. Get disabled days for the front-end
+     *                                     calendar?
+     *
      * @return mixed
      */
-    public function getDisabledDaysData()
+    public function getDisabledDaysData($forFrontendCalendar = false)
     {
         // Get cached disabled days data.
-        $ranges = get_transient($this->cachePrefix . 'disdays');
+        $ranges = get_transient($this->cachePrefix . 'disdays_' . strval($forFrontendCalendar));
 
         if ($ranges !== false) {
             return $ranges;
@@ -98,6 +104,7 @@ class Reservable
         $reservations = $this->getReservations();
 
         $weekInterval = new \DateInterval('P1W');
+        $dayInterval = new \DateInterval('P1D');
 
         if (!empty($disabledWeekdays)) {
             foreach ($disabledWeekdays as $weekday) {
@@ -118,14 +125,29 @@ class Reservable
             }
         }
 
+        $overlapAdjusted = [];
+
         foreach ($reservations as $reservation) {
             if (!$reservation->isPending() && !$reservation->isAccepted()) {
                 continue;
             }
 
             try {
-                $start = $reservation->getStartDate();
-                $end = $reservation->getEndDate();
+                $startDate = $reservation->getStartDate('object');
+                $endDate = $reservation->getEndDate('object');
+
+                // If we allow overlapping reservations, allow users to pick dates
+                // Where a reservation either starts or ends.
+                if ($this->allowsOverlappingReservations() && $forFrontendCalendar) {
+                    $overlapAdjusted[] = $startDate->format('Y-m-d');
+                    $overlapAdjusted[] = $endDate->format('Y-m-d');
+
+                    $startDate->add($dayInterval);
+                    $endDate->sub($dayInterval);
+                }
+
+                $start = $startDate->format('Y-m-d');
+                $end = $endDate->format('Y-m-d');
 
                 // Don't get "expired" dates.
                 if ($end < date('Y-m-d')) {
@@ -144,7 +166,24 @@ class Reservable
             }
         }
 
-        set_transient($this->cachePrefix . 'disdays', $disabledRanges, HOUR_IN_SECONDS*4);
+        $overlapValCounts = array_count_values($overlapAdjusted);
+
+        // See which dates have two reservations overlapping and disable them too.
+        foreach ($overlapValCounts as $value => $count) {
+            if ($count < 2) {
+                continue;
+            }
+
+            $range = [
+                'start' => $value,
+                'end' => $value,
+                'reservation_id' => 0
+            ];
+
+            $disabledRanges[] = $range;
+        }
+
+        set_transient($this->cachePrefix . 'disdays_' . strval($forFrontendCalendar), $disabledRanges, HOUR_IN_SECONDS*4);
 
         return $disabledRanges;
     }
@@ -369,7 +408,7 @@ class Reservable
 
         foreach ($disDays as $day) {
             // Admin disabled day, skip.
-            if (!$day['reservation_id']) {
+            if (!isset($day['reservation_id']) || !$day['reservation_id']) {
                 continue;
             }
 
@@ -503,5 +542,71 @@ class Reservable
         }
 
         return $has;
+    }
+
+    /**
+     * Allow a reservation to reserve an overlapping date?
+     *
+     * Checks whether the starting and ending dates overlap just enough with
+     * bordering reservations, and allows reservers to reserve dates that contain
+     * ending or starting reservations.
+     *
+     * @since 0.4.0
+     *
+     * @param String $start Starting Y-m-d.
+     * @param String $end Ending Y-m-d.
+     *
+     * @return Boolean
+     */
+    public function canReserveOverlapping($start, $end)
+    {
+        $dateStart = date_create_from_format('Y-m-d', $start);
+        $dateEnd = date_create_from_format('Y-m-d', $end);
+
+        $can = true;
+
+        $reservationAtStart = $this->getReservationForDate($dateStart);
+        $reservationAtEnd = $this->getReservationForDate($dateEnd);
+
+        // Starting overlaps with non-ending reservation date.
+        if ($reservationAtStart instanceof Reservation && !$reservationAtStart->isDeclined()) {
+            if ($reservationAtStart->getEndDate('Y-m-d') !== $start) {
+                $can = false;
+            }
+        }
+
+        // Ending overlaps with non-starting reservation date.
+        if ($reservationAtEnd instanceof Reservation && !$reservationAtEnd->isDeclined()) {
+            if ($reservationAtEnd->getStartDate('Y-m-d') !== $end) {
+                $can = false;
+            }
+        }
+
+        return $can;
+    }
+
+    /**
+     * Set the value for overlapping reservations allowed.
+     *
+     * @since 0.4.0
+     *
+     * @param Boolean $allow Allowed? Defaults to true.
+     *
+     * @return void
+     */
+    public function setAllowOverlappingReservations($allow = true)
+    {
+        $this->setMeta('allow_overlapping_reservations', !! $allow);
+    }
+
+    /**
+     * Does this reservable allow overlapping reservation starting and ending dates?
+     *
+     * @since 0.4.0
+     * @return Boolean
+     */
+    public function allowsOverlappingReservations()
+    {
+        return $this->getMeta('allow_overlapping_reservations');
     }
 }
