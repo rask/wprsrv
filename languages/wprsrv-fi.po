@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wprsrv\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2015-12-07 14:29+0200\n"
+"PO-Revision-Date: 2015-12-10 10:24+0200\n"
 "Last-Translator: Otto Rask <otto.rask@aucor.fi>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -60,7 +60,7 @@ msgstr "Päivämäärä"
 #: classes/Admin/Export/Exporter.php:194
 msgctxt "export_column"
 msgid "Reservable ID"
-msgstr "Varattavan ID"
+msgstr "Varauskohteen ID"
 
 #: classes/Admin/Export/Exporter.php:238
 msgctxt "export column"
@@ -80,7 +80,7 @@ msgstr "Tila"
 #: classes/Admin/Export/Exporter.php:267
 msgctxt "export column"
 msgid "Reservable title"
-msgstr "Varattavan otsikko"
+msgstr "Varauskohteen otsikko"
 
 #: classes/Admin/Export/ExportHandler.php:98
 msgid "The selected date range has no reservation data to export."
@@ -229,7 +229,7 @@ msgctxt "validation error"
 msgid "Invalid email value for %s"
 msgstr "Vääränlainen sähköpostiosoite kentälle %s"
 
-#: classes/PostTypes/Objects/Reservation.php:141
+#: classes/PostTypes/Objects/Reservation.php:140
 msgctxt "validation error"
 msgid ""
 "Given reservation date range contains a date that has already been reserved"
@@ -285,17 +285,17 @@ msgctxt "post type labels"
 msgid "No reservables found in trash"
 msgstr "Varauskohteita ei löytynyt roskakorista"
 
-#: classes/PostTypes/Reservable.php:296
+#: classes/PostTypes/Reservable.php:305
 msgctxt "reservable metabox title"
 msgid "Reservable settings"
 msgstr "Varauskohteen asetukset"
 
-#: classes/PostTypes/Reservable.php:300
+#: classes/PostTypes/Reservable.php:309
 msgctxt "reservable metabox title"
 msgid "Reservation calendar"
 msgstr "Varauskalenteri"
 
-#: classes/PostTypes/Reservable.php:304
+#: classes/PostTypes/Reservable.php:313
 msgctxt "reservable metabox title"
 msgid "Reservable actions"
 msgstr "Varauskohteen toiminnot"
@@ -458,6 +458,151 @@ msgstr ""
 "Varauksen sähköposti-ilmoitus epäonnistui. Yritettiin lähettää`%s`-tyyppinen "
 "sähköposti."
 
+#: includes/admin-l10n.php:7, includes/admin-l10n.php:8
+msgctxt "admin script localization"
+msgid "Previous month"
+msgstr "Edellinen kuukausi"
+
+#: includes/admin-l10n.php:10
+msgctxt "admin script localization"
+msgid "January"
+msgstr "Tammikuu"
+
+#: includes/admin-l10n.php:11
+msgctxt "admin script localization"
+msgid "February"
+msgstr "Helmikuu"
+
+#: includes/admin-l10n.php:12
+msgctxt "admin script localization"
+msgid "March"
+msgstr "Maaliskuu"
+
+#: includes/admin-l10n.php:13
+msgctxt "admin script localization"
+msgid "April"
+msgstr "Huhtikuu"
+
+#: includes/admin-l10n.php:14
+msgctxt "admin script localization"
+msgid "May"
+msgstr "Toukokuu"
+
+#: includes/admin-l10n.php:15
+msgctxt "admin script localization"
+msgid "June"
+msgstr "Kesäkuu"
+
+#: includes/admin-l10n.php:16
+msgctxt "admin script localization"
+msgid "July"
+msgstr "Heinäkuu"
+
+#: includes/admin-l10n.php:17
+msgctxt "admin script localization"
+msgid "August"
+msgstr "Elokuu"
+
+#: includes/admin-l10n.php:18
+msgctxt "admin script localization"
+msgid "September"
+msgstr "Syyskuu"
+
+#: includes/admin-l10n.php:19
+msgctxt "admin script localization"
+msgid "October"
+msgstr "Lokakuu"
+
+#: includes/admin-l10n.php:20
+msgctxt "admin script localization"
+msgid "November"
+msgstr "Marraskuu"
+
+#: includes/admin-l10n.php:21
+msgctxt "admin script localization"
+msgid "December"
+msgstr "Joulukuu"
+
+#: includes/admin-l10n.php:24
+msgctxt "admin script localization"
+msgid "Sunday"
+msgstr "Sunnuntai"
+
+#: includes/admin-l10n.php:25
+msgctxt "admin script localization"
+msgid "Monday"
+msgstr "Maanantai"
+
+#: includes/admin-l10n.php:26
+msgctxt "admin script localization"
+msgid "Tuesday"
+msgstr "Tiistai"
+
+#: includes/admin-l10n.php:27
+msgctxt "admin script localization"
+msgid "Wednesday"
+msgstr "Keskiviikko"
+
+#: includes/admin-l10n.php:28
+msgctxt "admin script localization"
+msgid "Thursday"
+msgstr "Torstai"
+
+#: includes/admin-l10n.php:29
+msgctxt "admin script localization"
+msgid "Friday"
+msgstr "Perjantai"
+
+#: includes/admin-l10n.php:30
+msgctxt "admin script localization"
+msgid "Saturday"
+msgstr "Lauantai"
+
+#: includes/admin-l10n.php:33
+msgctxt "admin script localization"
+msgid "Sun"
+msgstr "Su"
+
+#: includes/admin-l10n.php:34
+msgctxt "admin script localization"
+msgid "Mon"
+msgstr "Ma"
+
+#: includes/admin-l10n.php:35
+msgctxt "admin script localization"
+msgid "Tue"
+msgstr "Ti"
+
+#: includes/admin-l10n.php:36
+msgctxt "admin script localization"
+msgid "Wed"
+msgstr "Ke"
+
+#: includes/admin-l10n.php:37
+msgctxt "admin script localization"
+msgid "Thu"
+msgstr "To"
+
+#: includes/admin-l10n.php:38
+msgctxt "admin script localization"
+msgid "Fri"
+msgstr "Pe"
+
+#: includes/admin-l10n.php:39
+msgctxt "admin script localization"
+msgid "Sat"
+msgstr "La"
+
+#: includes/admin-l10n.php:41
+msgid "YYYY-MM-DD"
+msgstr "VVVV-KK-PP"
+
+#: includes/admin-l10n.php:43
+msgid ""
+"The calendar could not be generated, please refresh this page and try again."
+msgstr ""
+"Kalenteria ei voitu generoida. Ole hyvä ja päivitä sivu ja yritä uudelleen."
+
 #: includes/templates/admin/export.php:22
 msgid ""
 "Choose a reservable to export reservation data for. Currently only CSV "
@@ -506,7 +651,7 @@ msgstr ""
 msgid "Flush cache"
 msgstr "Tyhjennä välimuisti"
 
-#: includes/templates/admin/reservables/calendars-metabox.php:56
+#: includes/templates/admin/reservables/calendars-metabox.php:30
 msgid "This reservable has no reservations."
 msgstr "Tällä varauskohteella ei ole varauksia."
 
@@ -555,10 +700,29 @@ msgstr "Vaadi kirjautuminen"
 
 #: includes/templates/admin/reservables/settings-metabox.php:71
 msgctxt "reservable metabox form"
+msgid "Allow reservation overlaps"
+msgstr "Salli varausten limittymiset"
+
+#: includes/templates/admin/reservables/settings-metabox.php:72
+msgid ""
+"Allow the reservable&rsquo;s reservations&rsquo; starting and ending dates "
+"to overlap. E.g. reservations end at 11:00 and a new reservation can begin "
+"at 16:00 at the same day."
+msgstr ""
+"Salli varausten limittyminen alkamis- ja loppumispäivinä. Esim. jos "
+"edellinen varaus loppuu kello 11:00, seuraava varaus voi alkaa jo samana "
+"päivänä esim. kello 16:00."
+
+#: includes/templates/admin/reservables/settings-metabox.php:77
+msgid "Allow overlapping reservation days"
+msgstr "Salli limittyvät varauspäivät"
+
+#: includes/templates/admin/reservables/settings-metabox.php:84
+msgctxt "reservable metabox form"
 msgid "Disabled days"
 msgstr "Suljetut päivät"
 
-#: includes/templates/admin/reservables/settings-metabox.php:72
+#: includes/templates/admin/reservables/settings-metabox.php:85
 msgid ""
 "Choose dates when this reservable is not available for reservation. Dates "
 "are inclusive."
@@ -566,23 +730,23 @@ msgstr ""
 "Valitse päivämääriä, milloin tämä varauskohde ei ole varattavissa. "
 "Päivämäärävälit ovat sisällyttäviä."
 
-#: includes/templates/admin/reservables/settings-metabox.php:82,
-#: includes/templates/admin/reservables/settings-metabox.php:96
+#: includes/templates/admin/reservables/settings-metabox.php:95,
+#: includes/templates/admin/reservables/settings-metabox.php:109
 msgctxt "delete repeater row"
 msgid "Delete"
 msgstr "Poista"
 
-#: includes/templates/admin/reservables/settings-metabox.php:101
+#: includes/templates/admin/reservables/settings-metabox.php:114
 msgctxt "add repeater row"
 msgid "Add"
 msgstr "Lisää"
 
-#: includes/templates/admin/reservables/settings-metabox.php:107
+#: includes/templates/admin/reservables/settings-metabox.php:120
 msgctxt "reservable metabox form"
 msgid "Disabled weekdays"
 msgstr "Suljetut viikonpäivät"
 
-#: includes/templates/admin/reservables/settings-metabox.php:108
+#: includes/templates/admin/reservables/settings-metabox.php:121
 msgid "Choose the weekdays that should not be reservable."
 msgstr "Valitse viikonpäivät, joita ei pysty varaamaan."
 
