@@ -69,15 +69,6 @@ class ReservableCalendar
     protected $isLastCalendar;
 
     /**
-     * Reservation for the previous day cell.
-     *
-     * @since 0.1.0
-     * @access protected
-     * @var \Wprsrv\PostTypes\Objects\Reservation|null
-     */
-    protected $previousReservation = null;
-
-    /**
      * Constructor.
      *
      * @since 0.1.0
@@ -131,38 +122,66 @@ class ReservableCalendar
         $dayReserved = $this->reservable->isDayReserved($date, false);
 
         if (!$dayReserved) {
-            $this->previousReservation = null;
             return '<td class="single-day"><span class="day-num">' . $day . '</span></td>';
         }
 
-        $reservation = $this->reservable->getReservationForDate($date);
+        $reservations = $this->reservable->getReservationsForDate($date);
 
-        if ($this->previousReservation === null) {
-            $tdClasses = ['start-' . $reservation->post_status];
-        } elseif ($this->previousReservation->ID !== $reservation->ID) {
-            $tdClasses = ['start-' . $reservation->post_status];
-        } else {
-            $tdClasses = [];
-        }
+        $reservationLabel = $this->generateDayCellReservationsData($reservations, $date);
 
-        //FIXME editlink fetch fails randomly.
-
-        $status = $reservation->post_status;
-        $editLink = $reservation->getEditLink();
-        $reserver = $reservation->getReserverEmail();
-
-        $dayNum = sprintf('<span class="day-num %s">%s</span>', $status, $day);
-
-        $statusLabel = get_post_status_object($status);
-
-        $reservationLabel = sprintf('<span class="reservation %s"><a href="%s">%s</a>, %s</span>', $status, $editLink, $statusLabel->label, $reserver);
-
-        $this->previousReservation = $reservation;
+        $dayNum = sprintf('<span class="day-num">%s</span>', $day);
 
         $tdClasses[] = 'single-day';
-        $tdClasses[] = $status;
 
-        return sprintf('<td class="single-day %s">%s %s</td>', implode(' ', $tdClasses), $dayNum, $reservationLabel);
+        return sprintf('<td class="%s">%s %s</td>', implode(' ', $tdClasses), $dayNum, $reservationLabel);
+    }
+
+    /**
+     * Generate reservation output for a day cell.
+     *
+     * @since 0.4.1
+     *
+     * @param \Wprsrv\PostTypes\Objects\Reservation[] $reservations
+     *
+     * @return String
+     */
+    protected function generateDayCellReservationsData($reservations, \DateTime $date)
+    {
+        $output = '';
+
+        foreach ($reservations as $reservation) {
+            // Prevent declined reservations from showing up on overlapping days.
+            if ($reservation->isDeclined()) {
+                continue;
+            }
+
+            $resBoxClasses = ['reservation-box', $reservation->post_status];
+
+            $nowYmd = $date->format('Y-m-d');
+            $startYmd = $reservation->getStartDate('Y-m-d');
+            $endYmd = $reservation->getEndDate('Y-m-d');
+
+
+            if ($nowYmd === $startYmd) {
+                $resBoxClasses[] = 'start';
+            } elseif ($nowYmd === $endYmd) {
+                $resBoxClasses[] = 'end';
+            }
+
+            $classes = implode(' ', $resBoxClasses);
+
+            $status = get_post_status_object($reservation->post_status);
+            $reserver = $reservation->getReserverEmail();
+            $editLink = get_edit_post_link($reservation->ID);
+
+            $output .= sprintf('<div class="%s">', $classes);
+
+            $output .= sprintf('<a href="%s">%s, %s</a>', $editLink, $status->label, $reserver);
+
+            $output .= '</div>';
+        }
+
+        return $output;
     }
 
     /**
@@ -209,7 +228,7 @@ class ReservableCalendar
         $output .= sprintf(
             '<th>%s</th><th colspan="5">%s</th><th>%s</th>',
             $this->isFirstCalendar ? '' : $prevLink,
-            $now->format('F Y'),
+            $now->format('F Y'), //FIXME localization
             $this->isLastCalendar ? '' : $nextLink
         );
 

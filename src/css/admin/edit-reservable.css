@@ -90,6 +90,7 @@
 
 #reservablereservations.postbox table {
   border-collapse: collapse;
+  table-layout: fixed;
   width: 100%;
   display: none; }
   #reservablereservations.postbox table.active {
@@ -112,11 +113,8 @@
         #reservablereservations.postbox table th .short .full {
           display: inline; } }
   #reservablereservations.postbox table td.single-day {
-    width: 14.285%; }
-    #reservablereservations.postbox table td.single-day.start-reservation_accepted {
-      border-left: 3px solid #9c0; }
-    #reservablereservations.postbox table td.single-day.start-reservation_pending {
-      border-left: 3px solid #c90; }
+    width: 14.285%;
+    max-width: 14.285%; }
   #reservablereservations.postbox table a.prev-month, #reservablereservations.postbox table a.next-month {
     background-color: #00a0d2;
     text-decoration: none;
@@ -138,23 +136,33 @@
     width: 30px;
     height: 30px;
     line-height: 30px;
-    display: inline-block;
+    margin-bottom: 5px;
+    display: block;
     float: left;
     color: #666; }
-    #reservablereservations.postbox table span.day-num.reservation_pending {
-      font-weight: bold;
-      margin: 0 10px 0 0;
-      background-color: #c90;
-      color: #750; }
-    #reservablereservations.postbox table span.day-num.reservation_accepted {
-      font-weight: bold;
-      margin: 0 10px 0 0;
-      background-color: #9c0;
-      color: #fff; }
-  #reservablereservations.postbox table span.reservation {
+  #reservablereservations.postbox table .reservation-box {
+    clear: left;
+    margin: 5px 0;
+    background-color: white;
     font-size: 90%;
-    line-height: 18px;
-    display: inline-block;
-    margin-top: 5px; }
-    #reservablereservations.postbox table span.reservation a {
-      text-decoration: none; }
+    display: block;
+    max-width: 100%;
+    padding: 5px 7px;
+    box-sizing: border-box;
+    border: 1px solid #eee;
+    border-left-width: 3px;
+    border-left-color: currentColor;
+    line-height: 1.2; }
+    #reservablereservations.postbox table .reservation-box a {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: '...'; }
+    #reservablereservations.postbox table .reservation-box.reservation_pending {
+      color: #b70; }
+    #reservablereservations.postbox table .reservation-box.reservation_accepted {
+      color: #7a0; }
+    #reservablereservations.postbox table .reservation-box.reservation_declined {
+      color: #920; }

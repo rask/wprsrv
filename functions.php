@@ -238,6 +238,6 @@ add_action('wp_ajax_wprsrv_get_reservation_calendar_view', function ()
     $cal = new ReservableCalendar($reservable, \DateTime::createFromFormat('Y-m', $calMonth));
 
     //FIXME caching for calendars?
-    $cal->render(false);
+    $cal->render(true);
     exit;
 });

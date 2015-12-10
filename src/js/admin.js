@@ -333,18 +333,23 @@ WprsrvAdmin.prototype.reservableCalendars = function ()
         var $curTable = $link.parents('table');
         var $prevTable = $curTable.prev('table');
 
-        var curYear = parseInt($curTable.data('year'));
-        var curMonth = parseInt($curTable.data('month'));
+        var curTableId = $curTable[0].id;
+
+        var idparts = curTableId.split('-');
+        var curMonth = parseInt(idparts.pop()) - 1;
+        var curYear = parseInt(idparts.pop());
+
+        console.log(curTableId, curMonth, curYear);
 
         var curDate = new Date();
         curDate.setFullYear(curYear);
-        curDate.setMonth(curMonth-1);
+        curDate.setMonth(curMonth);
         curDate.setMonth(curDate.getMonth()-1);
 
         var curPrettyMonth = (function () {
             var mon = (curDate.getMonth + 1).toString();
 
-            if (mon.length < 2) {
+            if (mon.toString().length < 2) {
                 mon = '0' + mon;
             }
 
@@ -374,7 +379,7 @@ WprsrvAdmin.prototype.reservableCalendars = function ()
 
             req.always(function () {
                 hideAjaxLoader();
-            })
+            });
         } else {
             $curTable.removeClass('active');
             $prevTable.addClass('active');
@@ -385,18 +390,23 @@ WprsrvAdmin.prototype.reservableCalendars = function ()
         var $curTable = $link.parents('table');
         var $nextTable = $curTable.next('table');
 
-        var curYear = parseInt($curTable.data('year'));
-        var curMonth = parseInt($curTable.data('month'));
+        var curTableId = $curTable[0].id;
+
+        var idparts = curTableId.split('-');
+        var curMonth = parseInt(idparts.pop()) - 1;
+        var curYear = parseInt(idparts.pop());
+
+        console.log(curTableId, curMonth, curYear);
 
         var curDate = new Date();
         curDate.setFullYear(curYear);
-        curDate.setMonth(curMonth-1);
+        curDate.setMonth(curMonth);
         curDate.setMonth(curDate.getMonth()+1);
 
         var curPrettyMonth = (function () {
             var mon = (curDate.getMonth + 1).toString();
 
-            if (mon.length < 2) {
+            if (mon.toString().length < 2) {
                 mon = '0' + mon;
             }
 

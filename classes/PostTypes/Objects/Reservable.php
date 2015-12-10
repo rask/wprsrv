@@ -459,6 +459,32 @@ class Reservable
     }
 
     /**
+     * Get all reservations for this reservable on a certaind date.
+     *
+     * @since 0.4.1
+     *
+     * @param \DateTime $date Date to fetch reservations for.
+     *
+     * @return \Wprsrv\PostTypes\Objects\Reservation[]
+     */
+    public function getReservationsForDate(\DateTime $date)
+    {
+        $reservations = $this->getReservations();
+
+        $dayReservations = [];
+
+        if (!empty($reservations)) {
+            foreach ($reservations as $reservation) {
+                if ($reservation->containsDate($date)) {
+                    $dayReservations[] = $reservation;
+                }
+            }
+        }
+
+        return $dayReservations;
+    }
+
+    /**
      * Flush all cached data for this reservable. Loop through predefined cache keys and delete transients.
      *
      * @since 0.1.0
