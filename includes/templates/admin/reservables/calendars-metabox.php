@@ -21,7 +21,7 @@ if ($reservable->hasReservations()) {
     //FIXME
     $flushed = $reservable->calendarCacheFlushed();
 
-    $cal->render($flushed);
+    $cal->render(true);
 
     if (!!$flushed) {
         $reservable->clearCalendarFlush();

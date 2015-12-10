@@ -135,8 +135,8 @@
     text-align: center;
     width: 30px;
     height: 30px;
-    line-height: 30px;
     margin-bottom: 5px;
+    line-height: 30px;
     display: block;
     float: left;
     color: #666; }
@@ -147,19 +147,22 @@
     font-size: 90%;
     display: block;
     max-width: 100%;
-    padding: 5px 7px;
     box-sizing: border-box;
     border: 1px solid #eee;
-    border-left-width: 3px;
-    border-left-color: currentColor;
     line-height: 1.2; }
     #reservablereservations.postbox table .reservation-box a {
+      padding: 6px 8px;
       text-decoration: none;
       color: inherit;
       display: block;
       max-width: 100%;
       overflow: hidden;
       text-overflow: '...'; }
+      #reservablereservations.postbox table .reservation-box a:hover {
+        background-color: #eee; }
+    #reservablereservations.postbox table .reservation-box.start {
+      border-left-width: 3px;
+      border-left-color: currentColor; }
     #reservablereservations.postbox table .reservation-box.reservation_pending {
       color: #b70; }
     #reservablereservations.postbox table .reservation-box.reservation_accepted {

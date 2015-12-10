@@ -115,7 +115,7 @@ class ReservableCalendar
      *
      * @return String
      */
-    protected function generateDayCell(\DateTime $date)
+    protected function generateDayCell(\DateTime $date, $weekdayNum)
     {
         $day = $date->format('d');
 
@@ -127,7 +127,7 @@ class ReservableCalendar
 
         $reservations = $this->reservable->getReservationsForDate($date);
 
-        $reservationLabel = $this->generateDayCellReservationsData($reservations, $date);
+        $reservationLabel = $this->generateDayCellReservationsData($reservations, $date, $weekdayNum);
 
         $dayNum = sprintf('<span class="day-num">%s</span>', $day);
 
@@ -145,7 +145,7 @@ class ReservableCalendar
      *
      * @return String
      */
-    protected function generateDayCellReservationsData($reservations, \DateTime $date)
+    protected function generateDayCellReservationsData($reservations, \DateTime $date, $weekdayNum)
     {
         $output = '';
 
@@ -161,11 +161,16 @@ class ReservableCalendar
             $startYmd = $reservation->getStartDate('Y-m-d');
             $endYmd = $reservation->getEndDate('Y-m-d');
 
-
             if ($nowYmd === $startYmd) {
                 $resBoxClasses[] = 'start';
             } elseif ($nowYmd === $endYmd) {
                 $resBoxClasses[] = 'end';
+            }
+
+            if ($weekdayNum === 1) {
+                $resBoxClasses[] = 'weekstart';
+            } elseif ($weekdayNum === 7) {
+                $resBoxClasses[] = 'weekend';
             }
 
             $classes = implode(' ', $resBoxClasses);
@@ -272,7 +277,7 @@ class ReservableCalendar
             $output .= sprintf('<td colspan="%s"></td>', $wdayNum-1);
         }
 
-        $output .= $this->generateDayCell($calDate);
+        $output .= $this->generateDayCell($calDate, $wdayNum);
 
         if ($iter == $this->daysInMonth && $wdayNum != 7) {
             // Pad days.
